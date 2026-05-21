@@ -20,7 +20,7 @@ export function PaymentResultPage() {
       </div>
       <div className="mx-auto max-w-2xl surface-card text-center">
         <a className="button-primary" href={isSuccess ? "/stable-audio-3" : "/pricing"}>
-          {isSuccess ? "Create a Video" : "Back to Pricing"}
+          {isSuccess ? "Create Audio" : "Back to Pricing"}
         </a>
       </div>
     </main>

@@ -88,7 +88,7 @@ export function WorkDetailDialog({ item, onClose, onRequestDelete }: WorkDetailD
       <div className="surface-card relative w-full max-w-5xl max-h-[92vh] overflow-auto">
         <div className="flex items-start justify-between gap-3 border-b border-white/10 pb-4">
           <div>
-            <p className="eyebrow mb-2">Video Detail</p>
+            <p className="eyebrow mb-2">Generation Detail</p>
             <h2 className="text-2xl font-semibold text-white">{item.modelLabel} generation</h2>
             <p className="mt-1 text-xs text-slate-500">
               {formatWorkDate(item.createdAt, true)}
@@ -191,7 +191,7 @@ export function WorkDetailDialog({ item, onClose, onRequestDelete }: WorkDetailD
                 onClick={() => void handleDownload()}
                 type="button"
               >
-                {isDownloading ? "Downloading..." : item.isVideo ? "Download video" : "Download"}
+                {isDownloading ? "Downloading..." : "Download output"}
               </button>
               {item.mediaUrl ? (
                 <a

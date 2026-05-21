@@ -27,34 +27,57 @@ export const metadata: Metadata = {
 };
 
 const FEATURE_ICONS: Record<string, ReactNode> = {
-  "text-to-video": (
+  "text-to-audio": (
+    // Text lines on the left + waveform on the right
     <svg aria-hidden="true" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.6" viewBox="0 0 24 24">
-      <path d="M4 6h11" />
-      <path d="M4 11h8" />
-      <path d="M4 16h6" />
-      <path d="m15 13 6 3.5L15 20Z" />
+      <path d="M3 7h7" />
+      <path d="M3 12h5" />
+      <path d="M3 17h6" />
+      <path d="M13 12v0" />
+      <path d="M15 10v4" />
+      <path d="M17 8v8" />
+      <path d="M19 10v4" />
+      <path d="M21 12v0" />
     </svg>
   ),
-  "image-to-video": (
+  "audio-to-audio": (
+    // Two waveforms with arrow between
     <svg aria-hidden="true" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.6" viewBox="0 0 24 24">
-      <rect x="3" y="4" width="13" height="11" rx="2" />
-      <circle cx="8" cy="9" r="1.4" />
-      <path d="m4 14 4-4 5 5" />
-      <path d="M14 18h7" />
-      <path d="m18 15 3 3-3 3" />
+      <path d="M3 12h0" />
+      <path d="M5 10v4" />
+      <path d="M7 8v8" />
+      <path d="M9 11v2" />
+      <path d="m11 12 4 0" />
+      <path d="m13 10 2 2-2 2" />
+      <path d="M16 11v2" />
+      <path d="M18 8v8" />
+      <path d="M20 10v4" />
     </svg>
   ),
-  motion: (
+  inpaint: (
+    // Waveform with selected region marked by brackets
     <svg aria-hidden="true" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.6" viewBox="0 0 24 24">
-      <rect x="3" y="6" width="14" height="12" rx="2" />
-      <path d="m17 10 4-2v8l-4-2Z" />
-      <circle cx="9" cy="12" r="2.4" />
+      <path d="M3 12h0" />
+      <path d="M5 10v4" />
+      <path d="M9 6v12 M9 6h1 M9 18h1" />
+      <path d="M11 8v8" />
+      <path d="M13 9v6" />
+      <path d="M15 8v8" />
+      <path d="M17 6v12 M17 6h-1 M17 18h-1" />
+      <path d="M19 10v4" />
+      <path d="M21 12h0" />
     </svg>
   ),
-  format: (
+  length: (
+    // Timeline / duration scrubber
     <svg aria-hidden="true" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.6" viewBox="0 0 24 24">
-      <rect x="3" y="5" width="11" height="7" rx="1.4" />
-      <rect x="13" y="11" width="8" height="9" rx="1.4" />
+      <path d="M3 12h18" />
+      <path d="M5 9v6" />
+      <path d="M9 9v6" />
+      <path d="M13 9v6" />
+      <path d="M17 9v6" />
+      <path d="M21 9v6" />
+      <circle cx="13" cy="12" r="1.6" fill="currentColor" stroke="none" />
     </svg>
   ),
   prompt: (
@@ -182,15 +205,11 @@ export default function HomePage() {
               {homeContent.intro.title}
             </h2>
             <div className="mt-8 flex flex-wrap gap-3">
-              <span className="px-3 py-1 rounded-full bg-slate-900 border border-slate-800 text-xs font-medium text-slate-400">
-                LTX 2.3 Ecosystem
-              </span>
-              <span className="px-3 py-1 rounded-full bg-slate-900 border border-slate-800 text-xs font-medium text-slate-400">
-                Text-to-Video
-              </span>
-              <span className="px-3 py-1 rounded-full bg-slate-900 border border-slate-800 text-xs font-medium text-slate-400">
-                Image-to-Video
-              </span>
+              {homeContent.intro.tags.map((tag) => (
+                <span key={tag} className="px-3 py-1 rounded-full bg-slate-900 border border-slate-800 text-xs font-medium text-slate-400">
+                  {tag}
+                </span>
+              ))}
             </div>
           </div>
           
@@ -213,7 +232,7 @@ export default function HomePage() {
       <section className="section section-compact pt-32">
         <div className="section-heading">
           <p className="eyebrow">Features</p>
-          <h2 className="!text-3xl md:!text-4xl">What You Can Do with Stable Audio 3</h2>
+          <h2 className="!text-3xl md:!text-4xl">What You Can Create with Stable Audio 3</h2>
         </div>
         <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
           {homeContent.features.map((feature) => (
@@ -229,11 +248,9 @@ export default function HomePage() {
       <section className="section section-compact relative">
         <div className="section-heading text-center !mb-8">
           <p className="eyebrow">Workflow</p>
-          <h2 className="!text-4xl md:!text-5xl font-bold">How to Use Stable Audio 3 in Four Steps</h2>
+          <h2 className="!text-4xl md:!text-5xl font-bold">From Prompt to Audio in Four Steps</h2>
           <p className="!mx-auto !max-w-3xl text-base md:text-lg opacity-80 leading-relaxed mt-4">
-            Creating a video with Stable Audio 3 is simple. Start with a text prompt or reference image, 
-            choose your video format, generate a short AI video online, then refine the prompt 
-            until the motion, lighting, and style feel right.
+            {homeContent.workflowIntro}
           </p>
         </div>
 
@@ -283,26 +300,23 @@ export default function HomePage() {
       <section className="section section-compact">
         <div className="section-heading">
           <p className="eyebrow">Use Cases</p>
-          <h2 className="!text-3xl md:!text-4xl">Ways to Use Stable Audio 3 for AI Video Creation</h2>
+          <h2 className="!text-3xl md:!text-4xl">Stable Audio 3 for Creative Audio Workflows</h2>
           <p className="!mx-auto !max-w-3xl text-lg opacity-80 leading-relaxed mt-4">
-            Use Stable Audio 3 to test video ideas, animate still images, and create 
-            short visual concepts before spending time on full production.
+            Stable Audio 3 is built for short-form audio production where speed, prompt
+            control, and editing matter. Use it to sketch musical ideas, generate ambient
+            beds, prototype game sounds, and refine existing audio without leaving the browser.
           </p>
         </div>
         <div className="case-grid gap-4">
           {homeContent.useCases.map((item) => (
             <article className="surface-card use-case-card !p-0 overflow-hidden" key={item.title}>
-              <video
-                aria-hidden="true"
-                autoPlay
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                alt={`${item.title} — Stable Audio 3 use case`}
                 className="case-media !m-0 !rounded-none"
-                loop
-                muted
-                playsInline
-                poster={item.poster}
-              >
-                <source src={item.poster.replace(".webp", ".mp4")} type="video/mp4" />
-              </video>
+                loading="lazy"
+                src={item.poster}
+              />
               <div className="p-4">
                 <h3 className="text-base">{item.title}</h3>
                 <p className="text-base opacity-70 mt-1">{item.description}</p>
@@ -316,10 +330,11 @@ export default function HomePage() {
         <div className="split-panel !gap-8">
           <div>
             <p className="eyebrow">Prompt Guide</p>
-            <h2>Write Prompts That Give the Video Direction</h2>
+            <h2>Write Prompts That Give the Audio Direction</h2>
             <p className="text-lg opacity-80">
-              The best Stable Audio 3 prompts read like compact shot descriptions.
-              Describe the action, setting, camera motion, lighting, style, and mood.
+              The best Stable Audio 3 prompts read like compact production briefs.
+              Describe genre, instruments, mood, and tempo so the model has enough
+              structure to produce intentional audio instead of generic output.
             </p>
             <Link className="button-secondary mt-6 !min-h-[2.5rem] !text-sm" href="/how-to-use-stable-audio-3">
               Read the Prompt Guide
@@ -342,8 +357,9 @@ export default function HomePage() {
             <p className="eyebrow">Start Free</p>
             <h2>Try Stable Audio 3 Free First</h2>
             <p className="text-base opacity-80">
-              New users get free credits to test Stable Audio 3 online. Create your first 
-              short AI video, then choose a credit plan when you need more generations.
+              New users get 100 free credits to test Stable Audio 3 online. Generate your
+              first audio clip across any of the three modes, then choose a credit plan
+              when you need more generations.
             </p>
           </div>
           <Link className="button-primary !min-h-[2.75rem]" href="/pricing">
@@ -360,10 +376,11 @@ export default function HomePage() {
         <p className="eyebrow">Create Now</p>
         <h2>Start Creating with Stable Audio 3</h2>
         <p className="!max-w-2xl mx-auto text-lg opacity-80">
-          Turn a prompt or image into your first cinematic AI video online. No credit card required.
+          Turn a prompt into music, ambient bed, or sound effect — or upload an audio file
+          to edit or inpaint. No credit card required.
         </p>
         <Link className="button-primary mt-8 !px-10 !py-4 !h-auto" href="/stable-audio-3">
-          Try Stable Audio 3 Free
+          Generate Your First Audio Clip
         </Link>
       </section>
     </main>

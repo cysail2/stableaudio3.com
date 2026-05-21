@@ -1,191 +1,194 @@
 export const homeContent = {
   hero: {
     badge: "Stable Audio 3 AI Audio Generator",
-    title: "Try Stable Audio 3 Online for Cinematic AI Videos",
+    title: "Create AI Audio with Stable Audio 3",
     description:
-      "Start free with Stable Audio 3, an LTX 2.3 based AI video model for text-to-video and image-to-video creation. Explore prompts, examples, and creative workflows online.",
-    trustLine: "No credit card required. Start creating your first AI video online.",
+      "Turn text prompts into music, ambient beds, and sound effects, or edit and inpaint existing audio — all in the browser, no install, free to try.",
+    trustLine: "Sign up with 100 free credits and generate your first audio clip.",
   },
   intro: {
-    eyebrow: "Online AI Video Creation",
-    title: "Create Short AI Videos with Stable Audio 3",
+    eyebrow: "Online AI Audio Creation",
+    title: "Built Around the Stable Audio 3 Model Family",
     paragraphs: [
-      "Stable Audio 3 helps you turn simple ideas into short cinematic AI videos online. You can start with a text prompt, upload a reference image, choose basic settings, and generate a video directly in your browser.",
-      "Built around the LTX 2.3 video model ecosystem, Stable Audio 3 supports text-to-video and image-to-video workflows. That means you can create videos from written descriptions, animate images, test camera motion, and explore different visual styles without complex editing software.",
-      "Use Stable Audio 3 for product videos, social media clips, storyboards, ad concepts, YouTube Shorts, TikTok ideas, and early creative tests. For better results, describe the subject, action, camera movement, lighting, mood, and style in your prompt.",
+      "Stable Audio 3 is an online AI audio generator for creators who need quick music sketches, ambient beds, sound effects, or precise edits on existing audio. Choose Text-to-Audio to create from a written prompt, Audio-to-Audio to transform an uploaded clip, or Audio Inpaint to regenerate a specific region of an audio file.",
+      "The public Stable Audio 3 release from Stability AI is one of the most discussed open-weight audio models of May 2026: a model family trained on fully licensed data, with variants ranging from compact Small SFX through the largest Large variant. Stableaudio3.com brings that search intent into a simpler online product experience focused on generating, previewing, and downloading AI audio.",
+      "Use Stable Audio 3 for podcast intros, video soundtrack beds, game audio sketches, social media hooks, ambient streaming loops, and short cinematic music. The best results come from prompts that describe genre, instruments, mood, tempo, and (optionally) key — not only the subject.",
     ],
+    tags: ["Stability AI Open Weights", "Text-to-Audio", "Audio Inpaint"],
   },
   workflow: [
     {
-      title: "Write a Prompt or Upload an Image",
+      title: "Write or Upload",
       description:
-        "Start with a written idea or upload an image you want to animate. For better results, describe the subject, action, camera movement, lighting, mood, and visual style.",
+        "Start with a text prompt or upload an audio file you want to edit or inpaint. For text prompts, describe the genre, instrumentation, mood, BPM, and any production style cues.",
     },
     {
-      title: "Choose Your Video Format",
+      title: "Choose Mode and Length",
       description:
-        "Pick the format that matches where the video will be used. Landscape is useful for websites, product showcases, and presentations. Vertical works better for TikTok, YouTube Shorts, Reels, and mobile ads.",
+        "Pick Text-to-Audio for generation from scratch, Audio-to-Audio for transforming an upload, or Audio Inpaint to regenerate a region of an uploaded clip. Choose a duration that matches the use case.",
     },
     {
-      title: "Generate Your AI Video",
+      title: "Generate the Audio",
       description:
-        "Submit your prompt and let Stable Audio 3 create a short video from your idea. Review the preview to check the motion, framing, subject consistency, and overall cinematic look.",
+        "Submit the prompt and let Stable Audio 3 produce a short clip. Preview the waveform and play the result directly in the browser.",
     },
     {
-      title: "Download or Improve the Result",
+      title: "Download or Iterate",
       description:
-        "Download the generated video, reuse the prompt, or adjust the camera motion, lighting, style, and scene details to create a stronger version.",
+        "Save the generated audio, reuse the prompt, or refine the genre, instruments, mood, or tempo for a stronger second version.",
     },
   ],
+  workflowIntro:
+    "Creating audio with Stable Audio 3 is simple. Pick a mode, write a prompt, generate a short clip, then refine the genre, instruments, mood, or tempo until the result feels right.",
   features: [
     {
-      icon: "text-to-video",
-      title: "Text-to-Video Creation",
+      icon: "text-to-audio",
+      title: "Text-to-Audio Creation",
       description:
-        "Turn written prompts into short AI videos. Describe the subject, action, setting, camera movement, lighting, and style to give Stable Audio 3 a clear visual direction.",
+        "Turn written prompts into music, ambient beds, or sound effects. Stable Audio 3 responds best when your prompt includes genre, instruments, mood, tempo, and a production style cue.",
     },
     {
-      icon: "image-to-video",
-      title: "Image-to-Video Animation",
+      icon: "audio-to-audio",
+      title: "Audio-to-Audio Editing",
       description:
-        "Upload a reference image and describe how it should move. Use image-to-video for product shots, portraits, concept art, brand visuals, and still images that need cinematic motion.",
+        "Upload an existing audio file and describe how it should change. Useful for shifting genre, swapping instrumentation, or transforming a rough sketch into a polished bed without re-recording.",
     },
     {
-      icon: "motion",
-      title: "Camera and Motion Control",
+      icon: "inpaint",
+      title: "Audio Inpaint and Continuation",
       description:
-        "Guide the result with simple camera language, such as close-up, wide shot, dolly-in, tracking shot, orbit motion, slow motion, or smooth cinematic pacing.",
+        "Select a region of an uploaded clip and let Stable Audio 3 regenerate just that part. The right mode for fixing a section, removing an unwanted sound, or extending a loop.",
     },
     {
-      icon: "format",
-      title: "Social and Marketing Formats",
+      icon: "length",
+      title: "Variable-Length Generation",
       description:
-        "Create AI videos for TikTok, YouTube Shorts, Reels, ads, product pages, landing pages, storyboards, and early campaign concepts. Match the aspect ratio and duration to your channel.",
+        "Generate short SFX through longer music beds in the same workflow. Choose the duration that matches the use case rather than stitching multiple short clips together.",
     },
     {
       icon: "prompt",
-      title: "Prompt Help for Better Results",
+      title: "Prompt Guidance",
       description:
-        "Use structured prompt patterns to get cleaner, more consistent videos. The prompt guide includes formulas, camera words, style terms, and examples for text-to-video and image-to-video workflows.",
+        "Use structured prompt patterns to get more consistent results. The prompt guide covers formulas, genre vocabulary, BPM and key tips, and examples for each of the three modes.",
     },
     {
       icon: "browser",
-      title: "Online Browser Workflow",
+      title: "Browser-Based Workflow",
       description:
-        "Create directly in your browser without local setup. Stable Audio 3 keeps the workflow simple: enter a prompt, adjust settings, preview the result, and download your video.",
+        "Start creating without local installation. The online experience focuses on prompt input, mode selection, settings, preview, and download. The underlying Stable Audio 3 model weights are also available on Hugging Face for users who prefer local inference.",
     },
   ],
   metrics: [
-    { value: "50", label: "free credits", detail: "Try Stable Audio 3 after signup" },
-    { value: "5s", label: "720P test", detail: "Enough for your first generation" },
-    { value: "2", label: "creation modes", detail: "Text to Video and Image to Video" },
+    { value: "100", label: "free credits", detail: "Try Stable Audio 3 after signup" },
+    { value: "3", label: "audio modes", detail: "Text-to-audio, audio-to-audio, inpaint" },
+    { value: "30s", label: "first test", detail: "Enough for one short generation" },
     { value: "4", label: "credit plans", detail: "Choose by workflow size" },
   ],
   useCases: [
     {
-      title: "Commercial Advertising",
+      title: "Music Sketch and Cinematic Score",
       poster: "/use-cases/commercial-advertising.webp",
       description:
-        "Create quick AI video concepts for ads, landing pages, product launches, and campaign tests. Add product details, camera direction, lighting, and mood to explore different creative angles before production.",
+        "Generate cinematic music beds, electronic loops, or orchestral sketches from text prompts. Describe genre, instruments, tempo, and mood to give the model a clear sonic direction.",
     },
     {
-      title: "Product Showcase",
+      title: "Podcast Intro and Outro",
       poster: "/use-cases/product-showcase.webp",
       description:
-        "Turn product images into short video clips with slow rotations, studio lighting, clean backgrounds, reflective surfaces, and smooth camera movement. Useful for e-commerce, app launches, and product storytelling.",
+        "Create short branded intro and outro music that sets the tone for an episode. Use Audio-to-Audio mode to take a rough sketch and shape it into a polished bed.",
     },
     {
-      title: "Cinematic Storytelling",
+      title: "Video Soundtrack Bed",
       poster: "/use-cases/cinematic-storytelling.webp",
       description:
-        "Write scenes with mood, pacing, camera movement, and character action. Stable Audio 3 helps creators test visual beats, scene direction, and cinematic ideas before building a longer story.",
+        "Generate background music for short videos, social clips, and product launches. Match the duration to the cut, and use Audio Inpaint to swap a section that does not fit.",
     },
     {
-      title: "Social Media Clips",
+      title: "Game Audio Prototyping",
       poster: "/use-cases/social-media-content.webp",
       description:
-        "Generate short AI videos for Reels, TikTok, YouTube Shorts, and mobile-first visual hooks. For stronger vertical clips, describe the framing, action, background, and movement clearly.",
+        "Sketch UI sound effects, ambience loops, and combat beds before commissioning final audio. Small SFX-style outputs from Stable Audio 3 are well-suited to short game sounds.",
     },
     {
-      title: "Concept Visualization",
+      title: "Social Media Audio Hook",
       poster: "/use-cases/concept-visualization.webp",
       description:
-        "Turn rough ideas into moving visual references. Designers, filmmakers, marketers, and creative teams can use Stable Audio 3 clips to explain mood, atmosphere, style, and scene direction.",
+        "Create 5–10 second loops or hooks for Reels, TikTok, and Shorts. Use Audio Inpaint to refine the section that needs to read on the first second of a vertical clip.",
     },
     {
-      title: "Creative Storyboarding",
+      title: "Ambient Bed for Streaming or Focus",
       poster: "/use-cases/storyboarding.webp",
       description:
-        "Use Stable Audio 3 as a fast AI storyboard tool. Generate multiple shot directions, compare camera movement, and keep the strongest clips for presentations, planning, or further editing.",
+        "Generate long-form ambient loops for streaming overlays, focus playlists, or installation pieces. Variable-length generation removes the need to stitch multiple loops manually.",
     },
   ],
   promptTips: [
     {
-      title: "Subject and action first",
+      title: "Genre and instruments first",
       description:
-        "Describe the subject and action before the style. Lead with who or what is in the shot and what they are doing, then layer in style, environment, and mood.",
+        "Describe genre and instruments before the mood. A lo-fi hip hop beat with mellow piano and brushed drums tells the model far more than just \"music.\"",
     },
     {
-      title: "Direct the camera",
+      title: "Tempo and key when it matters",
       description:
-        "Add camera motion such as dolly-in, tracking shot, orbit, or close-up. Specifying the framing and movement gives Stable Audio 3 a clearer cinematic direction.",
+        "Add BPM and key when the use case has a known target. For loops that sync to a video cut or sit under voiceover, an explicit tempo keeps the model on-grid.",
     },
     {
-      title: "Lighting and mood",
+      title: "Match the prompt to the mode",
       description:
-        "Define lighting and mood with concrete visual words like golden hour, neon backlight, soft studio light, or overcast haze so the result feels intentional rather than generic.",
+        "Text-to-audio prompts describe a clip from scratch. Audio-to-audio prompts describe the transformation. Inpaint prompts should match the surrounding genre and tempo so the regenerated region blends in.",
     },
   ],
   faq: [
     {
       question: "What is Stable Audio 3?",
       answer:
-        "Stable Audio 3 is an AI video model based on the LTX 2.3 ecosystem. It supports text-to-video and image-to-video workflows, so you can turn written prompts or reference images into short AI videos online.",
+        "Stable Audio 3 is an open-weights AI audio model family from Stability AI, released in May 2026. It supports text-to-audio, audio-to-audio editing, and audio inpainting / continuation. This site is an online product experience for that workflow — write a prompt, optionally upload an audio file, generate audio in the browser, and download the result.",
     },
     {
       question: "What can I create with Stable Audio 3?",
       answer:
-        "You can create product videos, social media clips, cinematic scenes, ad concepts, storyboards, landing page visuals, and animated versions of still images. For better results, describe the subject, action, camera movement, lighting, mood, and style.",
+        "You can generate music sketches, ambient beds, sound effects, podcast intros, video soundtrack beds, game audio prototypes, social media hooks, and short cinematic music. Stable Audio 3 is positioned for sound, music, and SFX — it is not designed for voice cloning, speech synthesis, or full songs with vocals.",
     },
     {
       question: "Do I need a GPU to use Stable Audio 3 online?",
       answer:
-        "No. You can use Stable Audio 3 directly in your browser without local setup, GPU installation, or complex model configuration. Write a prompt or upload an image, choose settings, generate the video, and download the result.",
+        "No. The online workflow runs in the browser, so you can generate audio without a local install. If you prefer local inference, the open weights for the Small and Medium variants are on Hugging Face under the Stability AI organization.",
     },
     {
-      question: "Can Stable Audio 3 create videos from images?",
+      question: "What is audio inpainting?",
       answer:
-        "Yes. Stable Audio 3 supports image-to-video creation. Upload a reference image, then describe how the subject, camera, lighting, or scene should move. This works well for product shots, portraits, concept art, fashion visuals, and brand images.",
+        "Audio inpainting lets you select a region of an existing audio clip and ask the model to regenerate just that section. It is useful for fixing a problem area, removing an unwanted sound, swapping an instrument in a passage, or extending a loop without rewriting the entire clip.",
     },
     {
-      question: "What prompt style works best for Stable Audio 3?",
+      question: "What prompt style works best?",
       answer:
-        "Stable Audio 3 works best with clear visual prompts. A strong prompt usually includes the subject, action, setting, camera movement, lighting, mood, and style. Instead of only naming an object, describe the full shot you want to create.",
+        "Stable Audio 3 works best with detailed prompts that describe genre, instruments, mood, tempo, and production style. For example, instead of writing \"a song,\" describe the clip: \"a lo-fi hip hop beat with mellow piano chords, warm vinyl crackle, soft sub bass, 80 BPM, 30-second loop.\" This gives the model more sonic direction.",
+    },
+    {
+      question: "Can Stable Audio 3 generate vocals or speech?",
+      answer:
+        "No. The Stable Audio 3 model family is positioned around sound, music, and SFX. Voice cloning, speech synthesis, and singing voice generation are different model classes — use a dedicated voice or TTS tool for those use cases.",
     },
     {
       question: "How do credits work?",
       answer:
-        "Credits are used each time you generate a video. New users can start with 50 free credits, which is enough for one 5-second 720p test video. Longer videos or higher-resolution settings may use more credits.",
+        "Credits are used for audio generation. New users receive 100 free credits, enough to create about 100 seconds of audio. Longer audio or additional inpaint passes use more credits. The pricing page shows plan equivalents in practical clip counts.",
+    },
+    {
+      question: "Can I use Stable Audio 3 outputs commercially?",
+      answer:
+        "The underlying Stable Audio 3 model from Stability AI is released under the Stability AI Community License, which lets you commercialize outputs you generate. Organizations with more than $1M in annual revenue should review Stability AI's Enterprise license. On this site, commercial use also depends on the Terms of Service — review them before running paid campaigns or client work.",
     },
     {
       question: "Is Stable Audio 3 only for technical users?",
       answer:
-        "No. Stable Audio 3 can be used by creators, marketers, designers, and beginners who want a simple online AI video workflow. The web experience focuses on prompts, image uploads, settings, preview, and download.",
+        "No. Stable Audio 3 can be used by creators, musicians, podcasters, video editors, game makers, and marketers who want a simple online AI audio workflow. The web experience focuses on prompts, audio uploads for editing, settings, preview, and download.",
     },
     {
       question: "Where should I start?",
       answer:
-        "Start with the Stable Audio 3 AI Audio Generator page. Try a simple prompt first, generate a short test video, then improve the next version by adding camera movement, lighting, mood, and clearer subject details.",
-    },
-    {
-      question: "Can I use Stable Audio 3 for text-to-video?",
-      answer:
-        "Yes. Stable Audio 3 supports text-to-video generation. You can write a scene description, add camera and lighting details, choose your settings, and generate a short AI video online.",
-    },
-    {
-      question: "Can I use Stable Audio 3 for social media videos?",
-      answer:
-        "Yes. Stable Audio 3 can be used to create short clips for TikTok, Reels, YouTube Shorts, ads, and visual hooks. For mobile-first videos, use vertical framing and describe the action clearly.",
+        "Start on the Stable Audio 3 AI Audio Generator page. Use a simple but descriptive prompt — name the genre, instruments, mood, and tempo — then generate a short test. The prompt guide includes formulas and examples for all three modes.",
     },
   ],
 } as const;

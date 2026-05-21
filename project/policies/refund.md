@@ -1,12 +1,12 @@
 # Refund Policy
 
-Last updated: May 14, 2026
+Last updated: May 21, 2026
 
 ## Overview
 
 This Refund Policy explains how Stable Audio 3 reviews refund requests for paid credit purchases, failed credit delivery, duplicate charges, billing errors, and generation-related issues.
 
-Stable Audio 3 sells digital credit packages for online AI video generation. Because credits can be used immediately to create digital outputs and consume compute resources, purchases are generally non-refundable once any credits from that purchase have been used.
+Stable Audio 3 sells digital credit packages for online AI audio generation. Because credits can be used immediately to create digital outputs and consume compute resources, purchases are generally non-refundable once any credits from that purchase have been used.
 
 ## General Refund Rule
 
@@ -24,7 +24,7 @@ Once any paid credits from a purchase are used, that purchase becomes non-refund
 
 We generally do not issue refunds for used or partially used credit packages, completed generations, partially completed generations, failed or interrupted generations where credits were consumed under normal service rules, dissatisfaction with creative results, prompts that do not match subjective expectations, promotional credits, bonus credits, referral credits, trial credits, purchases made outside the refund window, or accounts involved in policy violations.
 
-AI video generation is interpretive. Output quality, motion stability, prompt adherence, visual details, camera behavior, text rendering, and style consistency can vary. Normal AI variation does not automatically qualify for a refund when the service functioned as intended.
+AI audio generation is interpretive. Output quality, prompt adherence, genre fit, tempo, instrumentation, mix balance, and style consistency can vary. Normal AI variation does not automatically qualify for a refund when the service functioned as intended.
 
 ## Failed Delivery or Duplicate Charges
 
@@ -38,7 +38,7 @@ If you were charged more than once for the same order, we will investigate and m
 
 If a technical problem on our side causes an incorrect charge, prevents paid credits from being delivered, or causes a generation task to fail in a way that should not have consumed credits, we may issue account credits, restore credits, or approve a refund after review.
 
-Technical errors do not include normal AI generation variation, prompt misunderstanding, creative dissatisfaction, inconsistent motion, unwanted style, low subjective quality, or outputs that require additional prompt refinement.
+Technical errors do not include normal AI generation variation, prompt misunderstanding, creative dissatisfaction, unwanted style, low subjective quality, or outputs that require additional prompt refinement.
 
 ## Chargebacks and Payment Disputes
 
@@ -66,7 +66,7 @@ Account credits have no cash value and cannot be exchanged for money unless requ
 
 ## Promotional and Free Credits
 
-Promotional, bonus, referral, trial, signup, or complimentary credits are not refundable, transferable, or redeemable for cash. The 50 signup credits offered to new accounts are free trial credits and do not create refund value.
+Promotional, bonus, referral, trial, signup, or complimentary credits are not refundable, transferable, or redeemable for cash. The 100 signup credits offered to new accounts are free trial credits and do not create refund value.
 
 If an account receives both paid and promotional credits, we may determine the order in which credits are consumed based on the service's internal credit rules.
 

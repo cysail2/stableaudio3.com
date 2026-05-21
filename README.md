@@ -41,12 +41,27 @@ Optional experience modules should stay out of generic project blocks. For examp
 ## Commands
 
 ```bash
-pnpm install --ignore-scripts
+pnpm install
 pnpm lint
 pnpm typecheck
 pnpm build
 pnpm dev
 ```
+
+## Environment Configuration
+
+Local development needs a `.env.local` file with the Clerk publishable key:
+
+```bash
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=<clerk_publishable_key>
+```
+
+Business API configuration is intentionally code-owned in `project/config/site.ts`:
+
+- `apiServiceUrl`: `https://svc.stableaudio3.com`
+- `appIdentifier`: `stableaudio3`
+
+Do not add `NEXT_PUBLIC_API_BASE` or `NEXT_PUBLIC_APP_ID` for this project unless the team decides to move those values back to runtime configuration. The temporary ACE Step upstream is server-only and defaults to `https://svc.grokimagineai.net`; override it with `ACE_STEP_API_BASE` only when backend debugging requires it.
 
 ## Notes
 
@@ -54,4 +69,3 @@ pnpm dev
 - The generator module currently has the public Stable Audio 3 surface and credit model scaffold. The next step is wiring it to the live generation service.
 - CNZZ configuration is in `project/config/analytics.ts`.
 - Site/product configuration is in `project/config/site.ts`.
-

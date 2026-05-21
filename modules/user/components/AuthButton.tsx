@@ -172,7 +172,7 @@ export function AuthButton() {
                 role="menuitem"
               >
                 <LibraryIcon />
-                Library
+                My Creations
               </Link>
               <div className="mx-2 my-1 h-px bg-white/10" />
               <button

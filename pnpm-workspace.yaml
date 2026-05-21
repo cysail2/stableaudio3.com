@@ -2,10 +2,6 @@ packages:
   - "."
 
 allowBuilds:
-  '@clerk/shared': true
-  sharp: set this to true or false
-  unrs-resolver: set this to true or false
-
-ignoredBuiltDependencies:
-  - sharp
-  - unrs-resolver
+  "@clerk/shared": true
+  sharp: true
+  unrs-resolver: true

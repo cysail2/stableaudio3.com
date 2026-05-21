@@ -1,32 +1,32 @@
 # Privacy Policy
 
-Last updated: May 14, 2026
+Last updated: May 21, 2026
 
 ## Overview
 
-Stable Audio 3 provides an online AI video generation service for creating short videos from text prompts, reference images, and related settings. This Privacy Policy explains what information may be collected or processed when you visit the website, create an account, purchase credits, submit generation requests, download outputs, or contact support.
+Stable Audio 3 provides an online AI audio generation service for creating music sketches, ambient beds, and sound effects from text prompts or uploaded audio. This Privacy Policy explains what information may be collected or processed when you visit the website, create an account, purchase credits, submit generation requests, download outputs, or contact support.
 
-By using Stable Audio 3, you understand that AI video generation requires us to process the prompts, uploaded files, generation settings, and account data needed to operate the service. We write this policy in plain language so creators can understand what information is involved before using the product.
+By using Stable Audio 3, you understand that AI audio generation requires us to process the prompts, uploaded audio files, generation settings, and account data needed to operate the service. We write this policy in plain language so creators can understand what information is involved before using the product.
 
 ## Information We Collect
 
-We may collect information you provide directly, including account details, email address, authentication data, prompts, uploaded reference images, generation settings, support messages, feedback, and information submitted through forms on the website.
+We may collect information you provide directly, including account details, email address, authentication data, prompts, uploaded audio files, generation settings, support messages, feedback, and information submitted through forms on the website.
 
-When you use the generator, we may process generation-related information such as prompt history, task status, selected mode, aspect ratio, duration, resolution, credit usage, generated video files, download activity, and error messages connected to a generation task.
+When you use the generator, we may process generation-related information such as prompt history, task status, selected mode, duration, quality setting, inpaint region, credit usage, generated audio files, download activity, and error messages connected to a generation task.
 
 We may also collect technical and usage information automatically, including IP address, browser type, device type, operating system, language settings, referring pages, pages viewed, clicks, approximate location derived from IP address, cookies, local storage identifiers, security logs, analytics events, and performance data.
 
-## Prompts, Uploads, and Generated Videos
+## Prompts, Uploads, and Generated Audio
 
-Stable Audio 3 processes prompts, uploaded images, and generated outputs so the service can create, store, display, and deliver AI videos. You should avoid submitting sensitive personal information unless it is necessary for your intended use and you have the right to provide it.
+Stable Audio 3 processes prompts, uploaded audio, and generated outputs so the service can create, store, display, and deliver AI audio. You should avoid submitting sensitive personal information unless it is necessary for your intended use and you have the right to provide it.
 
-Generated videos may be stored in your account history so you can review or download them later. We may also process generation data for troubleshooting, abuse prevention, security review, payment dispute handling, service reliability, and product improvement where permitted by law.
+Generated audio may be stored in your account history so you can review or download it later. We may also process generation data for troubleshooting, abuse prevention, security review, payment dispute handling, service reliability, and product improvement where permitted by law.
 
-You are responsible for the prompts, images, and other materials you submit. Do not upload private, confidential, copyrighted, or personal materials unless you have the required rights and permissions.
+You are responsible for the prompts, uploaded audio, and other materials you submit. Do not upload private, confidential, copyrighted, or personal materials unless you have the required rights and permissions.
 
 ## How We Use Information
 
-We use information to provide text-to-video and image-to-video generation, manage user accounts, maintain login sessions, track credit balances, process purchases, deliver generated videos, respond to support requests, prevent fraud and abuse, improve product reliability, fix bugs, measure site performance, enforce our policies, and comply with legal obligations.
+We use information to provide text-to-audio generation, audio-to-audio editing, audio inpainting, user accounts, login sessions, credit balances, purchases, generated audio delivery, support responses, fraud and abuse prevention, product reliability, bug fixes, site performance measurement, policy enforcement, and legal compliance.
 
 We may use analytics and measurement data to understand which pages, controls, and workflows need improvement. This helps us improve onboarding, page speed, pricing clarity, prompt guidance, and generation reliability.
 
@@ -56,7 +56,7 @@ We do not sell your personal information for money. If applicable privacy laws d
 
 We retain information for as long as reasonably necessary to provide the service, maintain accounts, deliver credits, store generation history, process payments, provide support, prevent abuse, resolve disputes, enforce agreements, and meet legal or accounting obligations.
 
-Retention periods may differ by data type. Account records may be kept while your account is active. Payment and order records may be kept for financial and legal reasons. Prompts, uploads, and generated videos may be retained for history, downloads, troubleshooting, and abuse prevention unless deleted under available account controls or a valid request.
+Retention periods may differ by data type. Account records may be kept while your account is active. Payment and order records may be kept for financial and legal reasons. Prompts, uploads, and generated audio may be retained for history, downloads, troubleshooting, and abuse prevention unless deleted under available account controls or a valid request.
 
 ## Your Rights and Choices
 

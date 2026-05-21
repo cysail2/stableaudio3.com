@@ -1,8 +1,8 @@
 import { siteConfig } from "@/project/config/site";
 
-export const API_CONFIG = {
-  API_BASE: process.env.NEXT_PUBLIC_API_BASE || siteConfig.apiServiceUrl,
-  APP_ID: process.env.NEXT_PUBLIC_APP_ID || siteConfig.appIdentifier,
+export const API_CONFIG: { API_BASE: string; APP_ID: string } = {
+  API_BASE: siteConfig.apiServiceUrl,
+  APP_ID: siteConfig.appIdentifier,
 };
 
 export const setApiConfig = (overrides?: { apiBase?: string; appId?: string }) => {
@@ -65,4 +65,3 @@ export const postForm = async (url: string, body: FormData) => {
   });
   return handleApiError(response);
 };
-

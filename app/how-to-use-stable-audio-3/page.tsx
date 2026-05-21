@@ -6,38 +6,37 @@ import { siteConfig } from "@/project/config/site";
 import { guideContent } from "@/project/content/guide";
 import { toSchemaDateTime } from "@/project/utils/schema-date";
 
-const GUIDE_PUBLISHED_DATE = "2026-05-15";
-const GUIDE_MODIFIED_DATE = "2026-05-15";
+const GUIDE_PUBLISHED_DATE = "2026-05-21";
+const GUIDE_MODIFIED_DATE = "2026-05-21";
 
 export const metadata: Metadata = {
   title: {
-    absolute: "How to Use Stable Audio 3 - Beginner Guide for AI Video",
+    absolute: "How to Use Stable Audio 3 - AI Audio Prompt Guide",
   },
   description:
-    "Learn how to use Stable Audio 3 online for text-to-video and image-to-video. Follow beginner steps, prompt tips, settings, and workflows for better results.",
+    "Learn how to use Stable Audio 3 for text-to-audio, audio editing, and audio inpainting. Prompt formulas, BPM tips, genre vocabulary, and ready-to-copy examples.",
   keywords: [
     "how to use Stable Audio 3",
     "Stable Audio 3 prompt guide",
-    "AI video prompts",
-    "text to video prompt",
-    "image to video guide",
-    "LTX 2.3 tutorial",
+    "text to audio prompts",
+    "audio inpaint guide",
+    "AI music prompts",
   ],
   alternates: {
     canonical: `${siteConfig.url}/how-to-use-stable-audio-3`,
   },
   openGraph: {
-    title: "How to Use Stable Audio 3 - Beginner Guide for AI Video",
+    title: "How to Use Stable Audio 3 - AI Audio Prompt Guide",
     description:
-      "Learn how to use Stable Audio 3 online for text-to-video and image-to-video. Follow beginner steps, prompt tips, settings, and workflows for better results.",
+      "Learn how to use Stable Audio 3 for text-to-audio, audio editing, and audio inpainting. Prompt formulas, BPM tips, genre vocabulary, and ready-to-copy examples.",
     url: `${siteConfig.url}/how-to-use-stable-audio-3`,
     images: ["/og/how-to-use-stable-audio-3.webp"],
   },
   twitter: {
     card: "summary_large_image",
-    title: "How to Use Stable Audio 3 - Beginner Guide for AI Video",
+    title: "How to Use Stable Audio 3 - AI Audio Prompt Guide",
     description:
-      "Learn how to use Stable Audio 3 online for text-to-video and image-to-video. Follow beginner steps, prompt tips, settings, and workflows for better results.",
+      "Learn how to use Stable Audio 3 for text-to-audio, audio editing, and audio inpainting. Prompt formulas, BPM tips, genre vocabulary, and ready-to-copy examples.",
     images: ["/og/how-to-use-stable-audio-3.webp"],
   },
 };
@@ -134,51 +133,89 @@ export default function GuidePage() {
           </p>
         </div>
 
-        {/* ── ILLUSTRATION 1 ── */}
+        {/* Workflow illustration — text prompt → Stable Audio 3 → waveform output */}
         <div className="surface-card !p-0 overflow-hidden mb-12 border border-white/10 bg-slate-950">
           <svg className="w-full h-auto" viewBox="0 0 860 340" xmlns="http://www.w3.org/2000/svg">
-            <rect width="860" height="340" fill="#020617"/>
-            <rect x="40" y="60" width="240" height="220" rx="14" fill="#0f172a" stroke="#1e293b" strokeWidth="1"/>
+            <rect width="860" height="340" fill="#020617" />
+            {/* Left: text prompt */}
+            <rect x="40" y="60" width="240" height="220" rx="14" fill="#0f172a" stroke="#1e293b" strokeWidth="1" />
             <text x="160" y="100" textAnchor="middle" fill="#22d3ee" fontFamily="monospace" fontSize="11" fontWeight="700" letterSpacing="2">TEXT PROMPT</text>
-            <rect x="60" y="116" width="200" height="12" rx="4" fill="#1e293b"/>
-            <rect x="60" y="136" width="160" height="12" rx="4" fill="#1e293b"/>
-            <rect x="60" y="156" width="180" height="12" rx="4" fill="#1e293b"/>
-            <rect x="60" y="176" width="140" height="12" rx="4" fill="#1e293b"/>
-            <text x="160" y="235" textAnchor="middle" fill="#2dd4bf" fontFamily="monospace" fontSize="10">A cinematic close-up of</text>
-            <text x="160" y="252" textAnchor="middle" fill="#2dd4bf" fontFamily="monospace" fontSize="10">a product rotating slowly...</text>
-            <line x1="295" y1="170" x2="375" y2="170" stroke="#22d3ee" strokeWidth="2" markerEnd="url(#arr)"/>
-            <rect x="375" y="100" width="110" height="140" rx="12" fill="#1e1b4b" stroke="#22d3ee" strokeWidth="1.5"/>
-            <text x="430" y="162" textAnchor="middle" fill="#22d3ee" fontFamily="monospace" fontSize="10" fontWeight="700">SULPHUR 2</text>
-            <text x="430" y="178" textAnchor="middle" fill="#475569" fontFamily="monospace" fontSize="9">AI ENGINE</text>
-            <circle cx="430" cy="135" r="16" fill="none" stroke="#22d3ee" strokeWidth="1.5" strokeDasharray="6 3"/>
-            <line x1="485" y1="170" x2="565" y2="170" stroke="#f97316" strokeWidth="2" markerEnd="url(#arr2)"/>
-            <rect x="565" y="60" width="255" height="220" rx="14" fill="#0f172a" stroke="#1e293b" strokeWidth="1"/>
-            <text x="692" y="100" textAnchor="middle" fill="#f97316" fontFamily="monospace" fontSize="11" fontWeight="700" letterSpacing="2">VIDEO OUTPUT</text>
-            <rect x="585" y="112" width="215" height="130" rx="8" fill="#020617"/>
+            <rect x="60" y="116" width="200" height="12" rx="4" fill="#1e293b" />
+            <rect x="60" y="136" width="160" height="12" rx="4" fill="#1e293b" />
+            <rect x="60" y="156" width="180" height="12" rx="4" fill="#1e293b" />
+            <rect x="60" y="176" width="140" height="12" rx="4" fill="#1e293b" />
+            <text x="160" y="232" textAnchor="middle" fill="#2dd4bf" fontFamily="monospace" fontSize="10">A cinematic ambient track</text>
+            <text x="160" y="249" textAnchor="middle" fill="#2dd4bf" fontFamily="monospace" fontSize="10">with slow synth pads, 70 BPM…</text>
+            {/* Arrow */}
+            <line x1="295" y1="170" x2="375" y2="170" stroke="#22d3ee" strokeWidth="2" markerEnd="url(#arr)" />
+            {/* Center: Stable Audio 3 engine */}
+            <rect x="375" y="100" width="110" height="140" rx="12" fill="#1e1b4b" stroke="#22d3ee" strokeWidth="1.5" />
+            <text x="430" y="162" textAnchor="middle" fill="#22d3ee" fontFamily="monospace" fontSize="10" fontWeight="700">STABLE</text>
+            <text x="430" y="178" textAnchor="middle" fill="#22d3ee" fontFamily="monospace" fontSize="10" fontWeight="700">AUDIO 3</text>
+            <text x="430" y="196" textAnchor="middle" fill="#475569" fontFamily="monospace" fontSize="9">AI ENGINE</text>
+            <circle cx="430" cy="130" r="14" fill="none" stroke="#22d3ee" strokeWidth="1.5" strokeDasharray="6 3" />
+            {/* Arrow */}
+            <line x1="485" y1="170" x2="565" y2="170" stroke="#f97316" strokeWidth="2" markerEnd="url(#arr2)" />
+            {/* Right: audio output (waveform) */}
+            <rect x="565" y="60" width="255" height="220" rx="14" fill="#0f172a" stroke="#1e293b" strokeWidth="1" />
+            <text x="692" y="100" textAnchor="middle" fill="#f97316" fontFamily="monospace" fontSize="11" fontWeight="700" letterSpacing="2">AUDIO OUTPUT</text>
+            {/* Waveform bars */}
+            <g fill="#22d3ee">
+              <rect x="590" y="160" width="3" height="20" rx="1.5" />
+              <rect x="600" y="148" width="3" height="44" rx="1.5" />
+              <rect x="610" y="154" width="3" height="32" rx="1.5" />
+              <rect x="620" y="138" width="3" height="64" rx="1.5" />
+              <rect x="630" y="146" width="3" height="48" rx="1.5" />
+              <rect x="640" y="130" width="3" height="80" rx="1.5" />
+              <rect x="650" y="144" width="3" height="52" rx="1.5" />
+              <rect x="660" y="152" width="3" height="36" rx="1.5" />
+              <rect x="670" y="140" width="3" height="60" rx="1.5" />
+              <rect x="680" y="148" width="3" height="44" rx="1.5" />
+              <rect x="690" y="134" width="3" height="72" rx="1.5" />
+              <rect x="700" y="146" width="3" height="48" rx="1.5" />
+              <rect x="710" y="152" width="3" height="36" rx="1.5" />
+              <rect x="720" y="142" width="3" height="56" rx="1.5" />
+              <rect x="730" y="150" width="3" height="40" rx="1.5" />
+              <rect x="740" y="138" width="3" height="64" rx="1.5" />
+              <rect x="750" y="156" width="3" height="28" rx="1.5" />
+              <rect x="760" y="148" width="3" height="44" rx="1.5" />
+              <rect x="770" y="144" width="3" height="52" rx="1.5" />
+              <rect x="780" y="152" width="3" height="36" rx="1.5" />
+              <rect x="790" y="158" width="3" height="24" rx="1.5" />
+            </g>
+            <text x="692" y="264" textAnchor="middle" fill="#2dd4bf" fontFamily="monospace" fontSize="9">30s · Cinematic Ambient</text>
             <defs>
               <marker id="arr" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
-                <path d="M0,0 L0,6 L8,3 z" fill="#22d3ee"/>
+                <path d="M0,0 L0,6 L8,3 z" fill="#22d3ee" />
               </marker>
               <marker id="arr2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
-                <path d="M0,0 L0,6 L8,3 z" fill="#f97316"/>
+                <path d="M0,0 L0,6 L8,3 z" fill="#f97316" />
               </marker>
             </defs>
-            <circle cx="692" cy="177" r="18" fill="rgba(34,211,238,0.2)" stroke="#22d3ee" strokeWidth="1.5"/>
-            <polygon points="687,169 687,185 703,177" fill="#fff"/>
-            <text x="692" y="264" textAnchor="middle" fill="#2dd4bf" fontFamily="monospace" fontSize="9">720P · 5s · Cinematic</text>
           </svg>
           <div className="bg-slate-900/50 p-4 text-center text-sm text-slate-500 italic">
-            Stable Audio 3 turns a text prompt or image into a downloadable AI video — entirely in your browser.
+            Stable Audio 3 turns a text prompt into a downloadable audio clip — entirely in your browser.
           </div>
         </div>
 
+        {/* First H2 section — mandatory homepage link per CONTENT_GUIDE.md */}
         <section className="mb-16">
           <h2 className="!text-3xl font-bold mb-6 text-white border-l-4 border-cyan-500 pl-4 !mt-0">
             {guideContent.intro.title}
           </h2>
-          {guideContent.intro.body.map((p, i) => (
-            <p key={i} className="text-slate-300 leading-relaxed mb-4">{p}</p>
-          ))}
+          <p className="text-slate-300 leading-relaxed mb-4">
+            {guideContent.intro.body[0]}
+          </p>
+          <p className="text-slate-300 leading-relaxed mb-4">
+            <Link className="text-cyan-300 underline decoration-cyan-500/40 underline-offset-4 hover:decoration-cyan-400" href="/">
+              Stableaudio3.com
+            </Link>{" "}
+            is an online product experience for that workflow. This guide walks through all
+            three modes, the prompt formula that works across them, genre and instrument
+            vocabulary, BPM and key guidance, and the common mistakes that make AI audio sound
+            generic. The same guidance works whether you are sketching music, building ambient
+            beds, prototyping game audio, or producing podcast intros.
+          </p>
         </section>
 
         <hr className="border-white/5 my-16" />
@@ -203,17 +240,21 @@ export default function GuidePage() {
           <div className="mt-8 p-6 rounded-2xl bg-cyan-500/5 border border-cyan-500/20 flex gap-4 items-start">
             <span className="text-xl">💡</span>
             <p className="text-cyan-100/80 text-sm md:text-base leading-relaxed">
-              <strong>First generation tip:</strong> Keep your first test short — a 5-second 720P clip is the fastest way to check whether your prompt direction is working before spending more credits on longer or higher-resolution outputs.
+              <strong>First generation tip:</strong> Keep your first test short — a 15–30 second clip is the fastest way to check whether your prompt direction is working before spending more credits on longer or higher-quality outputs. The{" "}
+              <Link className="text-cyan-300 underline decoration-cyan-500/40 underline-offset-4 hover:decoration-cyan-400" href="/pricing">
+                Stable Audio 3 pricing
+              </Link>{" "}
+              page explains how credit packs map to short-clip equivalents.
             </p>
           </div>
         </section>
 
         <section className="mb-16">
           <h2 className="!text-3xl font-bold mb-8 text-white border-l-4 border-cyan-500 pl-4">
-            Step 2 — Text to Video: How It Works
+            Step 2 — Text-to-Audio: How It Works
           </h2>
           <p className="text-slate-300 mb-8">
-            Text-to-video is the primary mode for generating scenes from scratch. You describe what you want to see, and Stable Audio 3 interprets your words as a visual shot direction.
+            Text-to-Audio is the primary mode for generating audio from scratch. You describe the clip you want — genre, instruments, mood, tempo — and Stable Audio 3 produces an audio file.
           </p>
 
           <div className="bg-slate-900 border border-cyan-500/30 rounded-3xl p-8 md:p-12 mb-12 relative overflow-hidden group">
@@ -247,10 +288,13 @@ export default function GuidePage() {
 
         <section className="mb-16">
           <h2 className="!text-3xl font-bold mb-8 text-white border-l-4 border-cyan-500 pl-4">
-            Step 3 — Image to Video: How to Animate a Photo
+            Step 3 — Audio-to-Audio: Transform an Existing Clip
           </h2>
+          <p className="text-slate-300 mb-8">
+            Audio-to-Audio takes a clip you upload and reshapes it based on a transformation prompt. The model preserves the timing and structure of the source while changing genre, instrumentation, or feel.
+          </p>
           <div className="space-y-4 mb-8">
-            {guideContent.imageWorkflow.map((step, i) => (
+            {guideContent.audioToAudioWorkflow.map((step, i) => (
               <div key={i} className="surface-card flex gap-6 items-start">
                 <span className="text-2xl font-black text-cyan-500 leading-none">
                   {String(i + 1).padStart(2, "0")}
@@ -265,14 +309,36 @@ export default function GuidePage() {
           <div className="p-6 rounded-2xl bg-orange-500/5 border border-orange-500/20 flex gap-4 items-start">
             <span className="text-xl">⚠️</span>
             <p className="text-orange-100/80 text-sm md:text-base leading-relaxed">
-              Don&apos;t ask for a completely different scene when using image-to-video mode. If your prompt introduces a new setting or character, the generator may reinterpret the image rather than animating it.
+              Only upload audio you have rights to use. Uploading copyrighted recordings, signed songs, or someone else&apos;s production without permission is not allowed under the Terms of Service.
             </p>
           </div>
         </section>
 
         <section className="mb-16">
           <h2 className="!text-3xl font-bold mb-8 text-white border-l-4 border-cyan-500 pl-4">
-            Step 4 — Choose the Right Settings
+            Step 4 — Audio Inpaint: Regenerate a Region
+          </h2>
+          <p className="text-slate-300 mb-8">
+            Audio Inpaint lets you select a region of an uploaded clip on the waveform and regenerate just that section. The rest of the clip stays untouched. Use it to fix a problem section, remove an unwanted sound, swap an instrument, or extend a loop.
+          </p>
+          <div className="space-y-4 mb-8">
+            {guideContent.inpaintWorkflow.map((step, i) => (
+              <div key={i} className="surface-card flex gap-6 items-start">
+                <span className="text-2xl font-black text-cyan-500 leading-none">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <div>
+                  <h4 className="text-lg font-bold text-white mb-2">{step.title}</h4>
+                  <p className="text-slate-400 text-sm md:text-base leading-relaxed">{step.body}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section className="mb-16">
+          <h2 className="!text-3xl font-bold mb-8 text-white border-l-4 border-cyan-500 pl-4">
+            Step 5 — Choose the Right Settings
           </h2>
           <div className="overflow-x-auto surface-card !p-0 border border-white/10">
             <table className="w-full text-left border-collapse min-w-[600px]">
@@ -298,11 +364,11 @@ export default function GuidePage() {
 
         <section className="mb-16">
           <h2 className="!text-3xl font-bold mb-8 text-white border-l-4 border-cyan-500 pl-4">
-            Step 5 — Camera Motion and Visual Language
+            Step 6 — Genre, Mood, and Production Vocabulary
           </h2>
-          <h3 className="text-xl font-bold mb-6">Camera Motion Reference</h3>
+          <h3 className="text-xl font-bold mb-6">Genre Vocabulary</h3>
           <div className="grid gap-4 sm:grid-cols-2 mb-12">
-            {guideContent.cameraTerms.map((item) => (
+            {guideContent.genreTerms.map((item) => (
               <div key={item.term} className="surface-card !p-5 border border-white/5 hover:border-cyan-500/30 transition-colors">
                 <strong className="block text-cyan-400 mb-1">{item.term}</strong>
                 <span className="text-sm text-slate-400">{item.definition}</span>
@@ -310,9 +376,9 @@ export default function GuidePage() {
             ))}
           </div>
 
-          <h3 className="text-xl font-bold mb-6">Lighting Words That Work</h3>
+          <h3 className="text-xl font-bold mb-6">Mood Words That Shape the Feel</h3>
           <div className="grid gap-4 sm:grid-cols-2">
-            {guideContent.lightingTerms.map((item) => (
+            {guideContent.moodTerms.map((item) => (
               <div key={item.term} className="surface-card !p-5 border border-white/5">
                 <strong className="block text-cyan-400 mb-1">{item.term}</strong>
                 <span className="text-sm text-slate-400">{item.definition}</span>
@@ -323,7 +389,7 @@ export default function GuidePage() {
 
         <section className="mb-16">
           <h2 className="!text-3xl font-bold mb-8 text-white border-l-4 border-cyan-500 pl-4">
-            Step 6 — How to Iterate for Better Results
+            Step 7 — How to Iterate for Better Results
           </h2>
           <div className="space-y-4 mb-8">
             {guideContent.iteration.map((step, i) => (
@@ -371,12 +437,12 @@ export default function GuidePage() {
         </section>
 
         <section className="bg-slate-900 border border-cyan-500/30 rounded-3xl p-10 md:p-16 text-center shadow-2xl shadow-cyan-500/5">
-          <h2 className="!text-3xl md:!text-4xl font-black mb-4 !mt-0">Ready to Generate Your First Video?</h2>
+          <h2 className="!text-3xl md:!text-4xl font-black mb-4 !mt-0">Ready to Generate Your First Audio Clip?</h2>
           <p className="text-slate-400 mb-10 max-w-xl mx-auto text-lg leading-relaxed">
-            Open the Stable Audio 3 AI Audio Generator and start creating cinematic clips from text or images — free, no installation required.
+            Open the Stable Audio 3 AI Audio Generator and start creating music, ambient, or SFX from a text prompt — or edit and inpaint existing audio.
           </p>
-          <Link 
-            className="button-primary !py-4 !px-12 !h-auto !text-lg !rounded-xl" 
+          <Link
+            className="button-primary !py-4 !px-12 !h-auto !text-lg !rounded-xl"
             href="/stable-audio-3"
           >
             Start Generating Free →

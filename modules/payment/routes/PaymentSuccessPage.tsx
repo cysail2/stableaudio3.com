@@ -10,7 +10,7 @@ export function PaymentSuccessPage() {
         <h2 className="text-2xl font-semibold text-white">You can return to the generator</h2>
         <p className="mt-3 text-slate-400">If your balance does not update immediately, refresh your account page after a few seconds.</p>
         <a className="button-primary mt-6" href="/stable-audio-3">
-          Create a Video
+          Create Audio
         </a>
       </div>
     </main>

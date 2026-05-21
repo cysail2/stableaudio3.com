@@ -10,33 +10,32 @@ import { toolContent } from "@/project/content/tool";
 
 export const metadata: Metadata = {
   title: {
-    absolute: "Stable Audio 3 AI Audio Generator - Text & Image to Video",
+    absolute: "Stable Audio 3 AI Audio Generator - Text, A2A, Inpaint",
   },
   description:
-    "Use Stable Audio 3 AI Audio Generator online. No ComfyUI or install needed. Turn text prompts or images into cinematic AI video clips in your browser today.",
+    "Use Stable Audio 3 AI Audio Generator online to create music, ambient beds, and SFX from text — or edit and inpaint existing audio. Browser-based, free to try.",
   keywords: [
     "Stable Audio 3 AI Audio Generator",
-    "text to video",
-    "image to video",
-    "AI video generator",
-    "cinematic video tool",
-    "realistic motion",
+    "text to audio",
+    "audio to audio",
+    "audio inpaint",
+    "AI music generator",
   ],
   alternates: {
     canonical: `${siteConfig.url}/stable-audio-3`,
   },
   openGraph: {
-    title: "Stable Audio 3 AI Audio Generator - Text & Image to Video",
+    title: "Stable Audio 3 AI Audio Generator - Text, A2A, Inpaint",
     description:
-      "Use Stable Audio 3 AI Audio Generator online. No ComfyUI or install needed. Turn text prompts or images into cinematic AI video clips in your browser today.",
+      "Use Stable Audio 3 AI Audio Generator online to create music, ambient beds, and SFX from text — or edit and inpaint existing audio. Browser-based, free to try.",
     url: `${siteConfig.url}/stable-audio-3`,
     images: ["/og/stable-audio-3.webp"],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Stable Audio 3 AI Audio Generator - Text & Image to Video",
+    title: "Stable Audio 3 AI Audio Generator - Text, A2A, Inpaint",
     description:
-      "Use Stable Audio 3 AI Audio Generator online. No ComfyUI or install needed. Turn text prompts or images into cinematic AI video clips in your browser today.",
+      "Use Stable Audio 3 AI Audio Generator online to create music, ambient beds, and SFX from text — or edit and inpaint existing audio. Browser-based, free to try.",
     images: ["/og/stable-audio-3.webp"],
   },
 };
@@ -130,6 +129,7 @@ export default function ToolPage() {
         </div>
       </section>
 
+      {/* First H2 section after hero — mandatory homepage internal link per CONTENT_GUIDE.md */}
       <section className="section section-compact relative">
         <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-64 h-64 bg-cyan-500/10 blur-[120px] -z-10" />
 
@@ -140,19 +140,29 @@ export default function ToolPage() {
               Stable Audio 3 Overview
             </p>
             <h2 className="text-4xl md:text-6xl font-black mb-10 leading-[1.1] tracking-tight">
-              What Is <span className="text-cyan-400">Stable Audio 3</span> <br />AI Video Generator?
+              What Is <span className="text-cyan-400">Stable Audio 3</span> <br />AI Audio Generator?
             </h2>
             <div className="space-y-6">
               <div className="group relative p-8 rounded-3xl bg-slate-900/30 border border-white/5 hover:border-cyan-500/20 transition-all duration-300">
                 <div className="absolute top-0 left-0 w-1 h-0 group-hover:h-full bg-cyan-500/40 transition-all duration-500 rounded-full" />
                 <p className="text-xl text-slate-300 leading-relaxed opacity-90 group-hover:opacity-100 transition-opacity">
-                  Stable Audio 3 AI Audio Generator is an online tool for creating short cinematic videos from text prompts or still images. It is built around the Stable Audio 3 model, an LTX 2.3 based video generation model designed for text-to-video, image-to-video, and cinematic motion workflows.
+                  <Link className="text-cyan-300 underline decoration-cyan-500/40 underline-offset-4 hover:decoration-cyan-400" href="/">
+                    Stable Audio 3
+                  </Link>{" "}
+                  AI Audio Generator is an online tool for creating short audio clips from text
+                  prompts or editing existing audio files. It is built around the open-weight
+                  Stable Audio 3 model family from Stability AI, with three modes available in
+                  the same browser workflow: Text-to-Audio, Audio-to-Audio editing, and Audio
+                  Inpaint.
                 </p>
               </div>
               <div className="group relative p-8 rounded-3xl bg-slate-900/30 border border-white/5 hover:border-cyan-500/20 transition-all duration-300">
                 <div className="absolute top-0 left-0 w-1 h-0 group-hover:h-full bg-cyan-500/40 transition-all duration-500 rounded-full" />
                 <p className="text-xl text-slate-300 leading-relaxed opacity-90 group-hover:opacity-100 transition-opacity">
-                  Instead of setting up ComfyUI, downloading model weights, or using a high-end local GPU, you can use Stable Audio 3 directly in your browser. Write a prompt, upload an image, choose your settings, then preview and download your generated video online.
+                  Instead of downloading model weights or setting up a local inference stack,
+                  you can use Stable Audio 3 directly in your browser. Write a prompt, optionally
+                  upload an audio file, choose a mode and length, generate, preview the waveform,
+                  and download.
                 </p>
               </div>
             </div>
@@ -170,27 +180,29 @@ export default function ToolPage() {
         </div>
       </section>
 
+      {/* Mode 1: Text-to-Audio */}
       <section className="section section-compact">
         <div className="tool-section-shell tool-section-shell-cyan">
           <div className="tool-section-heading-row">
             <div className="max-w-2xl">
               <p className="eyebrow inline-flex items-center gap-2 mb-6">
                 <span className="w-8 h-px bg-cyan-500/50" />
-                Text-to-Video Generation
+                Mode 1 · Text-to-Audio
               </p>
-              <h2 className="text-4xl md:text-5xl font-black mb-6 tracking-tight">Turn Text Prompts into <br />Cinematic AI Videos</h2>
-              <p className="text-xl text-slate-400 leading-relaxed">
-                Stable Audio 3 AI Audio Generator turns simple text prompts into short cinematic videos. Write a scene description, then guide the result with subject details, action, camera movement, lighting, mood, and visual style.
-              </p>
+              <h2 className="text-4xl md:text-5xl font-black mb-6 tracking-tight">{toolContent.sections.t2a.title}</h2>
+              <p className="text-xl text-slate-400 leading-relaxed">{toolContent.sections.t2a.body}</p>
               <p className="mt-6 text-lg text-slate-400 leading-relaxed">
-                The clearer your prompt, the easier it is for Stable Audio 3 to understand the shot you want to create.
+                Stronger prompts read like compact production briefs: genre, instruments, mood,
+                tempo, and a production style cue.
               </p>
             </div>
             <div className="tool-highlight-panel shrink-0 max-w-sm">
               <div className="absolute top-0 right-0 w-16 h-16 bg-cyan-500/10 blur-2xl -mr-8 -mt-8" />
               <p className="relative z-10 text-sm text-slate-300 leading-relaxed">
                 <strong className="text-cyan-400 block mb-2 uppercase tracking-[0.2em] text-[10px] font-black">Pro Tip</strong>
-                Put the most important visual details first. Start with the subject and action, then add camera motion, lighting, environment, and style. This helps Stable Audio 3 understand the scene before applying the final look.
+                Put genre + instruments first. Add tempo (BPM) and key when the use case has a
+                sync target. Production style cues like &quot;warm tape&quot; or &quot;lo-fi vinyl crackle&quot; make
+                the result feel intentional instead of generic.
               </p>
             </div>
           </div>
@@ -200,32 +212,32 @@ export default function ToolPage() {
             <div className="relative z-10">
               <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-[10px] font-black tracking-[0.3em] text-cyan-400 uppercase mb-8">
                 <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
-                Prompt Formula Example
+                Prompt Example
               </div>
               <div className="text-slate-500 text-xs font-black tracking-[0.2em] uppercase mb-4 opacity-40">
-                Product Commercial Prompt
+                {toolContent.sections.t2a.example.category}
               </div>
               <p className="text-base md:text-lg text-slate-100 leading-8 md:leading-9 font-medium tracking-normal italic max-w-4xl">
-                &quot;A luxury ceramic coffee cup on a dark slate surface, steam rising slowly, soft studio backlight with warm rim glow, slow dolly-in camera movement, shallow depth of field, premium lifestyle commercial style, minimal background, realistic condensation texture.&quot;
+                &quot;{toolContent.sections.t2a.example.prompt}&quot;
               </p>
             </div>
           </div>
         </div>
       </section>
 
+      {/* Mode 2: Audio-to-Audio */}
       <section className="section section-compact">
         <div className="tool-section-shell tool-section-shell-orange">
           <p className="eyebrow inline-flex items-center gap-2 mb-6">
             <span className="w-8 h-px bg-orange-500/50" />
-            Image-to-Video Animation
+            Mode 2 · Audio-to-Audio
           </p>
           <div className="max-w-2xl mb-12">
-            <h2 className="text-4xl md:text-5xl font-black mb-6 tracking-tight">Animate Images with <br />Stable Audio 3 AI Audio Generator</h2>
-            <p className="text-xl text-slate-400 leading-relaxed">
-              Stable Audio 3 AI Audio Generator lets you upload a reference image and turn it into a moving video clip. Describe how the subject, camera, lighting, or background should move, and Stable Audio 3 will use your image as the visual starting point.
-            </p>
+            <h2 className="text-4xl md:text-5xl font-black mb-6 tracking-tight">{toolContent.sections.a2a.title}</h2>
+            <p className="text-xl text-slate-400 leading-relaxed">{toolContent.sections.a2a.body}</p>
             <p className="mt-6 text-lg text-slate-400 leading-relaxed">
-              For better image-to-video results, keep the motion instructions clear and controlled. Try prompts such as slow camera push-in, orbit movement, light sweep, subtle product rotation, natural hair movement, or gentle background motion.
+              Upload an MP3, WAV, or FLAC clip. Describe the transformation. The clearer the
+              change description, the cleaner the result.
             </p>
           </div>
 
@@ -234,70 +246,71 @@ export default function ToolPage() {
             <div className="relative z-10">
               <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-orange-500/10 border border-orange-500/20 text-[10px] font-black tracking-[0.3em] text-orange-400 uppercase mb-8">
                 <span className="w-2 h-2 rounded-full bg-orange-400 animate-pulse"></span>
-                Image Animation Prompt
+                Transformation Prompt
               </div>
               <div className="text-slate-500 text-xs font-black tracking-[0.2em] uppercase mb-4 opacity-40">
-                {toolContent.sections.i2v.example.category}
+                {toolContent.sections.a2a.example.category}
               </div>
               <p className="text-base md:text-lg text-slate-100 leading-8 md:leading-9 font-medium tracking-normal italic max-w-4xl">
-                &quot;{toolContent.sections.i2v.example.prompt}&quot;
+                &quot;{toolContent.sections.a2a.example.prompt}&quot;
               </p>
             </div>
           </div>
         </div>
       </section>
 
+      {/* Mode 3: Audio Inpaint */}
+      <section className="section section-compact">
+        <div className="tool-section-shell tool-section-shell-cyan">
+          <p className="eyebrow inline-flex items-center gap-2 mb-6">
+            <span className="w-8 h-px bg-cyan-500/50" />
+            Mode 3 · Audio Inpaint
+          </p>
+          <div className="max-w-2xl mb-12">
+            <h2 className="text-4xl md:text-5xl font-black mb-6 tracking-tight">{toolContent.sections.inpaint.title}</h2>
+            <p className="text-xl text-slate-400 leading-relaxed">{toolContent.sections.inpaint.body}</p>
+            <p className="mt-6 text-lg text-slate-400 leading-relaxed">
+              Inpaint works best on focused regions — a few bars, a specific transition, a single
+              SFX swap. Asking the model to regenerate most of the clip loses context with the
+              rest.
+            </p>
+          </div>
+
+          <div className="tool-prompt-shell border-cyan-500/20">
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(34,211,238,0.08),transparent_70%)]" />
+            <div className="relative z-10">
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-[10px] font-black tracking-[0.3em] text-cyan-400 uppercase mb-8">
+                <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
+                Inpaint Prompt
+              </div>
+              <div className="text-slate-500 text-xs font-black tracking-[0.2em] uppercase mb-4 opacity-40">
+                {toolContent.sections.inpaint.example.category}
+              </div>
+              <p className="text-base md:text-lg text-slate-100 leading-8 md:leading-9 font-medium tracking-normal italic max-w-4xl">
+                &quot;{toolContent.sections.inpaint.example.prompt}&quot;
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Use cases */}
       <section className="section section-compact relative">
         <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-blue-500/5 blur-[150px] -z-10" />
         <div className="text-center mb-16">
           <p className="eyebrow inline-flex items-center gap-2 mb-4 justify-center">
             <span className="w-8 h-px bg-cyan-500/50" />
-            Capabilities
+            Use Cases
           </p>
-          <h2 className="text-4xl md:text-6xl font-black mb-6 tracking-tight">What You Can Create with Stable Audio 3 AI Audio Generator</h2>
+          <h2 className="text-4xl md:text-6xl font-black mb-6 tracking-tight">What You Can Create with Stable Audio 3</h2>
           <p className="text-xl text-slate-400 max-w-2xl mx-auto leading-relaxed">
-            Stable Audio 3 AI Audio Generator helps you create short cinematic videos with realistic motion, clean lighting, and flexible styles for marketing, social content, and creative work.
+            Stable Audio 3 helps you create short audio clips for music, podcasts, video soundtracks,
+            game audio, social media, and ambient streaming — all from prompts or by editing existing
+            audio.
           </p>
         </div>
         <div className="tool-feature-grid">
-          {[
-            {
-              icon: "🛍️",
-              title: "Product Videos and E-commerce",
-              description:
-                "Turn product photos into short videos with smooth camera motion, slow orbit shots, dolly-ins, and lighting sweeps. Great for product pages, online stores, launches, and social promotion.",
-            },
-            {
-              icon: "📱",
-              title: "Social Media Clips",
-              description:
-                "Create short vertical videos for TikTok, Instagram Reels, and YouTube Shorts. Test fast visual hooks, product moments, and creative ideas without filming or editing software.",
-            },
-            {
-              icon: "🎬",
-              title: "Pre-Production and Storyboarding",
-              description:
-                "Explore cinematic shots, camera angles, scene mood, and pacing before full production. Generate multiple visual directions quickly and use them as early storyboard references.",
-            },
-            {
-              icon: "📣",
-              title: "Ad Concepts and Campaign Tests",
-              description:
-                "Create AI video concepts for ads, landing pages, and campaign reviews. Test different tones, product framing, and creative directions before investing in full production.",
-            },
-            {
-              icon: "🏗️",
-              title: "Architecture and Interior Visualization",
-              description:
-                "Animate architectural renders and interior images with walkthrough-style camera motion. Show how a room, layout, or space could feel before it is built.",
-            },
-            {
-              icon: "🎨",
-              title: "Concept Art and Creative Direction",
-              description:
-                "Turn concept art into animated visual references. Use Stable Audio 3 to communicate mood, motion, style, and scene direction more clearly to clients or collaborators.",
-            },
-          ].map((item) => (
+          {toolContent.useCases.map((item) => (
             <div key={item.title} className="tool-feature-card group">
               <div className="absolute top-0 left-0 w-1 h-0 group-hover:h-full bg-cyan-500/40 transition-all duration-500 rounded-full" />
               <span className="text-4xl mb-6 block transform group-hover:scale-110 transition-transform duration-500">{item.icon}</span>
@@ -308,11 +321,12 @@ export default function ToolPage() {
         </div>
       </section>
 
+      {/* Settings */}
       <section className="section section-compact">
         <div className="text-center mb-16">
           <p className="eyebrow inline-flex items-center gap-2 mb-4 justify-center">
             <span className="w-8 h-px bg-cyan-500/50" />
-            Technical Guide
+            Generator Settings
           </p>
           <h2 className="text-4xl md:text-6xl font-black mb-6 tracking-tight">Settings Explained</h2>
         </div>
@@ -329,15 +343,19 @@ export default function ToolPage() {
         </div>
       </section>
 
+      {/* Online vs local comparison */}
       <section className="section section-compact">
         <div className="text-center mb-16">
           <p className="eyebrow inline-flex items-center gap-2 mb-4 justify-center">
             <span className="w-8 h-px bg-cyan-500/50" />
-            Comparison
+            Online vs Local
           </p>
-          <h2 className="text-4xl md:text-6xl font-black mb-6 tracking-tight">Online Stable Audio 3 vs Local Setup</h2>
+          <h2 className="text-4xl md:text-6xl font-black mb-6 tracking-tight">Online Stable Audio 3 vs Running Local Weights</h2>
           <p className="text-xl text-slate-400 max-w-2xl mx-auto leading-relaxed">
-            Use Stable Audio 3 online when you want to create videos quickly without installing tools or managing model files. Choose a local setup only if you are comfortable with ComfyUI, GPU requirements, and custom workflow configuration.
+            Use Stable Audio 3 online when you want to create audio quickly without installing tools
+            or managing model files. Choose local inference only if you are comfortable downloading
+            the open-weight Stable Audio 3 variants from Hugging Face and running them on your own
+            hardware.
           </p>
         </div>
         <div className="tool-table-shell">
@@ -347,23 +365,15 @@ export default function ToolPage() {
                 <tr className="border-b border-white/10 bg-white/5">
                   <th className="p-8 text-slate-500 font-black uppercase text-[10px] tracking-[0.3em]">Feature</th>
                   <th className="p-8 text-cyan-400 font-black uppercase text-[10px] tracking-[0.3em]">Stable Audio 3 Online</th>
-                  <th className="p-8 text-slate-500 font-black uppercase text-[10px] tracking-[0.3em]">Local Open-Source</th>
+                  <th className="p-8 text-slate-500 font-black uppercase text-[10px] tracking-[0.3em]">Local Open Weights</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-white/5">
-                {[
-                  { feature: "Setup", online: "Browser only", local: "ComfyUI + model files" },
-                  { feature: "Local GPU", online: "Not required", local: "High-VRAM GPU recommended" },
-                  { feature: "First Video", online: "Start in minutes", local: "Requires setup time" },
-                  { feature: "Text-to-Video", online: "Yes", local: "Yes" },
-                  { feature: "Image-to-Video", online: "Yes", local: "Yes" },
-                  { feature: "Best For", online: "Beginners, creators, marketers", local: "Advanced technical users" },
-                  { feature: "Workflow", online: "Simple prompt, settings, preview, download", local: "Custom nodes, files, and model management" },
-                ].map((row, i) => (
+                {toolContent.comparison.map((row, i) => (
                   <tr key={i} className="group hover:bg-white/[0.03] transition-colors">
                     <td className="p-8 text-white font-black text-sm group-hover:text-cyan-400 transition-colors">{row.feature}</td>
-                    <td className="p-8 text-slate-300 text-sm">{row.online}</td>
-                    <td className="p-8 text-slate-400 text-sm">{row.local}</td>
+                    <td className="p-8 text-slate-300 text-sm">{typeof row.online === "string" ? row.online : row.onlineText}</td>
+                    <td className="p-8 text-slate-400 text-sm">{typeof row.local === "string" ? row.local : row.localText}</td>
                   </tr>
                 ))}
               </tbody>
@@ -372,23 +382,26 @@ export default function ToolPage() {
         </div>
       </section>
 
+      {/* Pricing */}
       <section className="section section-compact scroll-mt-28" id="stable-audio-pricing-plans">
         <div className="section-heading !mb-8">
           <p className="eyebrow">Credit Plans</p>
           <h2>Choose a Stable Audio 3 Credit Pack</h2>
           <p>
-            Buy credits only when you need more generations. Credits work for both Text to Video and Image to Video on this page.
+            Buy credits only when you need more generations. Credits work for all three modes — Text-to-Audio, Audio-to-Audio, and Audio Inpaint.
           </p>
         </div>
         <PricingCards />
       </section>
 
+      {/* FAQ */}
       <section className="section">
         <div className="tool-faq-shell">
           <StableAudioFAQ items={toolContent.faq} />
         </div>
       </section>
 
+      {/* Final CTA */}
       <section className="section section-compact pt-0">
         <div className="tool-cta-shell">
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-[radial-gradient(circle_at_50%_0%,rgba(34,211,238,0.12),transparent_70%)]" />
@@ -397,16 +410,25 @@ export default function ToolPage() {
               <span className="w-8 h-px bg-cyan-500/50" />
               Get Started
             </p>
-            <h2 className="text-4xl md:text-7xl font-black mb-8 leading-tight tracking-tighter">Create Your First AI Video with Stable Audio 3</h2>
+            <h2 className="text-4xl md:text-7xl font-black mb-8 leading-tight tracking-tighter">Create Your First Audio Clip with Stable Audio 3</h2>
             <p className="text-xl text-slate-400 mb-12 max-w-2xl mx-auto leading-relaxed">
-              Use Stable Audio 3 AI Audio Generator to turn a prompt or image into a cinematic video clip online. Start free in your browser.
+              Use Stable Audio 3 AI Audio Generator to turn a prompt into music, ambient bed, or
+              SFX — or upload an audio file to edit and inpaint. Start free in your browser.
             </p>
-            <Link
-              className="button-primary !py-5 !px-16 !h-auto !text-xl !rounded-2xl shadow-2xl shadow-white/5"
-              href="/stable-audio-3"
-            >
-              Start Generating Free
-            </Link>
+            <div className="flex flex-col items-center justify-center gap-3 sm:flex-row">
+              <Link
+                className="button-primary !py-5 !px-12 !h-auto !text-lg !rounded-2xl shadow-2xl shadow-white/5"
+                href="/pricing"
+              >
+                Compare Credit Packs
+              </Link>
+              <Link
+                className="button-secondary !py-5 !px-12 !h-auto !text-lg !rounded-2xl"
+                href="/how-to-use-stable-audio-3"
+              >
+                Read Prompt Guide
+              </Link>
+            </div>
           </div>
         </div>
       </section>

@@ -108,12 +108,12 @@ export function LibraryPage() {
       <main className="section">
         <div className="section-heading">
           <p className="eyebrow">Library</p>
-          <h1>Your Video Library</h1>
+          <h1>Your Audio Library</h1>
           <p>Sign in to see every Stable Audio 3 generation tied to your account.</p>
         </div>
         <div className="surface-card mx-auto max-w-xl text-center">
           <h2 className="text-2xl font-semibold text-white">Sign in to view your library</h2>
-          <p className="mt-3 text-slate-400">Generated videos are saved to the account that created them.</p>
+          <p className="mt-3 text-slate-400">Generated audio is saved to the account that created it.</p>
           <button
             className="button-primary mt-6"
             onClick={() => openSignIn({ forceRedirectUrl: "/library" })}
@@ -130,7 +130,7 @@ export function LibraryPage() {
     <main className="section">
       <div className="section-heading">
         <p className="eyebrow">Library</p>
-        <h1>Your Video Library</h1>
+        <h1>Your Audio Library</h1>
         <p>Review every Stable Audio 3 generation tied to your account.</p>
       </div>
 
@@ -162,9 +162,9 @@ export function LibraryPage() {
 
         {status === "loaded" && items.length === 0 ? (
           <div className="surface-card mx-auto max-w-2xl text-center">
-            <h2 className="text-2xl font-semibold text-white">No videos yet</h2>
+            <h2 className="text-2xl font-semibold text-white">No audio yet</h2>
             <p className="mt-3 text-slate-400">
-              Create your first Stable Audio 3 video from the generator page.
+              Create your first Stable Audio 3 audio clip from the generator page.
             </p>
             <a className="button-primary mt-6 inline-flex" href="/stable-audio-3">
               Open the generator
@@ -281,7 +281,7 @@ export function LibraryPage() {
           role="dialog"
         >
           <div className="surface-card w-full max-w-md">
-            <h2 className="text-xl font-semibold text-white">Delete this video?</h2>
+            <h2 className="text-xl font-semibold text-white">Delete this generation?</h2>
             <p className="mt-2 text-sm text-slate-400">
               This permanently removes the generation from your library. This action cannot be undone.
             </p>

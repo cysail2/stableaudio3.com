@@ -9,7 +9,7 @@ import {
   useState,
   type ReactNode,
 } from "react";
-import { checkStableAudioVideoTaskStatus } from "@/modules/api/services/stable-audio";
+import { checkStableAudioTaskStatus } from "@/modules/api/services/stable-audio";
 import { useUserInfo } from "@/modules/user/providers/UserProvider";
 
 export type GenerationTaskStatus = "pending" | "success" | "failed";
@@ -22,6 +22,7 @@ export type GenerationTask = {
   updatedAt: number;
   status: GenerationTaskStatus;
   statusMsg?: string;
+  outputUrl?: string;
   videoUrl?: string;
   isLocalPending?: boolean;
 };
@@ -125,12 +126,13 @@ export function TaskCenterProvider({ children }: { children: ReactNode }) {
       await Promise.all(
         pendingTasks.map(async (task) => {
           try {
-            const result = await checkStableAudioVideoTaskStatus(task.taskId);
+            const result = await checkStableAudioTaskStatus(task.taskId);
             if (result.status === 1) {
               updateTask(task.taskId, {
                 status: "success",
                 statusMsg: result.statusMsg || "Completed",
-                videoUrl: result.videoUrl,
+                outputUrl: result.outputUrl,
+                videoUrl: result.outputUrl,
               });
             } else if (result.status === -1) {
               updateTask(task.taskId, {
@@ -140,7 +142,7 @@ export function TaskCenterProvider({ children }: { children: ReactNode }) {
             } else {
               updateTask(task.taskId, {
                 status: "pending",
-                statusMsg: result.statusMsg || "Generating video...",
+                statusMsg: result.statusMsg || "Generating audio...",
               });
             }
           } catch (error) {

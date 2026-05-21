@@ -17,7 +17,7 @@ export function AccountPage() {
         <div className="surface-card mx-auto max-w-xl text-center">
           <h2 className="text-2xl font-semibold text-white">Sign in to continue</h2>
           <p className="mt-3 text-slate-400">
-            Your free credits, purchased credits, and generated videos are tied to your account.
+            Your free credits, purchased credits, and generated audio are tied to your account.
           </p>
           <button
             className="button-primary mt-6"
@@ -134,7 +134,7 @@ export function AccountPage() {
             <button className="button-secondary min-h-10 px-4 text-sm" onClick={() => void signOut()} type="button">
               Sign out of this device
             </button>
-            <a className="button-secondary min-h-10 px-4 text-sm text-rose-200 hover:border-rose-300/70" href="mailto:support@stableaudio3.com?subject=Delete%20my%20Sulphur%202%20account">
+            <a className="button-secondary min-h-10 px-4 text-sm text-rose-200 hover:border-rose-300/70" href="mailto:support@stableaudio3.com?subject=Delete%20my%20Stable%20Audio%203%20account">
               Request account deletion
             </a>
           </div>

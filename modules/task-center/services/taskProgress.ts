@@ -24,7 +24,7 @@ export const getTaskProgressStage = (task: TaskProgressInput) => {
   const progress = getEstimatedTaskProgress(task);
   if (progress < 18) return "Preparing generation";
   if (progress < 45) return "Queuing render";
-  if (progress < 75) return "Rendering motion";
+  if (progress < 75) return "Rendering audio";
   return "Finalizing output";
 };
 
@@ -34,7 +34,7 @@ export const getTaskProgressHint = (task: TaskProgressInput) => {
 
   const elapsedSec = Math.max(0, (Date.now() - task.createdAt) / 1000);
   if (elapsedSec >= 30) {
-    return "Video generation usually takes about 2 minutes. You can keep this running in the background.";
+    return "Audio generation can take a couple of minutes. You can keep this running in the background.";
   }
-  return "Your request is in progress. The preview will update when the video is ready.";
+  return "Your request is in progress. The preview will update when the audio is ready.";
 };

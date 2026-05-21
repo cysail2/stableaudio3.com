@@ -5,5 +5,5 @@ export const runtime = "nodejs";
 
 export async function POST(request: NextRequest) {
   const body = await request.json();
-  return postUpstreamJson(request, upstreamPaths.text, body);
+  return postUpstreamJson(request, upstreamPaths.audioOutpaint, body);
 }

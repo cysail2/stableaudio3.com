@@ -8,31 +8,33 @@ import { siteConfig } from "@/project/config/site";
 import { pricingContent } from "@/project/content/pricing";
 
 export const metadata: Metadata = {
-  title: "Stable Audio 3 Pricing and Credit Plans",
+  title: {
+    absolute: "Stable Audio 3 Pricing - AI Audio Credits",
+  },
   description:
-    "Start with 50 free credits, then compare Stable Audio 3 pricing and credit plans for prompt testing, variations, and ongoing AI video workflows.",
+    "Compare Stable Audio 3 pricing plans, audio generation credits, and free signup credits for text-to-audio, editing, and inpainting workflows online today.",
   keywords: [
     "Stable Audio 3 pricing",
-    "AI video credits",
-    "video generation pricing",
+    "AI audio credits",
+    "audio generation pricing",
     "Stable Audio 3 credits",
-    "AI video generator plans",
+    "AI music generator plans",
   ],
   alternates: {
     canonical: `${siteConfig.url}/pricing`,
   },
   openGraph: {
-    title: "Stable Audio 3 Pricing and Credit Plans",
+    title: "Stable Audio 3 Pricing - AI Audio Credits",
     description:
-      "Start with 50 free credits, then compare Stable Audio 3 pricing and credit plans for prompt testing, variations, and ongoing AI video workflows.",
+      "Compare Stable Audio 3 pricing plans, audio generation credits, and free signup credits for text-to-audio, editing, and inpainting workflows online today.",
     url: `${siteConfig.url}/pricing`,
     images: ["/og/pricing.webp"],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Stable Audio 3 Pricing and Credit Plans",
+    title: "Stable Audio 3 Pricing - AI Audio Credits",
     description:
-      "Start with 50 free credits, then compare Stable Audio 3 pricing and credit plans for prompt testing, variations, and ongoing AI video workflows.",
+      "Compare Stable Audio 3 pricing plans, audio generation credits, and free signup credits for text-to-audio, editing, and inpainting workflows online today.",
     images: ["/og/pricing.webp"],
   },
 };
@@ -92,7 +94,7 @@ const pricingPageSchema = {
   "@type": "CollectionPage",
   "@id": `${siteConfig.url}/pricing#webpage`,
   url: `${siteConfig.url}/pricing`,
-  name: "Stable Audio 3 Pricing and Credit Plans",
+  name: "Stable Audio 3 Pricing - AI Audio Credits",
   description: metadata.description,
   isPartOf: {
     "@id": `${siteConfig.url}#website`,
@@ -134,12 +136,34 @@ export default function PricingPage() {
       <section className="section pricing-hero">
         <div className="section-heading">
           <p className="eyebrow">PRICING</p>
-          <h1>Stable Audio 3 Pricing and Credit Plans</h1>
+          <h1>Stable Audio 3 Pricing</h1>
           <p>
-            Start with {generatorCreditRules.signupCredits} free credits and create your first 5-second 720p test video. Stable Audio 3 uses simple video credits, so you can test prompts, generate variations, and buy more credits only when you need them.
+            Start with {generatorCreditRules.signupCredits} free credits, then choose a credit pack that fits your AI audio workflow.
           </p>
           <p className="trust-note">
-            No subscription required. Choose a plan based on how often you create.
+            One short generation is enough to test Text-to-Audio, Audio-to-Audio, or Audio Inpaint before buying.
+          </p>
+        </div>
+      </section>
+
+      <section className="section split-panel">
+        <div>
+          <p className="eyebrow">Credit System</p>
+          <h2>Simple Credits for AI Audio Generation</h2>
+        </div>
+        <div className="space-y-5">
+          <p>
+            <Link className="text-cyan-300 underline decoration-cyan-500/40 underline-offset-4 hover:decoration-cyan-400" href="/">
+              Stable Audio 3
+            </Link>{" "}
+            {pricingContent.explainer[0]}
+          </p>
+          <p>
+            {pricingContent.explainer[1]} For better first attempts, use the{" "}
+            <Link className="text-cyan-300 underline decoration-cyan-500/40 underline-offset-4 hover:decoration-cyan-400" href="/how-to-use-stable-audio-3">
+              Stable Audio 3 prompt guide
+            </Link>{" "}
+            before spending larger credit packs on long outputs.
           </p>
         </div>
       </section>
@@ -148,7 +172,7 @@ export default function PricingPage() {
         <div className="section-heading !mb-8">
           <p className="eyebrow">Plans</p>
           <p>
-            Compare Stable Audio 3 credit packs for quick tests, prompt exploration, heavier iteration, and team workflows.
+            Compare Stable Audio 3 credit packs for quick tests, prompt exploration, heavier iteration, and team audio workflows.
           </p>
         </div>
         <PricingCards />
@@ -175,8 +199,8 @@ export default function PricingPage() {
 
       <section className="section final-cta pricing-final-cta">
         <p className="eyebrow">Start Free</p>
-        <h2>Try Stable Audio 3 Before You Buy</h2>
-        <p>Create your first Stable Audio 3 test video with free credits, then choose a credit plan when you are ready for more generations.</p>
+        <h2>Start with Free Credits</h2>
+        <p>Create your first Stable Audio 3 audio clip, then choose the credit plan that matches your workflow.</p>
         <Link className="button-primary" href="/stable-audio-3">
           Try Stable Audio 3 Free
         </Link>

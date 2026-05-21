@@ -1,37 +1,21 @@
 import { NextRequest, NextResponse } from "next/server";
+
 import { siteConfig } from "@/project/config/site";
 
-const UPSTREAM_BASE =
-  process.env.API_BASE || process.env.NEXT_PUBLIC_API_BASE || siteConfig.apiServiceUrl;
-const APP_ID =
-  process.env.APP_ID || process.env.NEXT_PUBLIC_APP_ID || siteConfig.appIdentifier;
+const GENERATION_UPSTREAM_BASE = process.env.ACE_STEP_API_BASE || "https://svc.grokimagineai.net";
+const APP_ID = process.env.APP_ID || process.env.SITE_APP_ID || siteConfig.appIdentifier;
 
 export const upstreamPaths = {
-  text: "/api/task/aliyun/wan2.7/text2video",
-  image: "/api/task/aliyun/wan2.7/image2video",
-  check: "/api/task/aliyun/wan2.7/check_task",
-  uploadImage: "/api/common/upload/aliyun_image_and_hk",
+  text: "/api/task/wp/ace-step/prompt-to-audio",
+  audioToAudio: "/api/task/wp/ace-step/audio-to-audio",
+  audioInpaint: "/api/task/wp/ace-step/audio-inpaint",
+  audioOutpaint: "/api/task/wp/ace-step/audio-outpaint",
+  check: "/api/task/wp/ace-step/check",
 } as const;
 
-type UploadedAsset = {
-  url: string;
-  hkUrl: string;
-};
-
-const isRecord = (value: unknown): value is Record<string, unknown> =>
-  !!value && typeof value === "object" && !Array.isArray(value);
-
-const pickFirstString = (value: unknown, keys: string[]) => {
-  if (!isRecord(value)) return undefined;
-  for (const key of keys) {
-    const candidate = value[key];
-    if (typeof candidate === "string" && candidate.trim()) return candidate.trim();
-  }
-  return undefined;
-};
-
-const proxyHeaders = (request: NextRequest) => {
+const jsonProxyHeaders = (request: NextRequest) => {
   const headers = new Headers();
+  headers.set("content-type", "application/json");
   headers.set("x-appid", request.headers.get("x-appid") || APP_ID);
 
   const authorization = request.headers.get("authorization");
@@ -40,7 +24,7 @@ const proxyHeaders = (request: NextRequest) => {
   return headers;
 };
 
-const upstreamUrl = (path: string) => `${UPSTREAM_BASE}${path}`;
+const generationUrl = (path: string) => `${GENERATION_UPSTREAM_BASE}${path}`;
 
 export const proxyUpstreamResponse = async (response: Response) => {
   const body = await response.text();
@@ -52,61 +36,21 @@ export const proxyUpstreamResponse = async (response: Response) => {
   });
 };
 
-export const postUpstreamForm = async (
-  request: NextRequest,
-  path: string,
-  formData: FormData,
-) => {
-  const response = await fetch(upstreamUrl(path), {
+export const postUpstreamJson = async (request: NextRequest, path: string, body: unknown) => {
+  const response = await fetch(generationUrl(path), {
     method: "POST",
-    headers: proxyHeaders(request),
-    body: formData,
+    headers: jsonProxyHeaders(request),
+    body: JSON.stringify(body),
   });
   return proxyUpstreamResponse(response);
 };
 
 export const getUpstreamJson = async (request: NextRequest, path: string) => {
-  const response = await fetch(upstreamUrl(path), {
+  const response = await fetch(generationUrl(path), {
     method: "GET",
-    headers: proxyHeaders(request),
+    headers: jsonProxyHeaders(request),
   });
   return proxyUpstreamResponse(response);
-};
-
-export const uploadImageAsset = async (
-  request: NextRequest,
-  file: File,
-): Promise<UploadedAsset> => {
-  const formData = new FormData();
-  formData.append("file", file);
-
-  const response = await fetch(upstreamUrl(upstreamPaths.uploadImage), {
-    method: "POST",
-    headers: proxyHeaders(request),
-    body: formData,
-  });
-
-  const result = await response.json();
-  if (!response.ok || (result.code && result.code !== 200)) {
-    throw new Error(result.message || result.msg || "Unable to upload image");
-  }
-
-  const payload = result.data ?? result;
-  if (typeof payload === "string" && payload.trim()) {
-    return { url: payload.trim(), hkUrl: payload.trim() };
-  }
-
-  const nestedPayload = isRecord(payload) ? payload.data : undefined;
-  const hkUrl =
-    pickFirstString(payload, ["hk_url", "hk_file_url", "hk_image_url", "hk_video_url"]) ||
-    pickFirstString(nestedPayload, ["hk_url", "hk_file_url", "hk_image_url", "hk_video_url"]);
-  const r3Url =
-    pickFirstString(payload, ["url", "file_url", "image_url", "video_url", "cdn_url", "r3_url"]) ||
-    pickFirstString(nestedPayload, ["url", "file_url", "image_url", "video_url", "cdn_url", "r3_url"]);
-  const url = hkUrl || r3Url;
-
-  if (!url) throw new Error("Upload succeeded but no image URL was returned.");
-  return { url, hkUrl: hkUrl || url };
 };
 
 export const errorResponse = (message: string, status = 400) =>

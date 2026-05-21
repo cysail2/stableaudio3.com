@@ -85,14 +85,14 @@ export function TaskCenterWidget() {
                 ) : task.statusMsg ? (
                   <p className="mt-2 text-xs text-slate-500">{task.statusMsg}</p>
                 ) : null}
-                {task.videoUrl ? (
+                {task.outputUrl || task.videoUrl ? (
                   <a
                     className="mt-3 inline-flex text-sm font-semibold text-cyan-200"
-                    href={task.videoUrl}
+                    href={task.outputUrl || task.videoUrl}
                     rel="noreferrer"
                     target="_blank"
                   >
-                    Open Video
+                    Open Output
                   </a>
                 ) : null}
               </article>
@@ -102,7 +102,7 @@ export function TaskCenterWidget() {
           <div className="rounded-2xl border border-white/10 bg-slate-950/70 p-8 text-center">
             <p className="text-lg font-semibold text-white">No generation tasks yet</p>
             <p className="mt-2 text-sm text-slate-400">
-              Submitted videos will appear here after you start a generation.
+              Submitted audio jobs will appear here after you start a generation.
             </p>
           </div>
         )}
