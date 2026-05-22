@@ -104,7 +104,11 @@ export function AuthButton() {
 
   if (!isSignedIn) {
     return (
-      <button className="button-primary min-h-10 px-4 text-sm" onClick={() => openSignIn()} type="button">
+      <button
+        className="button-primary !min-h-10 !rounded-xl !px-3 text-xs sm:!min-h-12 sm:!rounded-2xl sm:!px-5 sm:text-sm"
+        onClick={() => openSignIn()}
+        type="button"
+      >
         Sign In
       </button>
     );

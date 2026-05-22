@@ -265,13 +265,15 @@ export default function HomePage() {
         {/* Decorative background element */}
         <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-64 h-64 bg-violet-50 blur-[100px] -z-10" />
         
-        <div className="grid gap-12 lg:grid-cols-[1fr_1.5fr] items-start">
-          <div className="sticky top-24">
+        <div className="grid grid-cols-[minmax(0,1fr)] gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.5fr)] items-start">
+          {/* sticky only at lg+ where the grid is 2-col; on mobile single-col
+              sticky causes the eyebrow/H2/tags to float over the paragraph cards. */}
+          <div className="lg:sticky lg:top-24">
             <p className="eyebrow inline-flex items-center gap-2">
               <span className="w-8 h-px bg-violet-500" />
               {homeContent.intro.eyebrow}
             </p>
-            <h2 className="mt-4 !text-4xl md:!text-5xl lg:!text-6xl !leading-[1.1] font-bold tracking-tight">
+            <h2 className="mt-4 !text-2xl sm:!text-3xl md:!text-5xl lg:!text-6xl !leading-[1.15] font-bold tracking-tight">
               {homeContent.intro.title}
             </h2>
             <div className="mt-8 flex flex-wrap gap-3">
@@ -286,7 +288,7 @@ export default function HomePage() {
           <div className="space-y-6">
             {/* First H2 section paragraphs — mandatory homepage internal link
                 lives in paragraph 0; secondary internal links in paragraphs 1 + 2 */}
-            <div className="group relative p-6 rounded-2xl bg-slate-50 border border-slate-200 hover:border-violet-200 transition-all duration-300">
+            <div className="group relative p-5 sm:p-6 rounded-2xl bg-slate-50 border border-slate-200 hover:border-violet-200 transition-all duration-300">
               <p className="text-base md:text-lg leading-relaxed text-slate-700 opacity-90 group-hover:opacity-100 transition-opacity">
                 <Link
                   className="text-violet-700 underline decoration-violet-500/40 underline-offset-4 hover:decoration-violet-400"
@@ -298,12 +300,12 @@ export default function HomePage() {
                 {homeContent.intro.paragraphs[0]}
               </p>
             </div>
-            <div className="group relative p-6 rounded-2xl bg-slate-50 border border-slate-200 hover:border-violet-200 transition-all duration-300">
+            <div className="group relative p-5 sm:p-6 rounded-2xl bg-slate-50 border border-slate-200 hover:border-violet-200 transition-all duration-300">
               <p className="text-base md:text-lg leading-relaxed text-slate-700 opacity-90 group-hover:opacity-100 transition-opacity">
                 {homeContent.intro.paragraphs[1]}
               </p>
             </div>
-            <div className="group relative p-6 rounded-2xl bg-slate-50 border border-slate-200 hover:border-violet-200 transition-all duration-300">
+            <div className="group relative p-5 sm:p-6 rounded-2xl bg-slate-50 border border-slate-200 hover:border-violet-200 transition-all duration-300">
               <p className="text-base md:text-lg leading-relaxed text-slate-700 opacity-90 group-hover:opacity-100 transition-opacity">
                 {homeContent.intro.paragraphs[2]} Read the{" "}
                 <Link
@@ -339,7 +341,7 @@ export default function HomePage() {
       <section className="section section-compact relative">
         <div className="section-heading text-center !mb-8">
           <p className="eyebrow">Workflow</p>
-          <h2 className="!text-4xl md:!text-5xl font-bold">From Prompt to Audio in Four Steps</h2>
+          <h2 className="!text-2xl sm:!text-3xl md:!text-5xl font-bold !leading-[1.15]">From Prompt to Audio in Four Steps</h2>
           <p className="!mx-auto !max-w-3xl text-base md:text-lg opacity-80 leading-relaxed mt-4">
             {homeContent.workflowIntro}{" "}
             <Link

@@ -144,11 +144,11 @@ export default function GuidePage() {
       <SeoArticleShell toc={guideToc}>
       <article className="prose prose-slate max-w-none">
         <div className="text-center mb-16">
-          <h1 className="!text-4xl md:!text-6xl font-extrabold tracking-tight mb-6 !leading-[1.1]">
+          <h1 className="!text-3xl sm:!text-4xl md:!text-6xl font-extrabold tracking-tight mb-6 !leading-[1.1]">
             How to Use Stable Audio 3 AI Audio Generator
           </h1>
 
-          <p className="text-lg md:text-xl text-slate-600 mb-12 leading-relaxed italic max-w-3xl mx-auto">
+          <p className="text-base sm:text-lg md:text-xl text-slate-600 mb-12 leading-relaxed italic max-w-3xl mx-auto">
             {guideContent.hero.lead}
           </p>
         </div>
@@ -232,7 +232,7 @@ export default function GuidePage() {
 
         {/* First H2 section — mandatory homepage link per CONTENT_GUIDE.md */}
         <section className="mb-16">
-          <h2 className="!text-3xl font-bold mb-6 text-slate-900 border-l-4 border-violet-600 pl-4 !mt-0 scroll-mt-24" id="guide-intro">
+          <h2 className="!text-2xl sm:!text-3xl font-bold mb-6 text-slate-900 border-l-4 border-violet-600 pl-4 !mt-0 scroll-mt-24" id="guide-intro">
             {guideContent.intro.title}
           </h2>
           <p className="text-slate-700 leading-relaxed mb-4">
@@ -257,7 +257,7 @@ export default function GuidePage() {
         <hr className="border-slate-200 my-16" />
 
         <section className="mb-16">
-          <h2 className="!text-3xl font-bold mb-8 text-slate-900 border-l-4 border-violet-600 pl-4 scroll-mt-24" id="guide-onboarding">
+          <h2 className="!text-2xl sm:!text-3xl font-bold mb-6 sm:mb-8 text-slate-900 border-l-4 border-violet-600 pl-4 scroll-mt-24" id="guide-onboarding">
             Step 1 — Sign Up and Access the Generator
           </h2>
           <div className="space-y-4">
@@ -290,7 +290,7 @@ export default function GuidePage() {
         </section>
 
         <section className="mb-16">
-          <h2 className="!text-3xl font-bold mb-8 text-slate-900 border-l-4 border-violet-600 pl-4 scroll-mt-24" id="guide-text-to-audio">
+          <h2 className="!text-2xl sm:!text-3xl font-bold mb-6 sm:mb-8 text-slate-900 border-l-4 border-violet-600 pl-4 scroll-mt-24" id="guide-text-to-audio">
             Step 2 — Text-to-Audio: How It Works
           </h2>
           <p className="text-slate-700 mb-8">
@@ -328,7 +328,7 @@ export default function GuidePage() {
         </section>
 
         <section className="mb-16">
-          <h2 className="!text-3xl font-bold mb-8 text-slate-900 border-l-4 border-violet-600 pl-4 scroll-mt-24" id="guide-audio-to-audio">
+          <h2 className="!text-2xl sm:!text-3xl font-bold mb-6 sm:mb-8 text-slate-900 border-l-4 border-violet-600 pl-4 scroll-mt-24" id="guide-audio-to-audio">
             Step 3 — Audio-to-Audio: Transform an Existing Clip
           </h2>
           <p className="text-slate-700 mb-8">
@@ -356,7 +356,7 @@ export default function GuidePage() {
         </section>
 
         <section className="mb-16">
-          <h2 className="!text-3xl font-bold mb-8 text-slate-900 border-l-4 border-violet-600 pl-4 scroll-mt-24" id="guide-inpaint">
+          <h2 className="!text-2xl sm:!text-3xl font-bold mb-6 sm:mb-8 text-slate-900 border-l-4 border-violet-600 pl-4 scroll-mt-24" id="guide-inpaint">
             Step 4 — Audio Inpaint: Regenerate a Region
           </h2>
           <p className="text-slate-700 mb-8">
@@ -378,11 +378,11 @@ export default function GuidePage() {
         </section>
 
         <section className="mb-16">
-          <h2 className="!text-3xl font-bold mb-8 text-slate-900 border-l-4 border-violet-600 pl-4 scroll-mt-24" id="guide-settings">
+          <h2 className="!text-2xl sm:!text-3xl font-bold mb-6 sm:mb-8 text-slate-900 border-l-4 border-violet-600 pl-4 scroll-mt-24" id="guide-settings">
             Step 5 — Choose the Right Settings
           </h2>
           <div className="overflow-x-auto surface-card !p-0 border border-slate-200">
-            <table className="w-full text-left border-collapse min-w-[600px]">
+            <table className="w-full text-left border-collapse min-w-[480px] sm:min-w-[600px]">
               <thead>
                 <tr className="bg-slate-50">
                   <th className="p-4 text-violet-600 font-bold uppercase text-xs tracking-wider">Setting</th>
@@ -404,7 +404,7 @@ export default function GuidePage() {
         </section>
 
         <section className="mb-16">
-          <h2 className="!text-3xl font-bold mb-8 text-slate-900 border-l-4 border-violet-600 pl-4 scroll-mt-24" id="guide-vocabulary">
+          <h2 className="!text-2xl sm:!text-3xl font-bold mb-6 sm:mb-8 text-slate-900 border-l-4 border-violet-600 pl-4 scroll-mt-24" id="guide-vocabulary">
             Step 6 — Genre, Mood, and Production Vocabulary
           </h2>
           <h3 className="text-xl font-bold mb-6">Genre Vocabulary</h3>
@@ -429,7 +429,7 @@ export default function GuidePage() {
         </section>
 
         <section className="mb-16">
-          <h2 className="!text-3xl font-bold mb-8 text-slate-900 border-l-4 border-violet-600 pl-4 scroll-mt-24" id="guide-iteration">
+          <h2 className="!text-2xl sm:!text-3xl font-bold mb-6 sm:mb-8 text-slate-900 border-l-4 border-violet-600 pl-4 scroll-mt-24" id="guide-iteration">
             Step 7 — How to Iterate for Better Results
           </h2>
           <div className="space-y-4 mb-8">
@@ -448,11 +448,11 @@ export default function GuidePage() {
         </section>
 
         <section className="mb-16">
-          <h2 className="!text-3xl font-bold mb-8 text-slate-900 border-l-4 border-violet-600 pl-4 scroll-mt-24" id="guide-mistakes">
+          <h2 className="!text-2xl sm:!text-3xl font-bold mb-6 sm:mb-8 text-slate-900 border-l-4 border-violet-600 pl-4 scroll-mt-24" id="guide-mistakes">
             Common Mistakes and How to Fix Them
           </h2>
           <div className="overflow-x-auto surface-card !p-0 border border-slate-200">
-            <table className="w-full text-left border-collapse min-w-[600px]">
+            <table className="w-full text-left border-collapse min-w-[480px] sm:min-w-[600px]">
               <thead>
                 <tr className="bg-slate-50">
                   <th className="p-4 text-violet-600 font-bold uppercase text-xs tracking-wider">Problem</th>

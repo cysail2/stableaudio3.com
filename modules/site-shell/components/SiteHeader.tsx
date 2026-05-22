@@ -2,18 +2,24 @@ import Link from "next/link";
 import { isNavGroup, primaryNavigation, type NavGroup, type NavLink } from "@/project/config/navigation";
 import { siteConfig } from "@/project/config/site";
 import { AuthButton } from "@/modules/user/components/AuthButton";
+import { MobileNav } from "./MobileNav";
 import { SiteLogo } from "./SiteLogo";
 
 export function SiteHeader() {
   return (
     <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/85 backdrop-blur-xl">
-      <div className="mx-auto flex h-[76px] max-w-7xl items-center justify-between px-6 lg:px-8">
+      <div className="mx-auto flex h-[76px] max-w-7xl items-center justify-between gap-3 px-4 sm:px-6 lg:px-8">
         {/* Left cluster: logo immediately followed by nav links — keeps the
             page-header rhythm tight and contrasts with hero centered copy. */}
-        <div className="flex items-center gap-10">
-          <Link className="flex items-center gap-3" href="/" title="Stable Audio 3 home">
+        <div className="flex min-w-0 items-center gap-10">
+          <Link className="flex items-center gap-2.5 sm:gap-3" href="/" title="Stable Audio 3 home">
             <SiteLogo className="rounded-xl" size={40} variant="color" />
-            <span className="text-lg font-semibold text-slate-900">{siteConfig.name}</span>
+            {/* Hide brand text on mobile — signed-in users have TaskCenter + Credits +
+                Avatar + Hamburger on the right which leaves no room for "Stable Audio 3".
+                The logo icon alone is identifiable. */}
+            <span className="hidden text-base font-semibold text-slate-900 sm:inline sm:text-lg">
+              {siteConfig.name}
+            </span>
           </Link>
           <nav className="hidden items-center gap-7 text-sm font-medium text-slate-600 md:flex">
             {primaryNavigation.map((item) =>
@@ -27,7 +33,11 @@ export function SiteHeader() {
             )}
           </nav>
         </div>
-        <AuthButton />
+        <div className="flex items-center gap-2">
+          <AuthButton />
+          {/* Mobile-only hamburger + drawer */}
+          <MobileNav />
+        </div>
       </div>
     </header>
   );

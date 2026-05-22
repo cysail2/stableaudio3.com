@@ -134,17 +134,17 @@ export default function ToolPage() {
       <section className="section section-compact relative">
         <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-64 h-64 bg-violet-50 blur-[120px] -z-10" />
 
-        <div className="grid gap-12 lg:grid-cols-[1.15fr_0.85fr] items-start">
+        <div className="grid grid-cols-[minmax(0,1fr)] gap-12 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] items-start">
           <div>
             <p className="eyebrow inline-flex items-center gap-2 mb-6">
               <span className="w-8 h-px bg-violet-500" />
               Stable Audio 3 Overview
             </p>
-            <h2 className="text-4xl md:text-6xl font-black mb-10 leading-[1.1] tracking-tight">
+            <h2 className="text-2xl sm:text-3xl md:text-6xl font-black mb-10 leading-[1.1] tracking-tight">
               What Is <span className="text-violet-600">Stable Audio 3</span> <br />AI Audio Generator?
             </h2>
             <div className="space-y-6">
-              <div className="group relative p-8 rounded-3xl bg-slate-50 border border-slate-200 hover:border-violet-200 transition-all duration-300">
+              <div className="group relative p-5 sm:p-8 rounded-3xl bg-slate-50 border border-slate-200 hover:border-violet-200 transition-all duration-300">
                 <p className="text-xl text-slate-700 leading-relaxed opacity-90 group-hover:opacity-100 transition-opacity">
                   <Link
                     className="text-violet-700 underline decoration-violet-500/40 underline-offset-4 hover:decoration-violet-400"
@@ -160,7 +160,7 @@ export default function ToolPage() {
                   Inpaint.
                 </p>
               </div>
-              <div className="group relative p-8 rounded-3xl bg-slate-50 border border-slate-200 hover:border-violet-200 transition-all duration-300">
+              <div className="group relative p-5 sm:p-8 rounded-3xl bg-slate-50 border border-slate-200 hover:border-violet-200 transition-all duration-300">
                 <p className="text-xl text-slate-700 leading-relaxed opacity-90 group-hover:opacity-100 transition-opacity">
                   Instead of downloading model weights or setting up a local inference stack,
                   you can use Stable Audio 3 directly in your browser. Write a prompt, optionally
@@ -186,14 +186,14 @@ export default function ToolPage() {
       <section className="section section-compact">
         <div className="tool-section-shell tool-section-shell-cyan">
           <div className="tool-section-heading-row">
-            <div className="max-w-2xl">
+            <div className="min-w-0 max-w-2xl">
               <p className="eyebrow inline-flex items-center gap-2 mb-6">
                 <span className="w-8 h-px bg-violet-500" />
                 Mode 1 · Text-to-Audio
               </p>
-              <h2 className="text-4xl md:text-5xl font-black mb-6 tracking-tight">{toolContent.sections.t2a.title}</h2>
-              <p className="text-xl text-slate-600 leading-relaxed">{toolContent.sections.t2a.body}</p>
-              <p className="mt-6 text-lg text-slate-600 leading-relaxed">
+              <h2 className="text-2xl sm:text-3xl md:text-5xl font-black mb-6 tracking-tight">{toolContent.sections.t2a.title}</h2>
+              <p className="text-base sm:text-base sm:text-xl text-slate-600 leading-relaxed">{toolContent.sections.t2a.body}</p>
+              <p className="mt-6 text-sm sm:text-lg text-slate-600 leading-relaxed">
                 Stronger prompts read like compact production briefs: genre, instruments, mood,
                 tempo, and a production style cue. The{" "}
                 <Link
@@ -206,7 +206,7 @@ export default function ToolPage() {
                 has the full formula and ready-to-copy examples.
               </p>
             </div>
-            <div className="tool-highlight-panel shrink-0 max-w-sm">
+            <div className="tool-highlight-panel w-full max-w-full sm:shrink-0 sm:max-w-sm">
               <div className="absolute top-0 right-0 w-16 h-16 bg-violet-50 blur-2xl -mr-8 -mt-8" />
               <p className="relative z-10 text-sm text-slate-700 leading-relaxed">
                 <strong className="text-violet-600 block mb-2 uppercase tracking-[0.2em] text-[10px] font-black">Pro Tip</strong>
@@ -244,9 +244,9 @@ export default function ToolPage() {
             Mode 2 · Audio-to-Audio
           </p>
           <div className="max-w-2xl mb-12">
-            <h2 className="text-4xl md:text-5xl font-black mb-6 tracking-tight">{toolContent.sections.a2a.title}</h2>
-            <p className="text-xl text-slate-600 leading-relaxed">{toolContent.sections.a2a.body}</p>
-            <p className="mt-6 text-lg text-slate-600 leading-relaxed">
+            <h2 className="text-2xl sm:text-3xl md:text-5xl font-black mb-6 tracking-tight">{toolContent.sections.a2a.title}</h2>
+            <p className="text-base sm:text-xl text-slate-600 leading-relaxed">{toolContent.sections.a2a.body}</p>
+            <p className="mt-6 text-sm sm:text-lg text-slate-600 leading-relaxed">
               Upload an MP3, WAV, or FLAC clip. Describe the transformation. The clearer the
               change description, the cleaner the result.
             </p>
@@ -279,9 +279,9 @@ export default function ToolPage() {
             Mode 3 · Audio Inpaint
           </p>
           <div className="max-w-2xl mb-12">
-            <h2 className="text-4xl md:text-5xl font-black mb-6 tracking-tight">{toolContent.sections.inpaint.title}</h2>
-            <p className="text-xl text-slate-600 leading-relaxed">{toolContent.sections.inpaint.body}</p>
-            <p className="mt-6 text-lg text-slate-600 leading-relaxed">
+            <h2 className="text-2xl sm:text-3xl md:text-5xl font-black mb-6 tracking-tight">{toolContent.sections.inpaint.title}</h2>
+            <p className="text-base sm:text-xl text-slate-600 leading-relaxed">{toolContent.sections.inpaint.body}</p>
+            <p className="mt-6 text-sm sm:text-lg text-slate-600 leading-relaxed">
               Inpaint works best on focused regions — a few bars, a specific transition, a single
               SFX swap. Asking the model to regenerate most of the clip loses context with the
               rest. The{" "}
@@ -323,7 +323,7 @@ export default function ToolPage() {
             <span className="w-8 h-px bg-violet-500" />
             Use Cases
           </p>
-          <h2 className="text-4xl md:text-6xl font-black mb-6 tracking-tight">What You Can Create with Stable Audio 3</h2>
+          <h2 className="text-2xl sm:text-3xl md:text-6xl font-black mb-6 tracking-tight">What You Can Create with Stable Audio 3</h2>
           <p className="text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed">
             Stable Audio 3 helps you create short audio clips for music, podcasts, video soundtracks,
             game audio, social media, and ambient streaming — all from prompts or by editing existing
@@ -348,7 +348,7 @@ export default function ToolPage() {
             <span className="w-8 h-px bg-violet-500" />
             Generator Settings
           </p>
-          <h2 className="text-4xl md:text-6xl font-black mb-6 tracking-tight">Settings Explained</h2>
+          <h2 className="text-2xl sm:text-3xl md:text-6xl font-black mb-6 tracking-tight">Settings Explained</h2>
         </div>
         <div className="tool-settings-grid">
           {toolContent.settings.map((s) => (
@@ -370,7 +370,7 @@ export default function ToolPage() {
             <span className="w-8 h-px bg-violet-500" />
             Online vs Local
           </p>
-          <h2 className="text-4xl md:text-6xl font-black mb-6 tracking-tight">Online Stable Audio 3 vs Running Local Weights</h2>
+          <h2 className="text-2xl sm:text-3xl md:text-6xl font-black mb-6 tracking-tight">Online Stable Audio 3 vs Running Local Weights</h2>
           <p className="text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed">
             Use Stable Audio 3 online when you want to create audio quickly without installing tools
             or managing model files. Choose local inference only if you are comfortable downloading
@@ -380,20 +380,20 @@ export default function ToolPage() {
         </div>
         <div className="tool-table-shell">
           <div className="overflow-x-auto">
-            <table className="w-full text-left border-collapse min-w-[700px]">
+            <table className="w-full text-left border-collapse min-w-[520px] sm:min-w-[700px]">
               <thead>
                 <tr className="border-b border-slate-200 bg-white/5">
-                  <th className="p-8 text-slate-500 font-black uppercase text-[10px] tracking-[0.3em]">Feature</th>
-                  <th className="p-8 text-violet-600 font-black uppercase text-[10px] tracking-[0.3em]">Stable Audio 3 Online</th>
-                  <th className="p-8 text-slate-500 font-black uppercase text-[10px] tracking-[0.3em]">Local Open Weights</th>
+                  <th className="p-3 sm:p-8 text-slate-500 font-bold uppercase text-[9px] sm:text-[10px] tracking-[0.2em] sm:tracking-[0.3em]">Feature</th>
+                  <th className="p-3 sm:p-8 text-violet-600 font-bold uppercase text-[9px] sm:text-[10px] tracking-[0.2em] sm:tracking-[0.3em]">Online</th>
+                  <th className="p-3 sm:p-8 text-slate-500 font-bold uppercase text-[9px] sm:text-[10px] tracking-[0.2em] sm:tracking-[0.3em]">Local</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-slate-200">
                 {toolContent.comparison.map((row, i) => (
                   <tr key={i} className="hover:bg-slate-50 transition-colors">
-                    <td className="p-8 text-slate-900 font-semibold text-sm">{row.feature}</td>
-                    <td className="p-8 text-slate-700 text-sm">{typeof row.online === "string" ? row.online : row.onlineText}</td>
-                    <td className="p-8 text-slate-600 text-sm">{typeof row.local === "string" ? row.local : row.localText}</td>
+                    <td className="p-3 sm:p-8 text-slate-900 font-semibold text-xs sm:text-sm">{row.feature}</td>
+                    <td className="p-3 sm:p-8 text-slate-700 text-xs sm:text-sm">{typeof row.online === "string" ? row.online : row.onlineText}</td>
+                    <td className="p-3 sm:p-8 text-slate-600 text-xs sm:text-sm">{typeof row.local === "string" ? row.local : row.localText}</td>
                   </tr>
                 ))}
               </tbody>
@@ -430,7 +430,7 @@ export default function ToolPage() {
               <span className="w-8 h-px bg-violet-500" />
               Get Started
             </p>
-            <h2 className="text-4xl md:text-7xl font-black mb-8 leading-tight tracking-tighter">Create Your First Audio Clip with Stable Audio 3</h2>
+            <h2 className="text-2xl sm:text-3xl md:text-7xl font-black mb-8 leading-tight tracking-tighter">Create Your First Audio Clip with Stable Audio 3</h2>
             <p className="text-xl text-slate-600 mb-12 max-w-2xl mx-auto leading-relaxed">
               Use Stable Audio 3 AI Audio Generator to turn a prompt into music, ambient bed, or
               SFX — or upload an audio file to edit and inpaint. Start free in your browser.

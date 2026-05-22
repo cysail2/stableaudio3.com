@@ -178,25 +178,33 @@ export function WorkDetailDialog({ item, onClose, onRequestDelete }: WorkDetailD
               )}
             </div>
 
-            {item.originUrls.length > 0 ? (
-              <div className="mt-4">
+            {/* Source audio — only render for A2A / Inpaint tasks that actually have
+                a non-empty source URL. T2A tasks have no source, so the section is hidden.
+                Filter out empty strings in case the task center accidentally stored "" as
+                an originUrl for a T2A task. */}
+            {item.originUrls.filter((url) => url && url.trim()).length > 0 ? (
+              <div className="mt-4 space-y-3">
                 <p className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">
-                  Input image
+                  Source audio
                 </p>
-                <div className="mt-2 flex flex-wrap gap-3">
-                  {item.originUrls.map((url) => (
-                    <a
-                      className="block h-20 w-20 overflow-hidden rounded-xl border border-slate-200 transition hover:border-violet-400"
-                      href={url}
+                {item.originUrls
+                  .filter((url) => url && url.trim())
+                  .map((url) => (
+                    <div
+                      className="rounded-2xl border border-slate-200 bg-slate-50 p-3"
                       key={url}
-                      rel="noopener noreferrer"
-                      target="_blank"
                     >
-                      {/* eslint-disable-next-line @next/next/no-img-element */}
-                      <img alt="" className="h-full w-full object-cover" src={url} />
-                    </a>
+                      <audio className="w-full" controls src={url} />
+                      <a
+                        className="mt-2 inline-block truncate text-xs text-violet-700 underline decoration-violet-500/40 underline-offset-4 hover:decoration-violet-400"
+                        href={url}
+                        rel="noopener noreferrer"
+                        target="_blank"
+                      >
+                        Open source file ↗
+                      </a>
+                    </div>
                   ))}
-                </div>
               </div>
             ) : null}
           </div>

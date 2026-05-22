@@ -101,10 +101,13 @@ const modeFromQuery = (value: string | null): StableAudioMode => {
 function WaveformPreview() {
   const bars = [18, 36, 24, 54, 42, 70, 48, 30, 58, 38, 76, 46, 32, 62, 40, 68, 26, 44, 52, 34, 20];
   return (
-    <div className="flex h-28 items-center justify-center gap-2 rounded-[1.25rem] border border-violet-300/15 bg-white/70 px-5">
+    // w-full max-w-full overflow-hidden so the bar row never pushes its grid/flex
+    // parent past the viewport on mobile. Rightmost bars get visually clipped if
+    // the card is narrower than the 21-bar intrinsic width.
+    <div className="flex h-28 w-full max-w-full items-center justify-center gap-1.5 overflow-hidden rounded-[1.25rem] border border-violet-300/15 bg-white/70 px-3 sm:gap-2 sm:px-5">
       {bars.map((height, index) => (
         <span
-          className="w-1.5 rounded-full bg-cyan-300/80 shadow-[0_0_18px_rgba(34,211,238,0.32)]"
+          className="w-1.5 flex-shrink-0 rounded-full bg-violet-400 shadow-[0_0_18px_rgba(124,58,237,0.32)]"
           key={`${height}-${index}`}
           style={{ height }}
         />
@@ -363,15 +366,14 @@ export function StableAudioGenerator() {
 
   return (
     <>
-      <div className="grid items-start gap-6 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)]">
-        <div className="surface-card !rounded-[2rem] !border-slate-200 bg-white/60 !p-8 shadow-2xl shadow-violet-950/20 backdrop-blur-xl transition-none">
-          {/* Mode tabs — description moved to native title tooltip to save vertical space.
-              The tab name itself (Text-to-Audio / Audio-to-Audio / etc.) is self-explanatory,
-              and a redundant description box pushed the actual form controls below the fold. */}
-          <div className="grid gap-1 rounded-[1.5rem] border border-slate-200 bg-slate-50 p-1 sm:grid-cols-4">
+      <div className="grid grid-cols-[minmax(0,1fr)] items-start gap-6 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)]">
+        <div className="surface-card !rounded-[1.5rem] !border-slate-200 bg-white/60 !p-4 shadow-xl shadow-violet-500/5 backdrop-blur-xl transition-none sm:!rounded-[2rem] sm:!p-8">
+          {/* Mode tabs — keep 3 modes in one row even on mobile (smaller text), no longer
+              short-label fallback since we only have 3 modes after dropping outpaint. */}
+          <div className="grid grid-cols-3 gap-1 rounded-[1.5rem] border border-slate-200 bg-slate-50 p-1">
             {modeOptions.map((item) => (
               <button
-                className={`rounded-[1.15rem] px-2 py-2.5 text-[13px] font-semibold leading-tight transition whitespace-nowrap ${
+                className={`rounded-[1.15rem] px-2 py-2.5 text-[11px] font-semibold leading-tight transition whitespace-nowrap sm:text-[13px] ${
                   mode === item.mode
                     ? "bg-white text-violet-700 shadow-sm"
                     : "text-slate-600 hover:bg-white/60 hover:text-slate-900"
@@ -609,7 +611,7 @@ export function StableAudioGenerator() {
           </button>
         </div>
 
-        <div className="surface-card flex min-h-[520px] flex-col !rounded-[2rem] !border-slate-200 bg-white !p-8 shadow-md shadow-violet-500/5 transition-none">
+        <div className="surface-card flex min-h-[420px] flex-col !rounded-[1.5rem] !border-slate-200 bg-white !p-4 shadow-md shadow-violet-500/5 transition-none sm:min-h-[520px] sm:!rounded-[2rem] sm:!p-8">
           <div className="flex items-center justify-between gap-4 px-1 text-sm text-slate-600">
             <span className="font-semibold text-slate-900">Output Preview</span>
             <span className="font-mono text-xs">{creditCost} credits</span>
@@ -679,7 +681,7 @@ export function StableAudioGenerator() {
             </div>
           ) : selectedTask?.status === "pending" ? (
             /* PENDING — generation in progress */
-            <div className="generator-preview-placeholder relative mt-5 grid min-h-[420px] place-items-center overflow-hidden rounded-[1.5rem] border border-slate-200 p-8 text-center">
+            <div className="generator-preview-placeholder relative mt-5 grid min-h-[360px] min-w-0 place-items-center overflow-hidden rounded-[1.5rem] border border-slate-200 p-4 text-center sm:min-h-[420px] sm:p-8">
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(124,58,237,0.05),transparent_70%)]" />
               <div className="relative z-10 mx-auto max-w-lg">
                 <div className="mx-auto mb-6 grid h-20 w-20 place-items-center rounded-full bg-violet-100 ring-8 ring-violet-50">
@@ -705,7 +707,7 @@ export function StableAudioGenerator() {
             </div>
           ) : (
             /* DEFAULT EMPTY — minimal hint, no redundant mode cards */
-            <div className="generator-preview-placeholder relative mt-5 grid min-h-[420px] place-items-center overflow-hidden rounded-[1.5rem] border border-slate-200 p-8 text-center">
+            <div className="generator-preview-placeholder relative mt-5 grid min-h-[360px] min-w-0 place-items-center overflow-hidden rounded-[1.5rem] border border-slate-200 p-4 text-center sm:min-h-[420px] sm:p-8">
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(124,58,237,0.05),transparent_70%)]" />
               <div className="relative z-10 mx-auto max-w-md">
                 <div className="mx-auto mb-6 grid h-16 w-16 place-items-center rounded-full bg-violet-50 ring-1 ring-violet-200">
@@ -749,7 +751,7 @@ export function StableAudioGenerator() {
                   const chipProgress = isPending ? getEstimatedTaskProgress(task) : task.outputUrl ? 100 : 0;
                   return (
                     <button
-                      className={`group flex-shrink-0 w-32 rounded-xl border p-2.5 text-left transition ${
+                      className={`group flex-shrink-0 w-28 sm:w-32 rounded-xl border p-2.5 text-left transition ${
                         isSelected
                           ? "border-violet-500 bg-violet-50 shadow-sm"
                           : "border-slate-200 bg-white hover:border-slate-300 hover:bg-slate-50"

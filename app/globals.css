@@ -37,6 +37,13 @@
 body {
   background: var(--background);
   color: var(--foreground);
+  /* Belt-and-suspenders against accidental horizontal overflow on mobile
+     (decorative absolutes / wide grids that escape the viewport). */
+  overflow-x: hidden;
+}
+
+html, body {
+  max-width: 100%;
 }
 
 * {
@@ -497,6 +504,10 @@ a {
 
 .tool-hero-inner {
   display: grid;
+  /* minmax(0, 1fr) prevents intrinsic content (long URLs in inputs, wide cards)
+     from pushing the column past viewport width. Without this, grid columns default
+     to `auto` sizing which respects intrinsic min-content. */
+  grid-template-columns: minmax(0, 1fr);
   gap: 1.25rem;
   margin: 0 auto;
   max-width: 80rem;
@@ -1373,15 +1384,42 @@ a {
   }
 
   .hero-copy h1 {
-    font-size: 3.1rem;
+    font-size: 2.4rem;
   }
 
   .hero-content h1 {
-    font-size: 3rem;
+    font-size: 2.4rem;
+    /* Disable text-wrap balance on mobile — the balance algorithm sometimes
+       prefers a wider line than the viewport can fit, causing horizontal
+       overflow on narrow phones. Plain wrap is safer. */
+    text-wrap: pretty;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
   }
 
   .hero-lede {
-    font-size: 1.0625rem;
+    font-size: 1rem;
+    padding-inline: 0.25rem;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 100%;
+  }
+
+  .hero-actions .button-primary,
+  .hero-actions .button-secondary {
+    width: 100%;
+  }
+
+  .hero-audio-stage {
+    padding: 5rem 1rem 3rem;
+  }
+
+  .now-playing-chip {
+    /* Constrain so it can never exceed viewport minus the 1rem hero padding */
+    max-width: calc(100vw - 2rem);
   }
 
   .two-column h2,

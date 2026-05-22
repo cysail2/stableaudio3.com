@@ -19,7 +19,7 @@ export function PricingCards() {
         const planNameClean = plan.title.replace(" Credits", "").trim();
         return (
           <article
-            className={`relative flex flex-col rounded-2xl bg-white p-7 transition ${
+            className={`relative flex flex-col rounded-2xl bg-white p-5 sm:p-7 transition ${
               plan.featured
                 ? "border-2 border-violet-500 shadow-xl shadow-violet-500/15 lg:-translate-y-3"
                 : "border border-slate-200 shadow-sm hover:-translate-y-1 hover:border-slate-300 hover:shadow-md"
