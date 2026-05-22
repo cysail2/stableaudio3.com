@@ -56,11 +56,11 @@ export function renderInline(text: string): ReactNode {
         "text-violet-700 underline decoration-cyan-300 underline-offset-4 transition hover:text-violet-800 hover:decoration-violet-500";
       segments.push(
         isInternal ? (
-          <Link className={linkClass} href={href} key={key++}>
+          <Link className={linkClass} href={href} key={key++} title={label}>
             {label}
           </Link>
         ) : (
-          <a className={linkClass} href={href} key={key++} rel="noreferrer" target="_blank">
+          <a className={linkClass} href={href} key={key++} rel="noreferrer" target="_blank" title={label}>
             {label}
           </a>
         ),
@@ -125,7 +125,7 @@ export function InternalLinkLine({
         }
 
         return (
-          <Link className={linkClass} href={link.href} key={`${link.href}-${index}`}>
+          <Link className={linkClass} href={link.href} key={`${link.href}-${index}`} title={link.label}>
             {link.label}
           </Link>
         );
@@ -178,11 +178,11 @@ export function SeoHero({
           <p className="mt-2 text-xs leading-relaxed text-slate-600/80">{disclosure}</p>
         ) : null}
         <div className="hero-actions">
-          <Link className="button-primary" href={primaryHref}>
+          <Link className="button-primary" href={primaryHref} title={primaryLabel}>
             {primaryLabel}
           </Link>
           {secondaryHref && secondaryLabel ? (
-            <Link className="button-secondary" href={secondaryHref}>
+            <Link className="button-secondary" href={secondaryHref} title={secondaryLabel}>
               {secondaryLabel}
             </Link>
           ) : null}
@@ -534,7 +534,12 @@ export function RelatedLinks({
         </div>
         <div className="grid gap-3 sm:grid-cols-2">
           {visibleLinks.map((link) => (
-            <Link className="rounded-2xl border border-slate-200 bg-white p-4 transition hover:border-violet-400" href={link.href} key={link.href}>
+            <Link
+              className="rounded-2xl border border-slate-200 bg-white p-4 transition hover:border-violet-400"
+              href={link.href}
+              key={link.href}
+              title={link.label}
+            >
               <span className="font-semibold text-slate-900">{link.label}</span>
               <p className="mt-2 text-sm leading-6 text-slate-600">{link.description}</p>
             </Link>

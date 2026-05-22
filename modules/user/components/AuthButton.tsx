@@ -161,6 +161,7 @@ export function AuthButton() {
                 href="/account"
                 onClick={() => setIsOpen(false)}
                 role="menuitem"
+                title="Open your Stable Audio 3 account"
               >
                 <UserIcon />
                 My Account
@@ -170,6 +171,7 @@ export function AuthButton() {
                 href="/library"
                 onClick={() => setIsOpen(false)}
                 role="menuitem"
+                title="Open your Stable Audio 3 creations"
               >
                 <LibraryIcon />
                 My Creations

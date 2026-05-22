@@ -9,7 +9,7 @@ export function PaymentSuccessPage() {
       <div className="mx-auto max-w-2xl surface-card text-center">
         <h2 className="text-2xl font-semibold text-slate-900">You can return to the generator</h2>
         <p className="mt-3 text-slate-600">If your balance does not update immediately, refresh your account page after a few seconds.</p>
-        <a className="button-primary mt-6" href="/stable-audio-3">
+        <a className="button-primary mt-6" href="/stable-audio-3" title="Open the Stable Audio 3 AI audio generator">
           Create Audio
         </a>
       </div>

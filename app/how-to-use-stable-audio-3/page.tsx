@@ -239,7 +239,11 @@ export default function GuidePage() {
             {guideContent.intro.body[0]}
           </p>
           <p className="text-slate-700 leading-relaxed mb-4">
-            <Link className="text-violet-700 underline decoration-violet-500/40 underline-offset-4 hover:decoration-violet-400" href="/">
+            <Link
+              className="text-violet-700 underline decoration-violet-500/40 underline-offset-4 hover:decoration-violet-400"
+              href="/"
+              title="Stable Audio 3 home"
+            >
               Stableaudio3.com
             </Link>{" "}
             is an online product experience for that workflow. This guide walks through all
@@ -263,7 +267,7 @@ export default function GuidePage() {
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 <div>
-                  <h4 className="text-lg font-bold text-slate-900 mb-2">{step.title}</h4>
+                  <h3 className="text-lg font-bold text-slate-900 mb-2">{step.title}</h3>
                   <p className="text-slate-600 text-sm md:text-base leading-relaxed">{step.body}</p>
                 </div>
               </div>
@@ -273,7 +277,11 @@ export default function GuidePage() {
             <span className="text-xl">💡</span>
             <p className="text-violet-800 text-sm md:text-base leading-relaxed">
               <strong>First generation tip:</strong> Keep your first test short — a 15–30 second clip is the fastest way to check whether your prompt direction is working before spending more credits on longer or higher-quality outputs. The{" "}
-              <Link className="text-violet-700 underline decoration-violet-500/40 underline-offset-4 hover:decoration-violet-400" href="/pricing">
+              <Link
+                className="text-violet-700 underline decoration-violet-500/40 underline-offset-4 hover:decoration-violet-400"
+                href="/pricing"
+                title="Compare Stable Audio 3 pricing"
+              >
                 Stable Audio 3 pricing
               </Link>{" "}
               page explains how credit packs map to short-clip equivalents.
@@ -333,7 +341,7 @@ export default function GuidePage() {
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 <div>
-                  <h4 className="text-lg font-bold text-slate-900 mb-2">{step.title}</h4>
+                  <h3 className="text-lg font-bold text-slate-900 mb-2">{step.title}</h3>
                   <p className="text-slate-600 text-sm md:text-base leading-relaxed">{step.body}</p>
                 </div>
               </div>
@@ -361,7 +369,7 @@ export default function GuidePage() {
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 <div>
-                  <h4 className="text-lg font-bold text-slate-900 mb-2">{step.title}</h4>
+                  <h3 className="text-lg font-bold text-slate-900 mb-2">{step.title}</h3>
                   <p className="text-slate-600 text-sm md:text-base leading-relaxed">{step.body}</p>
                 </div>
               </div>
@@ -431,7 +439,7 @@ export default function GuidePage() {
                   {i + 1}
                 </span>
                 <div>
-                  <h4 className="text-lg font-bold text-slate-900 mb-2">{step.title}</h4>
+                  <h3 className="text-lg font-bold text-slate-900 mb-2">{step.title}</h3>
                   <p className="text-slate-600 text-sm md:text-base leading-relaxed">{step.body}</p>
                 </div>
               </div>
@@ -477,6 +485,7 @@ export default function GuidePage() {
           <Link
             className="button-primary !py-4 !px-12 !h-auto !text-lg !rounded-xl"
             href="/stable-audio-3"
+            title="Open the Stable Audio 3 AI audio generator"
           >
             Start Generating Free →
           </Link>

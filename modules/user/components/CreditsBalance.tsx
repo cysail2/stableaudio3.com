@@ -185,6 +185,7 @@ export function CreditsBalance() {
               className="flex items-center justify-between rounded-lg px-3 py-2 text-sm font-semibold text-violet-700 transition hover:bg-white/5 hover:text-violet-700"
               href="/pricing"
               onClick={() => setIsOpen(false)}
+              title="Compare Stable Audio 3 credit packs"
             >
               <span>Top up credits</span>
               <span aria-hidden="true">→</span>

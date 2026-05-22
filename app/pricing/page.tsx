@@ -159,14 +159,22 @@ export default function PricingPage() {
         </div>
         <div className="space-y-5">
           <p>
-            <Link className="text-violet-700 underline decoration-violet-500/40 underline-offset-4 hover:decoration-violet-400" href="/">
+            <Link
+              className="text-violet-700 underline decoration-violet-500/40 underline-offset-4 hover:decoration-violet-400"
+              href="/"
+              title="Stable Audio 3 home"
+            >
               Stable Audio 3
             </Link>{" "}
             {pricingContent.explainer[0]}
           </p>
           <p>
             {pricingContent.explainer[1]} For better first attempts, use the{" "}
-            <Link className="text-violet-700 underline decoration-violet-500/40 underline-offset-4 hover:decoration-violet-400" href="/how-to-use-stable-audio-3">
+            <Link
+              className="text-violet-700 underline decoration-violet-500/40 underline-offset-4 hover:decoration-violet-400"
+              href="/how-to-use-stable-audio-3"
+              title="Read the Stable Audio 3 prompt guide"
+            >
               Stable Audio 3 prompt guide
             </Link>{" "}
             before spending larger credit packs on long outputs.
@@ -197,7 +205,7 @@ export default function PricingPage() {
         <p className="eyebrow">Start Free</p>
         <h2>Start with Free Credits</h2>
         <p>Create your first Stable Audio 3 audio clip, then choose the credit plan that matches your workflow.</p>
-        <Link className="button-primary" href="/stable-audio-3">
+        <Link className="button-primary" href="/stable-audio-3" title="Open the Stable Audio 3 AI audio generator">
           Try Stable Audio 3 Free
         </Link>
       </section>

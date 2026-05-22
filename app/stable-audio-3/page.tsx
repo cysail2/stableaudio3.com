@@ -11,7 +11,7 @@ import { toolContent } from "@/project/content/tool";
 
 export const metadata: Metadata = {
   title: {
-    absolute: "Stable Audio 3 AI Audio Generator - Text, A2A, Inpaint",
+    absolute: "Stable Audio 3 AI Audio Generator for Music and SFX",
   },
   description:
     "Use Stable Audio 3 AI Audio Generator online to create music, ambient beds, and SFX from text — or edit and inpaint existing audio. Browser-based, free to try.",
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     canonical: `${siteConfig.url}/stable-audio-3`,
   },
   openGraph: {
-    title: "Stable Audio 3 AI Audio Generator - Text, A2A, Inpaint",
+    title: "Stable Audio 3 AI Audio Generator for Music and SFX",
     description:
       "Use Stable Audio 3 AI Audio Generator online to create music, ambient beds, and SFX from text — or edit and inpaint existing audio. Browser-based, free to try.",
     url: `${siteConfig.url}/stable-audio-3`,
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Stable Audio 3 AI Audio Generator - Text, A2A, Inpaint",
+    title: "Stable Audio 3 AI Audio Generator for Music and SFX",
     description:
       "Use Stable Audio 3 AI Audio Generator online to create music, ambient beds, and SFX from text — or edit and inpaint existing audio. Browser-based, free to try.",
     images: ["/og/stable-audio-3.webp"],
@@ -146,7 +146,11 @@ export default function ToolPage() {
             <div className="space-y-6">
               <div className="group relative p-8 rounded-3xl bg-slate-50 border border-slate-200 hover:border-violet-200 transition-all duration-300">
                 <p className="text-xl text-slate-700 leading-relaxed opacity-90 group-hover:opacity-100 transition-opacity">
-                  <Link className="text-violet-700 underline decoration-violet-500/40 underline-offset-4 hover:decoration-violet-400" href="/">
+                  <Link
+                    className="text-violet-700 underline decoration-violet-500/40 underline-offset-4 hover:decoration-violet-400"
+                    href="/"
+                    title="Stable Audio 3 home"
+                  >
                     Stable Audio 3
                   </Link>{" "}
                   AI Audio Generator is an online tool for creating short audio clips from text
@@ -195,6 +199,7 @@ export default function ToolPage() {
                 <Link
                   className="text-violet-700 underline decoration-violet-500/40 underline-offset-4 hover:decoration-violet-400"
                   href="/how-to-use-stable-audio-3"
+                  title="Read the Stable Audio 3 prompt guide"
                 >
                   Stable Audio 3 prompt guide
                 </Link>{" "}
@@ -283,6 +288,7 @@ export default function ToolPage() {
               <Link
                 className="text-amber-700 underline decoration-amber-400/40 underline-offset-4 hover:decoration-amber-400"
                 href="/how-to-use-stable-audio-3"
+                title="Read audio inpaint prompt guidance"
               >
                 Inpaint section of the prompt guide
               </Link>{" "}
@@ -328,7 +334,7 @@ export default function ToolPage() {
           {toolContent.useCases.map((item) => (
             <div key={item.title} className="tool-feature-card group">
               <span className="text-4xl mb-6 block">{item.icon}</span>
-              <h4 className="text-xl font-bold text-slate-900 mb-3">{item.title}</h4>
+              <h3 className="text-xl font-bold text-slate-900 mb-3">{item.title}</h3>
               <p className="text-slate-600 leading-relaxed">{item.description}</p>
             </div>
           ))}
@@ -350,7 +356,7 @@ export default function ToolPage() {
               <span className="w-14 h-14 rounded-2xl bg-violet-50 border border-violet-200 flex items-center justify-center text-xl font-bold text-violet-700 mb-8">
                 {s.num}
               </span>
-              <h4 className="text-xl font-bold text-slate-900 mb-4">{s.title}</h4>
+              <h3 className="text-xl font-bold text-slate-900 mb-4">{s.title}</h3>
               <p className="text-base text-slate-600 leading-relaxed">{s.description}</p>
             </div>
           ))}
@@ -433,12 +439,14 @@ export default function ToolPage() {
               <Link
                 className="button-primary !py-5 !px-12 !h-auto !text-lg !rounded-2xl shadow-2xl shadow-white/5"
                 href="/pricing"
+                title="Compare Stable Audio 3 credit packs"
               >
                 Compare Credit Packs
               </Link>
               <Link
                 className="button-secondary !py-5 !px-12 !h-auto !text-lg !rounded-2xl"
                 href="/how-to-use-stable-audio-3"
+                title="Read the Stable Audio 3 prompt guide"
               >
                 Read Prompt Guide
               </Link>

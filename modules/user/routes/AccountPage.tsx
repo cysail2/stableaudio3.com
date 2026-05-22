@@ -76,7 +76,7 @@ export function AccountPage() {
             </div>
             <p className="mt-5 text-sm text-slate-600">Total credits available</p>
             <p className="mt-1 text-4xl font-bold text-slate-900">{isLoadingUserInfo ? "-" : totalCredits}</p>
-            <Link className="button-primary mt-6 min-h-10 px-4 text-sm" href="/pricing">
+            <Link className="button-primary mt-6 min-h-10 px-4 text-sm" href="/pricing" title="Compare Stable Audio 3 credit packs">
               Top up credits
             </Link>
           </div>
@@ -114,10 +114,10 @@ export function AccountPage() {
             </div>
           </div>
           <div className="mt-5 flex flex-wrap gap-3">
-            <Link className="button-secondary min-h-10 px-4 text-sm" href="/library">
+            <Link className="button-secondary min-h-10 px-4 text-sm" href="/library" title="Open your Stable Audio 3 creations">
               View library
             </Link>
-            <Link className="button-secondary min-h-10 px-4 text-sm" href="/pricing">
+            <Link className="button-secondary min-h-10 px-4 text-sm" href="/pricing" title="Compare Stable Audio 3 credit packs">
               See pricing plans
             </Link>
           </div>
@@ -134,7 +134,11 @@ export function AccountPage() {
             <button className="button-secondary min-h-10 px-4 text-sm" onClick={() => void signOut()} type="button">
               Sign out of this device
             </button>
-            <a className="button-secondary min-h-10 px-4 text-sm text-rose-200 hover:border-rose-300/70" href="mailto:support@stableaudio3.com?subject=Delete%20my%20Stable%20Audio%203%20account">
+            <a
+              className="button-secondary min-h-10 px-4 text-sm text-rose-200 hover:border-rose-300/70"
+              href="mailto:support@stableaudio3.com?subject=Delete%20my%20Stable%20Audio%203%20account"
+              title="Email Stable Audio 3 support to delete your account"
+            >
               Request account deletion
             </a>
           </div>

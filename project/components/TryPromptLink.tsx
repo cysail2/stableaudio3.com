@@ -68,6 +68,7 @@ export function TryPromptLink({
     <Link
       className={`inline-flex items-center gap-1.5 rounded-full border ${accent.ring} ${accent.bg} px-3.5 py-1.5 text-xs font-semibold ${accent.text} transition ${accent.hover} ${className}`}
       href={href}
+      title="Try this prompt in the Stable Audio 3 generator"
     >
       {children ?? label}
       <svg className="h-3 w-3" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">

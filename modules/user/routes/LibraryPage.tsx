@@ -166,7 +166,7 @@ export function LibraryPage() {
             <p className="mt-3 text-slate-600">
               Create your first Stable Audio 3 audio clip from the generator page.
             </p>
-            <a className="button-primary mt-6 inline-flex" href="/stable-audio-3">
+            <a className="button-primary mt-6 inline-flex" href="/stable-audio-3" title="Open the Stable Audio 3 AI audio generator">
               Open the generator
             </a>
           </div>

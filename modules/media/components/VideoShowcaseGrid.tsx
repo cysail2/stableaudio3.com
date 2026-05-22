@@ -102,6 +102,7 @@ function ShowcaseHeader({
           <Link
             className="font-semibold text-violet-700 underline decoration-cyan-300 underline-offset-4 transition hover:text-violet-800 hover:decoration-violet-500"
             href="/"
+            title="Stable Audio 3 home"
           >
             Stable Audio 3 homepage
           </Link>
@@ -135,6 +136,7 @@ function UseCaseIndex({
             className="inline-flex items-center gap-2 rounded-full bg-slate-100 px-4 py-2 text-sm font-semibold text-slate-700 transition hover:bg-violet-50 hover:text-violet-800"
             href={`#${category.id}`}
             key={category.id}
+            title={`View ${category.title} examples`}
           >
             <span>{category.title}</span>
             <span className="rounded-full bg-white px-2 py-0.5 text-xs font-bold text-slate-500">{count}</span>
@@ -221,7 +223,7 @@ function ExampleCard({
       />
       <div className="flex flex-1 flex-col gap-4 p-5 md:p-6">
         <header>
-          <h4 className="text-xl font-bold leading-tight text-slate-950 md:text-2xl">{example.title}</h4>
+          <h3 className="text-xl font-bold leading-tight text-slate-950 md:text-2xl">{example.title}</h3>
           <ChipRow example={example} />
         </header>
         <div className="rounded-2xl bg-slate-50 p-4">
@@ -232,6 +234,7 @@ function ExampleCard({
           <Link
             className="inline-flex items-center gap-2 rounded-full bg-slate-950 px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-violet-700"
             href={tryThisPromptHref(example)}
+            title="Try this prompt in the Stable Audio 3 generator"
           >
             Try this prompt
             <span aria-hidden="true">→</span>

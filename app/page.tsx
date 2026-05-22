@@ -248,10 +248,10 @@ export default function HomePage() {
           <h1>{homeContent.hero.title}</h1>
           <p className="hero-lede">{homeContent.hero.description}</p>
           <div className="hero-actions">
-            <Link className="button-primary" href="/stable-audio-3">
+            <Link className="button-primary" href="/stable-audio-3" title="Open the Stable Audio 3 AI audio generator">
               Try Stable Audio 3 Free
             </Link>
-            <Link className="button-secondary" href="/how-to-use-stable-audio-3">
+            <Link className="button-secondary" href="/how-to-use-stable-audio-3" title="Read the Stable Audio 3 prompt guide">
               Learn How It Works
             </Link>
           </div>
@@ -291,6 +291,7 @@ export default function HomePage() {
                 <Link
                   className="text-violet-700 underline decoration-violet-500/40 underline-offset-4 hover:decoration-violet-400"
                   href="/"
+                  title="Stable Audio 3 home"
                 >
                   Stableaudio3.com
                 </Link>{" "}
@@ -308,6 +309,7 @@ export default function HomePage() {
                 <Link
                   className="text-violet-700 underline decoration-violet-500/40 underline-offset-4 hover:decoration-violet-400"
                   href="/how-to-use-stable-audio-3"
+                  title="Read the Stable Audio 3 prompt guide"
                 >
                   Stable Audio 3 prompt guide
                 </Link>{" "}
@@ -343,6 +345,7 @@ export default function HomePage() {
             <Link
               className="text-violet-700 underline decoration-violet-500/40 underline-offset-4 hover:decoration-violet-400"
               href="/stable-audio-3"
+              title="Open the Stable Audio 3 AI audio generator"
             >
               Open the Stable Audio 3 generator
             </Link>{" "}
@@ -429,7 +432,11 @@ export default function HomePage() {
               Describe genre, instruments, mood, and tempo so the model has enough
               structure to produce intentional audio instead of generic output.
             </p>
-            <Link className="button-secondary mt-6 !min-h-[2.5rem] !text-sm" href="/how-to-use-stable-audio-3">
+            <Link
+              className="button-secondary mt-6 !min-h-[2.5rem] !text-sm"
+              href="/how-to-use-stable-audio-3"
+              title="Read the Stable Audio 3 prompt guide"
+            >
               Read the Prompt Guide
             </Link>
           </div>
@@ -455,7 +462,7 @@ export default function HomePage() {
               when you need more generations.
             </p>
           </div>
-          <Link className="button-primary !min-h-[2.75rem]" href="/pricing">
+          <Link className="button-primary !min-h-[2.75rem]" href="/pricing" title="Compare Stable Audio 3 pricing">
             Compare Pricing
           </Link>
         </div>
@@ -472,7 +479,11 @@ export default function HomePage() {
           Turn a prompt into music, ambient bed, or sound effect — or upload an audio file
           to edit or inpaint. No credit card required.
         </p>
-        <Link className="button-primary mt-8 !px-10 !py-4 !h-auto" href="/stable-audio-3">
+        <Link
+          className="button-primary mt-8 !px-10 !py-4 !h-auto"
+          href="/stable-audio-3"
+          title="Open the Stable Audio 3 AI audio generator"
+        >
           Generate Your First Audio Clip
         </Link>
       </section>

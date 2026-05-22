@@ -19,7 +19,11 @@ export function PaymentResultPage() {
         </p>
       </div>
       <div className="mx-auto max-w-2xl surface-card text-center">
-        <a className="button-primary" href={isSuccess ? "/stable-audio-3" : "/pricing"}>
+        <a
+          className="button-primary"
+          href={isSuccess ? "/stable-audio-3" : "/pricing"}
+          title={isSuccess ? "Open the Stable Audio 3 AI audio generator" : "Compare Stable Audio 3 pricing"}
+        >
           {isSuccess ? "Create Audio" : "Back to Pricing"}
         </a>
       </div>

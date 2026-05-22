@@ -21,7 +21,11 @@ export function SiteFooter() {
           <p className="mt-3 max-w-md text-sm leading-6 text-slate-600">{siteConfig.seo.description}</p>
           <p className="mt-4 text-sm text-slate-600">
             Support:{" "}
-            <a className="font-semibold text-violet-700 underline decoration-violet-500/40 underline-offset-4 transition hover:text-violet-800" href={`mailto:${siteConfig.supportEmail}`}>
+            <a
+              className="font-semibold text-violet-700 underline decoration-violet-500/40 underline-offset-4 transition hover:text-violet-800"
+              href={`mailto:${siteConfig.supportEmail}`}
+              title="Email Stable Audio 3 support"
+            >
               {siteConfig.supportEmail}
             </a>
           </p>
@@ -38,7 +42,7 @@ export function SiteFooter() {
               <p className="mb-3 text-xs font-bold uppercase tracking-[0.2em] text-slate-500">{title}</p>
               <div className="grid gap-2">
                 {links.map((item) => (
-                  <Link className="transition hover:text-slate-900" href={item.href} key={item.href}>
+                  <Link className="transition hover:text-slate-900" href={item.href} key={item.href} title={item.title}>
                     {item.label}
                   </Link>
                 ))}

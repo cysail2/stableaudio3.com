@@ -283,6 +283,7 @@ function TocLinks({ activeId, items }: { activeId: string; items: readonly TocIt
             }`}
             href={`#${item.id}`}
             key={item.id}
+            title={`Jump to ${item.label}`}
           >
             {item.label}
           </a>
