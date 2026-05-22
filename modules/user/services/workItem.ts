@@ -34,6 +34,8 @@ export type WorkItem = {
   posterUrl: string;
   originUrls: string[];
   isVideo: boolean;
+  isAudio: boolean;
+  isImage: boolean;
   width?: number;
   height?: number;
   durationSeconds?: number;
@@ -44,6 +46,7 @@ export type WorkItem = {
 
 const VIDEO_EXT = /\.(mp4|webm|mov|m4v|mkv)(\?|#|$)/i;
 const IMAGE_EXT = /\.(jpe?g|png|webp|gif|avif)(\?|#|$)/i;
+const AUDIO_EXT = /\.(mp3|wav|flac|m4a|aac|ogg|opus)(\?|#|$)/i;
 export function getModelLabel(model?: string): string {
   void model;
   return siteConfig.name;
@@ -81,8 +84,10 @@ export function normalizeWorkItem(raw: RawWorkItem | null | undefined): WorkItem
   const originUrls = parseOriginUrls(raw.origin_image);
   const { width, height } = parseDimensions(raw.size_image);
 
-  const isVideo = VIDEO_EXT.test(mediaUrl) || (mediaUrl.length > 0 && !IMAGE_EXT.test(mediaUrl));
-  const posterUrl = isVideo ? originUrls[0] || "" : mediaUrl;
+  const isVideo = VIDEO_EXT.test(mediaUrl);
+  const isImage = IMAGE_EXT.test(mediaUrl);
+  const isAudio = AUDIO_EXT.test(mediaUrl) || (mediaUrl.length > 0 && !isVideo && !isImage);
+  const posterUrl = isImage ? mediaUrl : originUrls.find((url) => IMAGE_EXT.test(url)) || "";
   const { status, statusCode } = deriveStatus(raw);
 
   return {
@@ -98,6 +103,8 @@ export function normalizeWorkItem(raw: RawWorkItem | null | undefined): WorkItem
     posterUrl,
     originUrls,
     isVideo,
+    isAudio,
+    isImage,
     width,
     height,
     durationSeconds: raw.generation_time,
@@ -124,7 +131,7 @@ export function buildDownloadFilename(item: WorkItem): string {
     .replace(/[^\w-]+/g, "-")
     .replace(/^-+|-+$/g, "")
     .toLowerCase();
-  const ext = item.isVideo ? "mp4" : "png";
+  const ext = item.isVideo ? "mp4" : item.isAudio ? "mp3" : "png";
   const shortId = item.taskId.replace(/-/g, "").slice(0, 8) || String(item.id);
   return `${safePrompt || "stableaudio3"}-${shortId}.${ext}`;
 }

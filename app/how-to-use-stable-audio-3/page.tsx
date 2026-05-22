@@ -477,7 +477,10 @@ export default function GuidePage() {
           <StableAudioFAQ items={guideContent.faq} />
         </section>
 
-        <section className="bg-white border border-violet-300 rounded-3xl p-10 md:p-16 text-center shadow-2xl shadow-violet-500/5">
+        <section
+          className="bg-white border border-violet-300 rounded-3xl p-10 md:p-16 text-center shadow-2xl shadow-violet-500/5"
+          id="next-steps"
+        >
           <h2 className="!text-3xl md:!text-4xl font-black mb-4 !mt-0">Ready to Generate Your First Audio Clip?</h2>
           <p className="text-slate-600 mb-10 max-w-xl mx-auto text-lg leading-relaxed">
             Open the Stable Audio 3 AI Audio Generator and start creating music, ambient, or SFX from a text prompt — or edit and inpaint existing audio.

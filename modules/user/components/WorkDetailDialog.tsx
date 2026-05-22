@@ -30,6 +30,43 @@ function buildMetadata(item: WorkItem): MetadataRow[] {
   return rows.filter((row): row is MetadataRow => Boolean(row && row.value));
 }
 
+function detailWaveformBars(seed: string) {
+  const source = seed || "stable-audio-3";
+  return Array.from({ length: 54 }, (_, index) => {
+    const code = source.charCodeAt(index % source.length) || 23;
+    return 18 + ((code + index * 9) % 64);
+  });
+}
+
+function DetailAudioPlayer({ item }: { item: WorkItem }) {
+  const bars = detailWaveformBars(item.taskId);
+  return (
+    <div className="bg-slate-950 p-5 text-white">
+      <div className="mb-4 flex items-center justify-between gap-3 text-xs font-bold uppercase tracking-[0.18em] text-slate-400">
+        <span>Audio Output</span>
+        <span>MP3</span>
+      </div>
+      <div className="rounded-2xl bg-white/5 p-4">
+        <svg aria-hidden="true" className="h-36 w-full" preserveAspectRatio="none" viewBox="0 0 540 144">
+          {bars.map((height, index) => (
+            <rect
+              fill={index < 18 ? "#22d3ee" : index < 38 ? "#8b5cf6" : "#f59e0b"}
+              height={height}
+              key={`${item.taskId}-${index}`}
+              opacity={0.9}
+              rx="3"
+              width="5"
+              x={index * 10 + 2}
+              y={(144 - height) / 2}
+            />
+          ))}
+        </svg>
+      </div>
+      <audio className="mt-4 h-10 w-full" controls preload="metadata" src={item.mediaUrl} />
+    </div>
+  );
+}
+
 export function WorkDetailDialog({ item, onClose, onRequestDelete }: WorkDetailDialogProps) {
   const [isDownloading, setIsDownloading] = useState(false);
   const [downloadError, setDownloadError] = useState<{ itemId: number; message: string } | null>(null);
@@ -129,9 +166,15 @@ export function WorkDetailDialog({ item, onClose, onRequestDelete }: WorkDetailD
                   poster={item.posterUrl || undefined}
                   src={item.mediaUrl}
                 />
-              ) : (
+              ) : item.isAudio ? (
+                <DetailAudioPlayer item={item} />
+              ) : item.isImage ? (
                 // eslint-disable-next-line @next/next/no-img-element
                 <img alt="" className="aspect-video w-full object-contain" src={item.mediaUrl} />
+              ) : (
+                <div className="grid aspect-video place-items-center px-6 text-center text-sm text-slate-500">
+                  Unsupported media preview.
+                </div>
               )}
             </div>
 

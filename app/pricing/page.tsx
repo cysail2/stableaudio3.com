@@ -152,7 +152,7 @@ export default function PricingPage() {
       </section>
 
       {/* Credit system explainer comes after the plans so users can read context once they've seen prices */}
-      <section className="section split-panel">
+      <section className="section split-panel pricing-credit-panel">
         <div>
           <p className="eyebrow">Credit System</p>
           <h2>Simple Credits for AI Audio Generation</h2>
@@ -182,7 +182,7 @@ export default function PricingPage() {
         </div>
       </section>
 
-      <section className="section split-panel">
+      <section className="section split-panel pricing-plan-panel mt-8">
         <div>
           <p className="eyebrow">Plan Selection</p>
           <h2>Which Stable Audio 3 Plan Should You Choose?</h2>
