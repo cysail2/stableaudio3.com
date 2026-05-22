@@ -186,7 +186,7 @@ const audioSamplesSchema = {
 
 export default function HomePage() {
   return (
-    <main>
+    <main className="pb-20 md:pb-32">
       <JsonLd data={websiteSchema} />
       <JsonLd data={homePageSchema} />
       <JsonLd data={softwareSchema} />

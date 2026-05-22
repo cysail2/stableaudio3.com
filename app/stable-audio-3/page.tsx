@@ -108,7 +108,7 @@ const breadcrumbSchema = {
 
 export default function ToolPage() {
   return (
-    <main>
+    <main className="pb-20 md:pb-32">
       <JsonLd data={toolPageSchema} />
       <JsonLd data={breadcrumbSchema} />
       <JsonLd data={softwareSchema} />

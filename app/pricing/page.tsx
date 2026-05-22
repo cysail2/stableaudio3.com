@@ -126,7 +126,7 @@ const breadcrumbSchema = {
 
 export default function PricingPage() {
   return (
-    <main>
+    <main className="pb-20 md:pb-32">
       <JsonLd data={pricingPageSchema} />
       <JsonLd data={breadcrumbSchema} />
       <JsonLd data={pricingAppSchema} />
