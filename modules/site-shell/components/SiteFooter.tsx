@@ -14,19 +14,19 @@ const productLinks: readonly NavLink[] = primaryNavigation.filter(
 
 export function SiteFooter() {
   return (
-    <footer className="border-t border-white/10 bg-slate-950 px-6 py-10">
+    <footer className="border-t border-slate-200 bg-slate-50 px-6 pb-12 pt-16">
       <div className="mx-auto flex max-w-7xl flex-col gap-8 md:flex-row md:items-start md:justify-between">
         <div>
-          <p className="text-lg font-semibold text-white">{siteConfig.productName}</p>
-          <p className="mt-3 max-w-md text-sm leading-6 text-slate-400">{siteConfig.seo.description}</p>
-          <p className="mt-4 text-sm text-slate-400">
+          <p className="text-lg font-semibold text-slate-900">{siteConfig.productName}</p>
+          <p className="mt-3 max-w-md text-sm leading-6 text-slate-600">{siteConfig.seo.description}</p>
+          <p className="mt-4 text-sm text-slate-600">
             Support:{" "}
-            <a className="font-semibold text-cyan-200 underline decoration-cyan-400/40 underline-offset-4 transition hover:text-cyan-100" href={`mailto:${siteConfig.supportEmail}`}>
+            <a className="font-semibold text-violet-700 underline decoration-violet-500/40 underline-offset-4 transition hover:text-violet-800" href={`mailto:${siteConfig.supportEmail}`}>
               {siteConfig.supportEmail}
             </a>
           </p>
         </div>
-        <div className="grid gap-5 text-sm text-slate-400 md:grid-cols-3">
+        <div className="grid gap-5 text-sm text-slate-600 md:grid-cols-3">
           {(
             [
               ["Product", productLinks],
@@ -38,7 +38,7 @@ export function SiteFooter() {
               <p className="mb-3 text-xs font-bold uppercase tracking-[0.2em] text-slate-500">{title}</p>
               <div className="grid gap-2">
                 {links.map((item) => (
-                  <Link className="hover:text-white" href={item.href} key={item.href}>
+                  <Link className="transition hover:text-slate-900" href={item.href} key={item.href}>
                     {item.label}
                   </Link>
                 ))}

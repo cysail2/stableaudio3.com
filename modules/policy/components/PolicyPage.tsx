@@ -11,15 +11,15 @@ export function PolicyPage({ slug }: { slug: PolicySlug }) {
           {lines.map((line, index) => {
             const key = `${index}-${line}`;
             if (line.startsWith("# ")) {
-              return <h1 className="mb-6 text-4xl font-semibold text-white" key={key}>{line.slice(2)}</h1>;
+              return <h1 className="mb-6 text-4xl font-semibold text-slate-900" key={key}>{line.slice(2)}</h1>;
             }
             if (line.startsWith("## ")) {
-              return <h2 className="mt-8 text-2xl font-semibold text-white" key={key}>{line.slice(3)}</h2>;
+              return <h2 className="mt-8 text-2xl font-semibold text-slate-900" key={key}>{line.slice(3)}</h2>;
             }
             if (line.startsWith("- ")) {
-              return <p className="ml-4 text-slate-300" key={key}>• {line.slice(2)}</p>;
+              return <p className="ml-4 text-slate-700" key={key}>• {line.slice(2)}</p>;
             }
-            return <p className="mt-4 leading-8 text-slate-300" key={key}>{line}</p>;
+            return <p className="mt-4 leading-8 text-slate-700" key={key}>{line}</p>;
           })}
         </div>
       </article>

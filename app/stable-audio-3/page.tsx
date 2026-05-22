@@ -5,6 +5,7 @@ import { StableAudioGenerator } from "@/modules/generator/components/StableAudio
 import { PricingCards } from "@/modules/pricing/components/PricingCards";
 import { JsonLd } from "@/project/components/JsonLd";
 import { StableAudioFAQ } from "@/project/components/StableAudioFAQ";
+import { TryPromptLink } from "@/project/components/TryPromptLink";
 import { siteConfig } from "@/project/config/site";
 import { toolContent } from "@/project/content/tool";
 
@@ -113,7 +114,7 @@ export default function ToolPage() {
       <JsonLd data={softwareSchema} />
       <JsonLd data={faqSchema} />
 
-      <section className="tool-hero-shell">
+      <section className="tool-hero-shell scroll-mt-20" id="generator">
         <div className="tool-hero-inner">
           <div className="tool-hero-copy">
             <p className="hero-badge">Stable Audio 3 Generator</p>
@@ -131,22 +132,21 @@ export default function ToolPage() {
 
       {/* First H2 section after hero — mandatory homepage internal link per CONTENT_GUIDE.md */}
       <section className="section section-compact relative">
-        <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-64 h-64 bg-cyan-500/10 blur-[120px] -z-10" />
+        <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-64 h-64 bg-violet-50 blur-[120px] -z-10" />
 
         <div className="grid gap-12 lg:grid-cols-[1.15fr_0.85fr] items-start">
           <div>
             <p className="eyebrow inline-flex items-center gap-2 mb-6">
-              <span className="w-8 h-px bg-cyan-500/50" />
+              <span className="w-8 h-px bg-violet-500" />
               Stable Audio 3 Overview
             </p>
             <h2 className="text-4xl md:text-6xl font-black mb-10 leading-[1.1] tracking-tight">
-              What Is <span className="text-cyan-400">Stable Audio 3</span> <br />AI Audio Generator?
+              What Is <span className="text-violet-600">Stable Audio 3</span> <br />AI Audio Generator?
             </h2>
             <div className="space-y-6">
-              <div className="group relative p-8 rounded-3xl bg-slate-900/30 border border-white/5 hover:border-cyan-500/20 transition-all duration-300">
-                <div className="absolute top-0 left-0 w-1 h-0 group-hover:h-full bg-cyan-500/40 transition-all duration-500 rounded-full" />
-                <p className="text-xl text-slate-300 leading-relaxed opacity-90 group-hover:opacity-100 transition-opacity">
-                  <Link className="text-cyan-300 underline decoration-cyan-500/40 underline-offset-4 hover:decoration-cyan-400" href="/">
+              <div className="group relative p-8 rounded-3xl bg-slate-50 border border-slate-200 hover:border-violet-200 transition-all duration-300">
+                <p className="text-xl text-slate-700 leading-relaxed opacity-90 group-hover:opacity-100 transition-opacity">
+                  <Link className="text-violet-700 underline decoration-violet-500/40 underline-offset-4 hover:decoration-violet-400" href="/">
                     Stable Audio 3
                   </Link>{" "}
                   AI Audio Generator is an online tool for creating short audio clips from text
@@ -156,9 +156,8 @@ export default function ToolPage() {
                   Inpaint.
                 </p>
               </div>
-              <div className="group relative p-8 rounded-3xl bg-slate-900/30 border border-white/5 hover:border-cyan-500/20 transition-all duration-300">
-                <div className="absolute top-0 left-0 w-1 h-0 group-hover:h-full bg-cyan-500/40 transition-all duration-500 rounded-full" />
-                <p className="text-xl text-slate-300 leading-relaxed opacity-90 group-hover:opacity-100 transition-opacity">
+              <div className="group relative p-8 rounded-3xl bg-slate-50 border border-slate-200 hover:border-violet-200 transition-all duration-300">
+                <p className="text-xl text-slate-700 leading-relaxed opacity-90 group-hover:opacity-100 transition-opacity">
                   Instead of downloading model weights or setting up a local inference stack,
                   you can use Stable Audio 3 directly in your browser. Write a prompt, optionally
                   upload an audio file, choose a mode and length, generate, preview the waveform,
@@ -170,10 +169,9 @@ export default function ToolPage() {
 
           <div className="tool-stat-stack lg:sticky lg:top-28">
             {toolContent.stats.map((stat) => (
-              <div key={stat.label} className="surface-card tool-stat-card group">
-                <div className="absolute top-0 right-0 w-24 h-24 bg-cyan-500/5 blur-3xl -mr-12 -mt-12 transition-opacity opacity-0 group-hover:opacity-100" />
-                <span className="block text-5xl font-black text-white mb-2 tracking-tighter">{stat.num}</span>
-                <span className="text-[10px] font-black text-cyan-500 uppercase tracking-[0.3em] opacity-60 group-hover:opacity-100 transition-opacity">{stat.label}</span>
+              <div key={stat.label} className="surface-card tool-stat-card">
+                <span className="block text-5xl font-black text-slate-900 mb-2 tracking-tighter">{stat.num}</span>
+                <span className="text-[10px] font-bold text-violet-600 uppercase tracking-[0.3em]">{stat.label}</span>
               </div>
             ))}
           </div>
@@ -186,20 +184,27 @@ export default function ToolPage() {
           <div className="tool-section-heading-row">
             <div className="max-w-2xl">
               <p className="eyebrow inline-flex items-center gap-2 mb-6">
-                <span className="w-8 h-px bg-cyan-500/50" />
+                <span className="w-8 h-px bg-violet-500" />
                 Mode 1 · Text-to-Audio
               </p>
               <h2 className="text-4xl md:text-5xl font-black mb-6 tracking-tight">{toolContent.sections.t2a.title}</h2>
-              <p className="text-xl text-slate-400 leading-relaxed">{toolContent.sections.t2a.body}</p>
-              <p className="mt-6 text-lg text-slate-400 leading-relaxed">
+              <p className="text-xl text-slate-600 leading-relaxed">{toolContent.sections.t2a.body}</p>
+              <p className="mt-6 text-lg text-slate-600 leading-relaxed">
                 Stronger prompts read like compact production briefs: genre, instruments, mood,
-                tempo, and a production style cue.
+                tempo, and a production style cue. The{" "}
+                <Link
+                  className="text-violet-700 underline decoration-violet-500/40 underline-offset-4 hover:decoration-violet-400"
+                  href="/how-to-use-stable-audio-3"
+                >
+                  Stable Audio 3 prompt guide
+                </Link>{" "}
+                has the full formula and ready-to-copy examples.
               </p>
             </div>
             <div className="tool-highlight-panel shrink-0 max-w-sm">
-              <div className="absolute top-0 right-0 w-16 h-16 bg-cyan-500/10 blur-2xl -mr-8 -mt-8" />
-              <p className="relative z-10 text-sm text-slate-300 leading-relaxed">
-                <strong className="text-cyan-400 block mb-2 uppercase tracking-[0.2em] text-[10px] font-black">Pro Tip</strong>
+              <div className="absolute top-0 right-0 w-16 h-16 bg-violet-50 blur-2xl -mr-8 -mt-8" />
+              <p className="relative z-10 text-sm text-slate-700 leading-relaxed">
+                <strong className="text-violet-600 block mb-2 uppercase tracking-[0.2em] text-[10px] font-black">Pro Tip</strong>
                 Put genre + instruments first. Add tempo (BPM) and key when the use case has a
                 sync target. Production style cues like &quot;warm tape&quot; or &quot;lo-fi vinyl crackle&quot; make
                 the result feel intentional instead of generic.
@@ -207,88 +212,98 @@ export default function ToolPage() {
             </div>
           </div>
 
-          <div className="tool-prompt-shell border-cyan-500/20">
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(34,211,238,0.08),transparent_70%)]" />
+          <div className="tool-prompt-shell border-violet-200">
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(124,58,237,0.08),transparent_70%)]" />
             <div className="relative z-10">
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-[10px] font-black tracking-[0.3em] text-cyan-400 uppercase mb-8">
-                <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-violet-50 border border-violet-200 text-[10px] font-black tracking-[0.3em] text-violet-700 uppercase mb-8">
+                <span className="w-2 h-2 rounded-full bg-violet-500 animate-pulse"></span>
                 Prompt Example
               </div>
-              <div className="text-slate-500 text-xs font-black tracking-[0.2em] uppercase mb-4 opacity-40">
+              <div className="text-violet-600 text-xs font-bold tracking-[0.2em] uppercase mb-4">
                 {toolContent.sections.t2a.example.category}
               </div>
-              <p className="text-base md:text-lg text-slate-100 leading-8 md:leading-9 font-medium tracking-normal italic max-w-4xl">
+              <p className="text-base md:text-lg text-slate-800 leading-8 md:leading-9 font-medium tracking-normal italic max-w-4xl mb-5">
                 &quot;{toolContent.sections.t2a.example.prompt}&quot;
               </p>
+              <TryPromptLink mode="text-to-audio" prompt={toolContent.sections.t2a.example.prompt} />
             </div>
           </div>
         </div>
       </section>
 
-      {/* Mode 2: Audio-to-Audio */}
+      {/* Mode 2: Audio-to-Audio — pink accent */}
       <section className="section section-compact">
-        <div className="tool-section-shell tool-section-shell-orange">
-          <p className="eyebrow inline-flex items-center gap-2 mb-6">
-            <span className="w-8 h-px bg-orange-500/50" />
+        <div className="tool-section-shell tool-section-shell-pink">
+          <p className="eyebrow inline-flex items-center gap-2 mb-6 text-pink-600">
+            <span className="w-8 h-px bg-pink-400/50" />
             Mode 2 · Audio-to-Audio
           </p>
           <div className="max-w-2xl mb-12">
             <h2 className="text-4xl md:text-5xl font-black mb-6 tracking-tight">{toolContent.sections.a2a.title}</h2>
-            <p className="text-xl text-slate-400 leading-relaxed">{toolContent.sections.a2a.body}</p>
-            <p className="mt-6 text-lg text-slate-400 leading-relaxed">
+            <p className="text-xl text-slate-600 leading-relaxed">{toolContent.sections.a2a.body}</p>
+            <p className="mt-6 text-lg text-slate-600 leading-relaxed">
               Upload an MP3, WAV, or FLAC clip. Describe the transformation. The clearer the
               change description, the cleaner the result.
             </p>
           </div>
 
-          <div className="tool-prompt-shell border-orange-500/20">
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(249,115,22,0.08),transparent_70%)]" />
+          <div className="tool-prompt-shell border-pink-200">
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(236,72,153,0.08),transparent_70%)]" />
             <div className="relative z-10">
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-orange-500/10 border border-orange-500/20 text-[10px] font-black tracking-[0.3em] text-orange-400 uppercase mb-8">
-                <span className="w-2 h-2 rounded-full bg-orange-400 animate-pulse"></span>
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-pink-50 border border-pink-200 text-[10px] font-black tracking-[0.3em] text-pink-700 uppercase mb-8">
+                <span className="w-2 h-2 rounded-full bg-pink-500 animate-pulse"></span>
                 Transformation Prompt
               </div>
-              <div className="text-slate-500 text-xs font-black tracking-[0.2em] uppercase mb-4 opacity-40">
+              <div className="text-pink-600 text-xs font-bold tracking-[0.2em] uppercase mb-4">
                 {toolContent.sections.a2a.example.category}
               </div>
-              <p className="text-base md:text-lg text-slate-100 leading-8 md:leading-9 font-medium tracking-normal italic max-w-4xl">
+              <p className="text-base md:text-lg text-slate-800 leading-8 md:leading-9 font-medium tracking-normal italic max-w-4xl mb-5">
                 &quot;{toolContent.sections.a2a.example.prompt}&quot;
               </p>
+              <TryPromptLink mode="audio-to-audio" prompt={toolContent.sections.a2a.example.prompt} />
             </div>
           </div>
         </div>
       </section>
 
-      {/* Mode 3: Audio Inpaint */}
+      {/* Mode 3: Audio Inpaint — amber accent */}
       <section className="section section-compact">
-        <div className="tool-section-shell tool-section-shell-cyan">
-          <p className="eyebrow inline-flex items-center gap-2 mb-6">
-            <span className="w-8 h-px bg-cyan-500/50" />
+        <div className="tool-section-shell tool-section-shell-amber">
+          <p className="eyebrow inline-flex items-center gap-2 mb-6 text-amber-600">
+            <span className="w-8 h-px bg-amber-400/50" />
             Mode 3 · Audio Inpaint
           </p>
           <div className="max-w-2xl mb-12">
             <h2 className="text-4xl md:text-5xl font-black mb-6 tracking-tight">{toolContent.sections.inpaint.title}</h2>
-            <p className="text-xl text-slate-400 leading-relaxed">{toolContent.sections.inpaint.body}</p>
-            <p className="mt-6 text-lg text-slate-400 leading-relaxed">
+            <p className="text-xl text-slate-600 leading-relaxed">{toolContent.sections.inpaint.body}</p>
+            <p className="mt-6 text-lg text-slate-600 leading-relaxed">
               Inpaint works best on focused regions — a few bars, a specific transition, a single
               SFX swap. Asking the model to regenerate most of the clip loses context with the
-              rest.
+              rest. The{" "}
+              <Link
+                className="text-amber-700 underline decoration-amber-400/40 underline-offset-4 hover:decoration-amber-400"
+                href="/how-to-use-stable-audio-3"
+              >
+                Inpaint section of the prompt guide
+              </Link>{" "}
+              covers how to match the surrounding genre, tempo, and key so the regenerated region blends in.
             </p>
           </div>
 
-          <div className="tool-prompt-shell border-cyan-500/20">
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(34,211,238,0.08),transparent_70%)]" />
+          <div className="tool-prompt-shell border-amber-200">
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(245,158,11,0.08),transparent_70%)]" />
             <div className="relative z-10">
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-[10px] font-black tracking-[0.3em] text-cyan-400 uppercase mb-8">
-                <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-50 border border-amber-200 text-[10px] font-black tracking-[0.3em] text-amber-700 uppercase mb-8">
+                <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span>
                 Inpaint Prompt
               </div>
-              <div className="text-slate-500 text-xs font-black tracking-[0.2em] uppercase mb-4 opacity-40">
+              <div className="text-amber-600 text-xs font-bold tracking-[0.2em] uppercase mb-4">
                 {toolContent.sections.inpaint.example.category}
               </div>
-              <p className="text-base md:text-lg text-slate-100 leading-8 md:leading-9 font-medium tracking-normal italic max-w-4xl">
+              <p className="text-base md:text-lg text-slate-800 leading-8 md:leading-9 font-medium tracking-normal italic max-w-4xl mb-5">
                 &quot;{toolContent.sections.inpaint.example.prompt}&quot;
               </p>
+              <TryPromptLink mode="audio-inpaint" prompt={toolContent.sections.inpaint.example.prompt} />
             </div>
           </div>
         </div>
@@ -299,11 +314,11 @@ export default function ToolPage() {
         <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-blue-500/5 blur-[150px] -z-10" />
         <div className="text-center mb-16">
           <p className="eyebrow inline-flex items-center gap-2 mb-4 justify-center">
-            <span className="w-8 h-px bg-cyan-500/50" />
+            <span className="w-8 h-px bg-violet-500" />
             Use Cases
           </p>
           <h2 className="text-4xl md:text-6xl font-black mb-6 tracking-tight">What You Can Create with Stable Audio 3</h2>
-          <p className="text-xl text-slate-400 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed">
             Stable Audio 3 helps you create short audio clips for music, podcasts, video soundtracks,
             game audio, social media, and ambient streaming — all from prompts or by editing existing
             audio.
@@ -312,10 +327,9 @@ export default function ToolPage() {
         <div className="tool-feature-grid">
           {toolContent.useCases.map((item) => (
             <div key={item.title} className="tool-feature-card group">
-              <div className="absolute top-0 left-0 w-1 h-0 group-hover:h-full bg-cyan-500/40 transition-all duration-500 rounded-full" />
-              <span className="text-4xl mb-6 block transform group-hover:scale-110 transition-transform duration-500">{item.icon}</span>
-              <h4 className="text-xl font-black text-white mb-3 group-hover:text-cyan-400 transition-colors">{item.title}</h4>
-              <p className="text-slate-400 leading-relaxed group-hover:text-slate-300 transition-colors">{item.description}</p>
+              <span className="text-4xl mb-6 block">{item.icon}</span>
+              <h4 className="text-xl font-bold text-slate-900 mb-3">{item.title}</h4>
+              <p className="text-slate-600 leading-relaxed">{item.description}</p>
             </div>
           ))}
         </div>
@@ -325,19 +339,19 @@ export default function ToolPage() {
       <section className="section section-compact">
         <div className="text-center mb-16">
           <p className="eyebrow inline-flex items-center gap-2 mb-4 justify-center">
-            <span className="w-8 h-px bg-cyan-500/50" />
+            <span className="w-8 h-px bg-violet-500" />
             Generator Settings
           </p>
           <h2 className="text-4xl md:text-6xl font-black mb-6 tracking-tight">Settings Explained</h2>
         </div>
         <div className="tool-settings-grid">
           {toolContent.settings.map((s) => (
-            <div key={s.num} className="tool-settings-card group">
-              <span className="w-14 h-14 rounded-2xl bg-cyan-500/5 border border-cyan-500/20 flex items-center justify-center text-xl font-black text-cyan-400 mb-8 group-hover:bg-cyan-500 group-hover:text-slate-950 transition-all duration-500">
+            <div key={s.num} className="tool-settings-card">
+              <span className="w-14 h-14 rounded-2xl bg-violet-50 border border-violet-200 flex items-center justify-center text-xl font-bold text-violet-700 mb-8">
                 {s.num}
               </span>
-              <h4 className="text-xl font-black text-white mb-4 group-hover:text-cyan-400 transition-colors">{s.title}</h4>
-              <p className="text-base text-slate-500 leading-relaxed group-hover:text-slate-400 transition-colors">{s.description}</p>
+              <h4 className="text-xl font-bold text-slate-900 mb-4">{s.title}</h4>
+              <p className="text-base text-slate-600 leading-relaxed">{s.description}</p>
             </div>
           ))}
         </div>
@@ -347,11 +361,11 @@ export default function ToolPage() {
       <section className="section section-compact">
         <div className="text-center mb-16">
           <p className="eyebrow inline-flex items-center gap-2 mb-4 justify-center">
-            <span className="w-8 h-px bg-cyan-500/50" />
+            <span className="w-8 h-px bg-violet-500" />
             Online vs Local
           </p>
           <h2 className="text-4xl md:text-6xl font-black mb-6 tracking-tight">Online Stable Audio 3 vs Running Local Weights</h2>
-          <p className="text-xl text-slate-400 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed">
             Use Stable Audio 3 online when you want to create audio quickly without installing tools
             or managing model files. Choose local inference only if you are comfortable downloading
             the open-weight Stable Audio 3 variants from Hugging Face and running them on your own
@@ -362,18 +376,18 @@ export default function ToolPage() {
           <div className="overflow-x-auto">
             <table className="w-full text-left border-collapse min-w-[700px]">
               <thead>
-                <tr className="border-b border-white/10 bg-white/5">
+                <tr className="border-b border-slate-200 bg-white/5">
                   <th className="p-8 text-slate-500 font-black uppercase text-[10px] tracking-[0.3em]">Feature</th>
-                  <th className="p-8 text-cyan-400 font-black uppercase text-[10px] tracking-[0.3em]">Stable Audio 3 Online</th>
+                  <th className="p-8 text-violet-600 font-black uppercase text-[10px] tracking-[0.3em]">Stable Audio 3 Online</th>
                   <th className="p-8 text-slate-500 font-black uppercase text-[10px] tracking-[0.3em]">Local Open Weights</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-white/5">
+              <tbody className="divide-y divide-slate-200">
                 {toolContent.comparison.map((row, i) => (
-                  <tr key={i} className="group hover:bg-white/[0.03] transition-colors">
-                    <td className="p-8 text-white font-black text-sm group-hover:text-cyan-400 transition-colors">{row.feature}</td>
-                    <td className="p-8 text-slate-300 text-sm">{typeof row.online === "string" ? row.online : row.onlineText}</td>
-                    <td className="p-8 text-slate-400 text-sm">{typeof row.local === "string" ? row.local : row.localText}</td>
+                  <tr key={i} className="hover:bg-slate-50 transition-colors">
+                    <td className="p-8 text-slate-900 font-semibold text-sm">{row.feature}</td>
+                    <td className="p-8 text-slate-700 text-sm">{typeof row.online === "string" ? row.online : row.onlineText}</td>
+                    <td className="p-8 text-slate-600 text-sm">{typeof row.local === "string" ? row.local : row.localText}</td>
                   </tr>
                 ))}
               </tbody>
@@ -407,11 +421,11 @@ export default function ToolPage() {
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-[radial-gradient(circle_at_50%_0%,rgba(34,211,238,0.12),transparent_70%)]" />
           <div className="relative z-10">
             <p className="eyebrow inline-flex items-center gap-2 mb-6 justify-center">
-              <span className="w-8 h-px bg-cyan-500/50" />
+              <span className="w-8 h-px bg-violet-500" />
               Get Started
             </p>
             <h2 className="text-4xl md:text-7xl font-black mb-8 leading-tight tracking-tighter">Create Your First Audio Clip with Stable Audio 3</h2>
-            <p className="text-xl text-slate-400 mb-12 max-w-2xl mx-auto leading-relaxed">
+            <p className="text-xl text-slate-600 mb-12 max-w-2xl mx-auto leading-relaxed">
               Use Stable Audio 3 AI Audio Generator to turn a prompt into music, ambient bed, or
               SFX — or upload an audio file to edit and inpaint. Start free in your browser.
             </p>

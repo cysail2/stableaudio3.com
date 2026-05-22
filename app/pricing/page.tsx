@@ -133,7 +133,7 @@ export default function PricingPage() {
       <JsonLd data={offerCatalogSchema} />
       <JsonLd data={faqSchema} />
 
-      <section className="section pricing-hero">
+      <section className="section pricing-hero !pb-4">
         <div className="section-heading">
           <p className="eyebrow">PRICING</p>
           <h1>Stable Audio 3 Pricing</h1>
@@ -146,6 +146,12 @@ export default function PricingPage() {
         </div>
       </section>
 
+      {/* Plans first — above the fold for users who already know what they want */}
+      <section className="section pricing-cards-section !pt-4">
+        <PricingCards />
+      </section>
+
+      {/* Credit system explainer comes after the plans so users can read context once they've seen prices */}
       <section className="section split-panel">
         <div>
           <p className="eyebrow">Credit System</p>
@@ -153,29 +159,19 @@ export default function PricingPage() {
         </div>
         <div className="space-y-5">
           <p>
-            <Link className="text-cyan-300 underline decoration-cyan-500/40 underline-offset-4 hover:decoration-cyan-400" href="/">
+            <Link className="text-violet-700 underline decoration-violet-500/40 underline-offset-4 hover:decoration-violet-400" href="/">
               Stable Audio 3
             </Link>{" "}
             {pricingContent.explainer[0]}
           </p>
           <p>
             {pricingContent.explainer[1]} For better first attempts, use the{" "}
-            <Link className="text-cyan-300 underline decoration-cyan-500/40 underline-offset-4 hover:decoration-cyan-400" href="/how-to-use-stable-audio-3">
+            <Link className="text-violet-700 underline decoration-violet-500/40 underline-offset-4 hover:decoration-violet-400" href="/how-to-use-stable-audio-3">
               Stable Audio 3 prompt guide
             </Link>{" "}
             before spending larger credit packs on long outputs.
           </p>
         </div>
-      </section>
-
-      <section className="section pricing-cards-section">
-        <div className="section-heading !mb-8">
-          <p className="eyebrow">Plans</p>
-          <p>
-            Compare Stable Audio 3 credit packs for quick tests, prompt exploration, heavier iteration, and team audio workflows.
-          </p>
-        </div>
-        <PricingCards />
       </section>
 
       <section className="section split-panel">
@@ -186,7 +182,7 @@ export default function PricingPage() {
         <div className="space-y-5">
           {pricingContent.selection.map((item) => (
             <div key={item.title}>
-              <p className="text-white font-semibold">{item.title}</p>
+              <p className="text-slate-900 font-semibold">{item.title}</p>
               <p>{item.description}</p>
             </div>
           ))}

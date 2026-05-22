@@ -29,7 +29,7 @@ function UserIcon() {
   return (
     <svg
       aria-hidden="true"
-      className="h-4 w-4 text-slate-400"
+      className="h-4 w-4 text-slate-600"
       fill="none"
       stroke="currentColor"
       strokeLinecap="round"
@@ -47,7 +47,7 @@ function LibraryIcon() {
   return (
     <svg
       aria-hidden="true"
-      className="h-4 w-4 text-slate-400"
+      className="h-4 w-4 text-slate-600"
       fill="none"
       stroke="currentColor"
       strokeLinecap="round"
@@ -121,11 +121,11 @@ export function AuthButton() {
         <button
           aria-expanded={isOpen}
           aria-haspopup="menu"
-          className="inline-flex h-10 items-center gap-2 rounded-full border border-white/10 bg-slate-900/60 py-1 pl-1 pr-3 text-sm text-slate-100 transition hover:border-cyan-300/60"
+          className="inline-flex h-10 items-center gap-2 rounded-full border border-slate-200 bg-slate-100 py-1 pl-1 pr-3 text-sm text-slate-800 transition hover:border-violet-400"
           onClick={() => setIsOpen((value) => !value)}
           type="button"
         >
-          <span className="grid h-8 w-8 place-items-center overflow-hidden rounded-full bg-cyan-300/20 text-xs font-bold text-cyan-100">
+          <span className="grid h-8 w-8 place-items-center overflow-hidden rounded-full bg-cyan-300/20 text-xs font-bold text-violet-700">
             {userInfo?.avatar ? (
               // eslint-disable-next-line @next/next/no-img-element
               <img alt="" className="h-full w-full object-cover" src={userInfo.avatar} />
@@ -133,16 +133,16 @@ export function AuthButton() {
               initials
             )}
           </span>
-          <span className="hidden max-w-[140px] truncate text-slate-100 sm:inline">{displayName}</span>
-          <ChevronDownIcon className={`text-slate-400 transition ${isOpen ? "rotate-180" : ""}`} />
+          <span className="hidden max-w-[140px] truncate text-slate-800 sm:inline">{displayName}</span>
+          <ChevronDownIcon className={`text-slate-600 transition ${isOpen ? "rotate-180" : ""}`} />
         </button>
         {isOpen ? (
           <div
-            className="absolute right-0 top-full z-50 mt-2 w-64 rounded-2xl border border-white/10 bg-slate-950/95 p-2 shadow-2xl backdrop-blur-xl"
+            className="absolute right-0 top-full z-50 mt-2 w-64 rounded-2xl border border-slate-200 bg-white p-2 shadow-2xl backdrop-blur-xl"
             role="menu"
           >
-            <div className="flex items-center gap-3 border-b border-white/10 px-3 pb-3 pt-2">
-              <span className="grid h-10 w-10 place-items-center overflow-hidden rounded-full bg-cyan-300/20 text-sm font-bold text-cyan-100">
+            <div className="flex items-center gap-3 border-b border-slate-200 px-3 pb-3 pt-2">
+              <span className="grid h-10 w-10 place-items-center overflow-hidden rounded-full bg-cyan-300/20 text-sm font-bold text-violet-700">
                 {userInfo?.avatar ? (
                   // eslint-disable-next-line @next/next/no-img-element
                   <img alt="" className="h-full w-full object-cover" src={userInfo.avatar} />
@@ -151,13 +151,13 @@ export function AuthButton() {
                 )}
               </span>
               <div className="min-w-0">
-                <p className="truncate text-sm font-semibold text-white">{displayName}</p>
-                {userInfo?.email ? <p className="truncate text-xs text-slate-400">{userInfo.email}</p> : null}
+                <p className="truncate text-sm font-semibold text-slate-900">{displayName}</p>
+                {userInfo?.email ? <p className="truncate text-xs text-slate-600">{userInfo.email}</p> : null}
               </div>
             </div>
             <div className="mt-1 flex flex-col">
               <Link
-                className="flex items-center gap-2 rounded-lg px-3 py-2 text-sm text-slate-200 transition hover:bg-white/5 hover:text-white"
+                className="flex items-center gap-2 rounded-lg px-3 py-2 text-sm text-slate-700 transition hover:bg-white/5 hover:text-slate-900"
                 href="/account"
                 onClick={() => setIsOpen(false)}
                 role="menuitem"
@@ -166,7 +166,7 @@ export function AuthButton() {
                 My Account
               </Link>
               <Link
-                className="flex items-center gap-2 rounded-lg px-3 py-2 text-sm text-slate-200 transition hover:bg-white/5 hover:text-white"
+                className="flex items-center gap-2 rounded-lg px-3 py-2 text-sm text-slate-700 transition hover:bg-white/5 hover:text-slate-900"
                 href="/library"
                 onClick={() => setIsOpen(false)}
                 role="menuitem"

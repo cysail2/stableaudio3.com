@@ -1,7 +1,7 @@
 import { getHeaders, handleApiError } from "./api-core";
 import { uploadApi } from "./upload";
 
-export type StableAudioMode = "text-to-audio" | "audio-to-audio" | "audio-inpaint" | "audio-outpaint";
+export type StableAudioMode = "text-to-audio" | "audio-to-audio" | "audio-inpaint";
 export type StableAudioEditMode = "remix" | "lyrics";
 
 export type CreateStableAudioTaskInput = {
@@ -14,8 +14,6 @@ export type CreateStableAudioTaskInput = {
   editMode?: StableAudioEditMode;
   startTime?: number;
   endTime?: number;
-  extendBeforeDuration?: number;
-  extendAfterDuration?: number;
   seed?: number;
   instrumental?: boolean;
 };
@@ -37,7 +35,6 @@ const STABLE_AUDIO_PATHS = {
   textToAudio: "/api/stable-audio/text",
   audioToAudio: "/api/stable-audio/audio-to-audio",
   audioInpaint: "/api/stable-audio/audio-inpaint",
-  audioOutpaint: "/api/stable-audio/audio-outpaint",
   check: "/api/stable-audio/status",
 } as const;
 
@@ -77,9 +74,10 @@ const createAudioToAudioTask = (input: CreateStableAudioTaskInput) =>
     edit_mode: input.editMode || "remix",
     lyrics: "",
     original_lyrics: "",
-    original_tags: cleanText(input.originalTags) || cleanText(input.tags),
-    seed: input.seed ?? -1,
+    original_tags: cleanText(input.originalTags),
+    prompt: cleanText(input.prompt),
     tags: cleanText(input.tags),
+    seed: input.seed ?? -1,
     duration: cleanNumber(input.duration, 60),
   });
 
@@ -92,17 +90,7 @@ const createAudioInpaintTask = (input: CreateStableAudioTaskInput) =>
     seed: input.seed ?? -1,
     start_time: cleanNumber(input.startTime, 0),
     start_time_relative_to: "start",
-    tags: cleanText(input.tags),
-    duration: cleanNumber(input.duration, 60),
-  });
-
-const createAudioOutpaintTask = (input: CreateStableAudioTaskInput) =>
-  postJson(STABLE_AUDIO_PATHS.audioOutpaint, {
-    audio_url: cleanText(input.audioUrl),
-    extend_after_duration: cleanNumber(input.extendAfterDuration, 30),
-    extend_before_duration: cleanNumber(input.extendBeforeDuration, 0),
-    lyrics: "",
-    seed: input.seed ?? -1,
+    prompt: cleanText(input.prompt),
     tags: cleanText(input.tags),
     duration: cleanNumber(input.duration, 60),
   });
@@ -113,9 +101,7 @@ export const createStableAudioTask = async (input: CreateStableAudioTaskInput) =
       ? await createTextToAudioTask(input)
       : input.mode === "audio-to-audio"
         ? await createAudioToAudioTask(input)
-        : input.mode === "audio-inpaint"
-          ? await createAudioInpaintTask(input)
-          : await createAudioOutpaintTask(input);
+        : await createAudioInpaintTask(input);
 
   return {
     taskId: String(result.data?.task_id || result.data?.taskId || ""),

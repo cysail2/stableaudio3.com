@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import type { ReactNode } from "react";
+import { DeferredAudio, HeroAudioPreview } from "@/modules/media/components/DeferredAudio";
 import { JsonLd } from "@/project/components/JsonLd";
 import { StableAudioFAQ } from "@/project/components/StableAudioFAQ";
 import { homeContent } from "@/project/content/home";
@@ -153,6 +154,36 @@ const homePageSchema = {
   },
 };
 
+const heroSample = {
+  title: "Cinematic ambient, 70 BPM in A minor",
+  subtitle: "Text-to-Audio · 30 s · Sample",
+  sample: "/samples/hero-cinematic.mp3",
+  duration: "30 s",
+  description:
+    "A cinematic ambient Stable Audio 3 sample with slow synth pads, deep sub bass, distant piano notes, and warm reverb.",
+};
+
+const durationToIso = (duration: string) => {
+  const seconds = Number(duration.match(/\d+(\.\d+)?/)?.[0] || 0);
+  return `PT${Math.max(1, Math.round(seconds))}S`;
+};
+
+const audioSamplesSchema = {
+  "@context": "https://schema.org",
+  "@graph": [heroSample, ...homeContent.useCases].map((sample) => ({
+    "@type": "AudioObject",
+    name: `${sample.title} - Stable Audio 3 sample`,
+    description: sample.description,
+    contentUrl: `${siteConfig.url}${sample.sample}`,
+    encodingFormat: "audio/mpeg",
+    uploadDate: "2026-05-22",
+    duration: durationToIso(sample.duration),
+    isPartOf: {
+      "@id": `${siteConfig.url}#webpage`,
+    },
+  })),
+};
+
 export default function HomePage() {
   return (
     <main>
@@ -160,21 +191,58 @@ export default function HomePage() {
       <JsonLd data={homePageSchema} />
       <JsonLd data={softwareSchema} />
       <JsonLd data={faqSchema} />
+      <JsonLd data={audioSamplesSchema} />
 
-      <section className="hero-shell hero-video-shell">
-        <video
+      <section className="hero-audio-stage">
+        {/* Animated equalizer-bar curtain — 21 bars, pure CSS animation */}
+        <div aria-hidden="true" className="hero-eq">
+          {Array.from({ length: 21 }).map((_, i) => (
+            <span key={i} />
+          ))}
+        </div>
+
+        {/* Floating mode chips — desktop-only, fill lateral empty space */}
+        <div aria-hidden="true" className="hero-float-chip is-t2a">
+          <span className="swatch" style={{ background: "#7c3aed" }} />
+          Text-to-Audio
+        </div>
+        <div aria-hidden="true" className="hero-float-chip is-a2a">
+          <span className="swatch" style={{ background: "#ec4899" }} />
+          Audio-to-Audio
+        </div>
+        <div aria-hidden="true" className="hero-float-chip is-inpaint">
+          <span className="swatch" style={{ background: "#f59e0b" }} />
+          Audio Inpaint
+        </div>
+        <div aria-hidden="true" className="hero-float-chip is-bpm">
+          70 BPM · A minor
+        </div>
+
+        {/* Large decorative spectrogram band behind the hero copy */}
+        <svg
           aria-hidden="true"
-          autoPlay
-          className="hero-video"
-          loop
-          muted
-          playsInline
-          poster="/hero/stable-audio-3-hero-poster.jpg"
+          className="hero-spectrogram"
+          preserveAspectRatio="none"
+          viewBox="0 0 1200 60"
+          xmlns="http://www.w3.org/2000/svg"
         >
-          <source src="/hero/stable-audio-3-hero.mp4" type="video/mp4" />
-        </video>
-        <div className="hero-video-overlay" />
-        <div className="hero-video-grid" aria-hidden="true" />
+          {Array.from({ length: 120 }).map((_, i) => {
+            const seed = Math.sin(i * 0.7) * Math.sin(i * 0.13);
+            const h = 18 + Math.abs(seed) * 40;
+            return (
+              <rect
+                fill="#0f172a"
+                height={h}
+                key={i}
+                rx={1.5}
+                width={3}
+                x={i * 10 + 2}
+                y={(60 - h) / 2}
+              />
+            );
+          })}
+        </svg>
+
         <div className="hero-content">
           <p className="hero-badge">{homeContent.hero.badge}</p>
           <h1>{homeContent.hero.title}</h1>
@@ -188,17 +256,19 @@ export default function HomePage() {
             </Link>
           </div>
           <p className="hero-trust">{homeContent.hero.trustLine}</p>
+
+          <HeroAudioPreview src={heroSample.sample} subtitle={heroSample.subtitle} title={heroSample.title} />
         </div>
       </section>
 
       <section className="section section-compact relative overflow-hidden">
         {/* Decorative background element */}
-        <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-64 h-64 bg-cyan-500/10 blur-[100px] -z-10" />
+        <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-64 h-64 bg-violet-50 blur-[100px] -z-10" />
         
         <div className="grid gap-12 lg:grid-cols-[1fr_1.5fr] items-start">
           <div className="sticky top-24">
             <p className="eyebrow inline-flex items-center gap-2">
-              <span className="w-8 h-px bg-cyan-500/50" />
+              <span className="w-8 h-px bg-violet-500" />
               {homeContent.intro.eyebrow}
             </p>
             <h2 className="mt-4 !text-4xl md:!text-5xl lg:!text-6xl !leading-[1.1] font-bold tracking-tight">
@@ -206,7 +276,7 @@ export default function HomePage() {
             </h2>
             <div className="mt-8 flex flex-wrap gap-3">
               {homeContent.intro.tags.map((tag) => (
-                <span key={tag} className="px-3 py-1 rounded-full bg-slate-900 border border-slate-800 text-xs font-medium text-slate-400">
+                <span key={tag} className="px-3 py-1 rounded-full bg-white border border-slate-200 text-xs font-medium text-slate-600">
                   {tag}
                 </span>
               ))}
@@ -214,17 +284,36 @@ export default function HomePage() {
           </div>
           
           <div className="space-y-6">
-            {homeContent.intro.paragraphs.map((paragraph, idx) => (
-              <div 
-                key={idx} 
-                className="group relative p-6 rounded-2xl bg-slate-900/30 border border-white/5 hover:border-cyan-500/20 transition-all duration-300"
-              >
-                <div className="absolute top-0 left-0 w-1 h-0 group-hover:h-full bg-cyan-500/40 transition-all duration-500 rounded-full" />
-                <p className="text-base md:text-lg leading-relaxed text-slate-300 opacity-90 group-hover:opacity-100 transition-opacity">
-                  {paragraph}
-                </p>
-              </div>
-            ))}
+            {/* First H2 section paragraphs — mandatory homepage internal link
+                lives in paragraph 0; secondary internal links in paragraphs 1 + 2 */}
+            <div className="group relative p-6 rounded-2xl bg-slate-50 border border-slate-200 hover:border-violet-200 transition-all duration-300">
+              <p className="text-base md:text-lg leading-relaxed text-slate-700 opacity-90 group-hover:opacity-100 transition-opacity">
+                <Link
+                  className="text-violet-700 underline decoration-violet-500/40 underline-offset-4 hover:decoration-violet-400"
+                  href="/"
+                >
+                  Stableaudio3.com
+                </Link>{" "}
+                {homeContent.intro.paragraphs[0]}
+              </p>
+            </div>
+            <div className="group relative p-6 rounded-2xl bg-slate-50 border border-slate-200 hover:border-violet-200 transition-all duration-300">
+              <p className="text-base md:text-lg leading-relaxed text-slate-700 opacity-90 group-hover:opacity-100 transition-opacity">
+                {homeContent.intro.paragraphs[1]}
+              </p>
+            </div>
+            <div className="group relative p-6 rounded-2xl bg-slate-50 border border-slate-200 hover:border-violet-200 transition-all duration-300">
+              <p className="text-base md:text-lg leading-relaxed text-slate-700 opacity-90 group-hover:opacity-100 transition-opacity">
+                {homeContent.intro.paragraphs[2]} Read the{" "}
+                <Link
+                  className="text-violet-700 underline decoration-violet-500/40 underline-offset-4 hover:decoration-violet-400"
+                  href="/how-to-use-stable-audio-3"
+                >
+                  Stable Audio 3 prompt guide
+                </Link>{" "}
+                for the full formula and examples.
+              </p>
+            </div>
           </div>
         </div>
       </section>
@@ -250,36 +339,43 @@ export default function HomePage() {
           <p className="eyebrow">Workflow</p>
           <h2 className="!text-4xl md:!text-5xl font-bold">From Prompt to Audio in Four Steps</h2>
           <p className="!mx-auto !max-w-3xl text-base md:text-lg opacity-80 leading-relaxed mt-4">
-            {homeContent.workflowIntro}
+            {homeContent.workflowIntro}{" "}
+            <Link
+              className="text-violet-700 underline decoration-violet-500/40 underline-offset-4 hover:decoration-violet-400"
+              href="/stable-audio-3"
+            >
+              Open the Stable Audio 3 generator
+            </Link>{" "}
+            to try each step in the browser.
           </p>
         </div>
 
         <div className="relative grid gap-8 md:grid-cols-4">
           {/* Connecting Line (Desktop Only) */}
-          <div className="hidden md:block absolute top-12 left-0 w-full h-px bg-gradient-to-r from-transparent via-cyan-500/30 to-transparent -z-10" />
+          <div className="hidden md:block absolute top-12 left-0 w-full h-px bg-gradient-to-r from-transparent via-violet-500/30 to-transparent -z-10" />
           
           {homeContent.workflow.map((step, index) => (
             <article 
-              className="group relative flex flex-col items-start p-6 rounded-2xl bg-slate-900/40 border border-white/5 hover:bg-slate-900/60 hover:border-cyan-500/30 transition-all duration-300" 
+              className="group relative flex flex-col items-start p-6 rounded-2xl bg-slate-50 border border-slate-200 hover:bg-slate-100 hover:border-violet-300 transition-all duration-300"
               key={step.title}
             >
               <div className="relative mb-6">
-                <span className="flex items-center justify-center w-12 h-12 rounded-xl bg-cyan-500/10 text-cyan-400 font-bold text-xl border border-cyan-500/20 group-hover:scale-110 group-hover:bg-cyan-500 group-hover:text-slate-950 transition-all duration-500">
+                <span className="flex items-center justify-center w-12 h-12 rounded-xl bg-violet-50 text-violet-600 font-bold text-xl border border-violet-200 group-hover:scale-110 group-hover:bg-violet-500 group-hover:text-slate-950 transition-all duration-500">
                   {String(index + 1).padStart(2, "0")}
                 </span>
                 {/* Visual marker for the line connection */}
-                <div className="hidden md:block absolute top-1/2 left-full w-8 h-px bg-cyan-500/20 group-last:hidden" />
+                <div className="hidden md:block absolute top-1/2 left-full w-8 h-px bg-violet-100 group-last:hidden" />
               </div>
               
-              <h3 className="text-xl font-bold text-white group-hover:text-cyan-400 transition-colors min-h-[3.5rem] flex items-center">
+              <h3 className="text-xl font-bold text-slate-900 group-hover:text-violet-600 transition-colors min-h-[3.5rem] flex items-center">
                 {step.title}
               </h3>
-              <p className="mt-3 text-base leading-relaxed text-slate-400 group-hover:text-slate-300 transition-colors">
+              <p className="mt-3 text-base leading-relaxed text-slate-600 group-hover:text-slate-700 transition-colors">
                 {step.description}
               </p>
               
               {/* Bottom decorative accent */}
-              <div className="absolute bottom-0 left-6 right-6 h-px bg-gradient-to-r from-transparent via-cyan-500/0 group-hover:via-cyan-500/40 to-transparent transition-all duration-500" />
+              <div className="absolute bottom-0 left-6 right-6 h-px bg-gradient-to-r from-transparent via-violet-500/0 group-hover:via-violet-500/40 to-transparent transition-all duration-500" />
             </article>
           ))}
         </div>
@@ -288,7 +384,7 @@ export default function HomePage() {
       <section className="section section-compact">
         <div className="metric-grid !grid-cols-2 lg:!grid-cols-4">
           {homeContent.metrics.map((metric) => (
-            <div className="metric-card !border-none !bg-slate-900/40 !rounded-xl !p-6 text-center" key={metric.label}>
+            <div className="metric-card !border-none !bg-slate-50 !rounded-xl !p-6 text-center" key={metric.label}>
               <strong className="!text-3xl md:!text-4xl">{metric.value}</strong>
               <span className="text-xs uppercase tracking-wider opacity-60">{metric.label}</span>
               <p className="text-sm mt-2 opacity-50">{metric.detail}</p>
@@ -309,19 +405,16 @@ export default function HomePage() {
         </div>
         <div className="case-grid gap-4">
           {homeContent.useCases.map((item) => (
-            <article className="surface-card use-case-card !p-0 overflow-hidden" key={item.title}>
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                alt={`${item.title} — Stable Audio 3 use case`}
-                className="case-media !m-0 !rounded-none"
-                loading="lazy"
-                src={item.poster}
-              />
-              <div className="p-4">
-                <h3 className="text-base">{item.title}</h3>
-                <p className="text-base opacity-70 mt-1">{item.description}</p>
-              </div>
-            </article>
+            <DeferredAudio
+              description={item.description}
+              duration={item.duration}
+              genre={item.genre}
+              key={item.title}
+              mode={item.mode}
+              seed={item.seed}
+              src={item.sample}
+              title={item.title}
+            />
           ))}
         </div>
       </section>

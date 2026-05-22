@@ -94,13 +94,13 @@ function ShowcaseHeader({
 }) {
   return (
     <div className="mb-7 max-w-4xl">
-      <p className="text-xs font-black uppercase tracking-[0.2em] text-cyan-700">{eyebrow}</p>
+      <p className="text-xs font-black uppercase tracking-[0.2em] text-violet-700">{eyebrow}</p>
       <h2 className="mt-3 text-3xl font-bold tracking-tight text-slate-950 md:text-4xl">{title}</h2>
       {showHomeLink ? (
         <p className="mt-3 text-sm leading-6 text-slate-600">
           For the product overview, start from the{" "}
           <Link
-            className="font-semibold text-cyan-700 underline decoration-cyan-300 underline-offset-4 transition hover:text-cyan-800 hover:decoration-cyan-500"
+            className="font-semibold text-violet-700 underline decoration-cyan-300 underline-offset-4 transition hover:text-violet-800 hover:decoration-violet-500"
             href="/"
           >
             Stable Audio 3 homepage
@@ -132,7 +132,7 @@ function UseCaseIndex({
       {countByCategory.map(({ category, count }) =>
         count === 0 ? null : (
           <a
-            className="inline-flex items-center gap-2 rounded-full bg-slate-100 px-4 py-2 text-sm font-semibold text-slate-700 transition hover:bg-cyan-50 hover:text-cyan-800"
+            className="inline-flex items-center gap-2 rounded-full bg-slate-100 px-4 py-2 text-sm font-semibold text-slate-700 transition hover:bg-violet-50 hover:text-violet-800"
             href={`#${category.id}`}
             key={category.id}
           >
@@ -230,7 +230,7 @@ function ExampleCard({
         </div>
         <div className="mt-auto">
           <Link
-            className="inline-flex items-center gap-2 rounded-full bg-slate-950 px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-cyan-700"
+            className="inline-flex items-center gap-2 rounded-full bg-slate-950 px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-violet-700"
             href={tryThisPromptHref(example)}
           >
             Try this prompt
@@ -260,7 +260,7 @@ function Chip({
   tone: "cyan" | "slate" | "amber";
 }) {
   const toneClasses: Record<"cyan" | "slate" | "amber", string> = {
-    cyan: "bg-cyan-50 text-cyan-800 ring-1 ring-cyan-100",
+    cyan: "bg-violet-50 text-violet-800 ring-1 ring-violet-100",
     slate: "bg-slate-100 text-slate-700 ring-1 ring-slate-200",
     amber: "bg-amber-50 text-amber-800 ring-1 ring-amber-100",
   };

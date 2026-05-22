@@ -25,7 +25,7 @@ export const pricingPlans: PricingPlan[] = [
     credits: 10000,
     creditsText: "Up to 10,000 seconds of audio",
     pricePerCredit: "$0.00099 / credit",
-    features: ["10,000 credits", "About 41 four-minute clips", "All Stable Audio 3 modes"],
+    features: ["About 41 four-minute clips", "All Stable Audio 3 modes", "Credits never expire"],
   },
   {
     key: "credits-22000",
@@ -36,7 +36,8 @@ export const pricingPlans: PricingPlan[] = [
     credits: 22000,
     creditsText: "Up to 22,000 seconds of audio",
     pricePerCredit: "$0.00090 / credit",
-    features: ["22,000 credits", "About 91 four-minute clips", "Better unit price for prompt testing"],
+    featured: true,
+    features: ["About 91 four-minute clips", "Better unit price for prompt testing", "All Stable Audio 3 modes"],
   },
   {
     key: "credits-60000",
@@ -47,7 +48,7 @@ export const pricingPlans: PricingPlan[] = [
     credits: 60000,
     creditsText: "Up to 60,000 seconds of audio",
     pricePerCredit: "$0.00083 / credit",
-    features: ["60,000 credits", "About 250 four-minute clips", "Built for larger creative batches"],
+    features: ["About 250 four-minute clips", "Built for larger creative batches", "Credits never expire"],
   },
   {
     key: "credits-150000",
@@ -58,7 +59,7 @@ export const pricingPlans: PricingPlan[] = [
     credits: 150000,
     creditsText: "Up to 150,000 seconds of audio",
     pricePerCredit: "$0.00067 / credit",
-    features: ["150,000 credits", "About 625 four-minute clips", "Lowest unit price"],
+    features: ["About 625 four-minute clips", "Lowest unit price per credit", "Best for teams & frequent creators"],
   },
 ];
 

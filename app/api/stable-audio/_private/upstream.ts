@@ -9,7 +9,6 @@ export const upstreamPaths = {
   text: "/api/task/wp/ace-step/prompt-to-audio",
   audioToAudio: "/api/task/wp/ace-step/audio-to-audio",
   audioInpaint: "/api/task/wp/ace-step/audio-inpaint",
-  audioOutpaint: "/api/task/wp/ace-step/audio-outpaint",
   check: "/api/task/wp/ace-step/check",
 } as const;
 

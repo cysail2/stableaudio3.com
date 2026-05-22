@@ -20,10 +20,10 @@ function statusBadge(item: WorkItem) {
     return { label: "Failed", className: "bg-rose-500/15 text-rose-200" };
   }
   if (item.status === "pending") {
-    return { label: "Processing", className: "bg-cyan-400/15 text-cyan-100" };
+    return { label: "Processing", className: "bg-cyan-400/15 text-violet-700" };
   }
   if (item.status === "deleted") {
-    return { label: "Removed", className: "bg-slate-500/30 text-slate-200" };
+    return { label: "Removed", className: "bg-slate-500/30 text-slate-700" };
   }
   return null;
 }
@@ -112,8 +112,8 @@ export function LibraryPage() {
           <p>Sign in to see every Stable Audio 3 generation tied to your account.</p>
         </div>
         <div className="surface-card mx-auto max-w-xl text-center">
-          <h2 className="text-2xl font-semibold text-white">Sign in to view your library</h2>
-          <p className="mt-3 text-slate-400">Generated audio is saved to the account that created it.</p>
+          <h2 className="text-2xl font-semibold text-slate-900">Sign in to view your library</h2>
+          <p className="mt-3 text-slate-600">Generated audio is saved to the account that created it.</p>
           <button
             className="button-primary mt-6"
             onClick={() => openSignIn({ forceRedirectUrl: "/library" })}
@@ -136,7 +136,7 @@ export function LibraryPage() {
 
       <div className="mx-auto max-w-6xl">
         <div className="mb-6 flex flex-wrap items-center justify-between gap-3">
-          <p className="text-sm text-slate-400">
+          <p className="text-sm text-slate-600">
             {status === "loaded" ? `${items.length} works · ` : ""}
             Generations are retained for 6 months — download anything you want to keep.
           </p>
@@ -162,8 +162,8 @@ export function LibraryPage() {
 
         {status === "loaded" && items.length === 0 ? (
           <div className="surface-card mx-auto max-w-2xl text-center">
-            <h2 className="text-2xl font-semibold text-white">No audio yet</h2>
-            <p className="mt-3 text-slate-400">
+            <h2 className="text-2xl font-semibold text-slate-900">No audio yet</h2>
+            <p className="mt-3 text-slate-600">
               Create your first Stable Audio 3 audio clip from the generator page.
             </p>
             <a className="button-primary mt-6 inline-flex" href="/stable-audio-3">
@@ -181,7 +181,7 @@ export function LibraryPage() {
                 <article className="surface-card flex h-full flex-col gap-3" key={item.taskId}>
                   <button
                     aria-label="View detail"
-                    className="group relative block overflow-hidden rounded-2xl bg-slate-950/70"
+                    className="group relative block overflow-hidden rounded-2xl bg-white"
                     onClick={() => setSelectedId(item.id)}
                     type="button"
                   >
@@ -227,7 +227,7 @@ export function LibraryPage() {
                       </span>
                     ) : null}
                     {item.isVideo && canPreview ? (
-                      <span className="absolute inset-0 grid place-items-center bg-slate-950/0 transition group-hover:bg-slate-950/30">
+                      <span className="absolute inset-0 grid place-items-center bg-white/0 transition group-hover:bg-white">
                         <span className="grid h-12 w-12 place-items-center rounded-full bg-white/85 text-slate-950 opacity-0 transition group-hover:opacity-100">
                           ▶
                         </span>
@@ -235,7 +235,7 @@ export function LibraryPage() {
                     ) : null}
                   </button>
                   <div className="min-w-0 flex-1">
-                    <p className="line-clamp-2 text-sm text-slate-200">
+                    <p className="line-clamp-2 text-sm text-slate-700">
                       {item.prompt || "Untitled generation"}
                     </p>
                     <p className="mt-2 text-xs text-slate-500">
@@ -274,15 +274,15 @@ export function LibraryPage() {
       {itemToDelete ? (
         <div
           aria-modal="true"
-          className="fixed inset-0 z-[90] flex items-center justify-center bg-slate-950/80 p-4 backdrop-blur-sm"
+          className="fixed inset-0 z-[90] flex items-center justify-center bg-white p-4 backdrop-blur-sm"
           onClick={(event) => {
             if (event.target === event.currentTarget && !isDeleting) setConfirmDeleteId(null);
           }}
           role="dialog"
         >
           <div className="surface-card w-full max-w-md">
-            <h2 className="text-xl font-semibold text-white">Delete this generation?</h2>
-            <p className="mt-2 text-sm text-slate-400">
+            <h2 className="text-xl font-semibold text-slate-900">Delete this generation?</h2>
+            <p className="mt-2 text-sm text-slate-600">
               This permanently removes the generation from your library. This action cannot be undone.
             </p>
             <div className="mt-5 flex justify-end gap-2">
@@ -295,7 +295,7 @@ export function LibraryPage() {
                 Cancel
               </button>
               <button
-                className="inline-flex min-h-10 items-center justify-center rounded-full bg-rose-500 px-4 text-sm font-semibold text-white transition hover:bg-rose-400 disabled:opacity-60"
+                className="inline-flex min-h-10 items-center justify-center rounded-full bg-rose-500 px-4 text-sm font-semibold text-slate-900 transition hover:bg-rose-400 disabled:opacity-60"
                 disabled={isDeleting}
                 onClick={() => void handleDelete(itemToDelete.id)}
                 type="button"

@@ -216,7 +216,7 @@ export function DeferredVideo({
           {!isPlaying ? (
             <button
               aria-label={`Play ${accessibleLabel}`}
-              className="absolute left-1/2 top-1/2 z-10 flex h-12 w-12 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-slate-950/60 text-white opacity-100 ring-1 ring-white/25 backdrop-blur transition hover:bg-slate-950/75 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300 md:opacity-0 md:group-hover/video:opacity-100 md:group-focus-within/video:opacity-100"
+              className="absolute left-1/2 top-1/2 z-10 flex h-12 w-12 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-slate-950/60 text-white opacity-100 ring-1 ring-white/25 backdrop-blur transition hover:bg-slate-950/75 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-300 md:opacity-0 md:group-hover/video:opacity-100 md:group-focus-within/video:opacity-100"
               onClick={(event) => {
                 event.stopPropagation();
                 playVideo();
@@ -228,7 +228,7 @@ export function DeferredVideo({
           ) : (
             <button
               aria-label={`Pause ${accessibleLabel}`}
-              className="pointer-events-none absolute left-1/2 top-1/2 z-10 flex h-12 w-12 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-slate-950/50 text-white opacity-0 ring-1 ring-white/20 backdrop-blur transition hover:bg-slate-950/65 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300 group-hover/video:pointer-events-auto group-hover/video:opacity-100 group-focus-within/video:pointer-events-auto group-focus-within/video:opacity-100"
+              className="pointer-events-none absolute left-1/2 top-1/2 z-10 flex h-12 w-12 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-slate-950/50 text-white opacity-0 ring-1 ring-white/20 backdrop-blur transition hover:bg-slate-950/65 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-300 group-hover/video:pointer-events-auto group-hover/video:opacity-100 group-focus-within/video:pointer-events-auto group-focus-within/video:opacity-100"
               onClick={(event) => {
                 event.stopPropagation();
                 pauseVideo();
@@ -240,7 +240,7 @@ export function DeferredVideo({
           )}
           <button
             aria-label={isMuted ? "Unmute video" : "Mute video"}
-            className="absolute bottom-3 right-3 z-10 flex h-8 w-8 items-center justify-center rounded-full bg-slate-950/45 text-white opacity-100 ring-1 ring-white/20 backdrop-blur transition hover:bg-slate-950/65 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300 md:opacity-0 md:group-hover/video:opacity-100 md:group-focus-within/video:opacity-100"
+            className="absolute bottom-3 right-3 z-10 flex h-8 w-8 items-center justify-center rounded-full bg-slate-950/45 text-white opacity-100 ring-1 ring-white/20 backdrop-blur transition hover:bg-slate-950/65 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-300 md:opacity-0 md:group-hover/video:opacity-100 md:group-focus-within/video:opacity-100"
             onClick={(event) => {
               event.stopPropagation();
               toggleMute();

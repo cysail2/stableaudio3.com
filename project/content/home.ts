@@ -87,37 +87,64 @@ export const homeContent = {
   useCases: [
     {
       title: "Music Sketch and Cinematic Score",
-      poster: "/use-cases/commercial-advertising.webp",
+      // mode controls the card thumb hue — keep most cards on primary (violet)
+      // and reserve pink for an A2A example, amber for an Inpaint example.
+      // This prevents the 6-card grid from looking like a rainbow.
+      mode: "t2a",
+      genre: "Cinematic",
+      duration: "30 s",
+      sample: "/samples/usecase-cinematic.mp3",
+      seed: 13,
       description:
         "Generate cinematic music beds, electronic loops, or orchestral sketches from text prompts. Describe genre, instruments, tempo, and mood to give the model a clear sonic direction.",
     },
     {
       title: "Podcast Intro and Outro",
-      poster: "/use-cases/product-showcase.webp",
+      mode: "a2a",
+      genre: "Podcast Intro",
+      duration: "8 s",
+      sample: "/samples/usecase-podcast-intro.mp3",
+      seed: 21,
       description:
         "Create short branded intro and outro music that sets the tone for an episode. Use Audio-to-Audio mode to take a rough sketch and shape it into a polished bed.",
     },
     {
       title: "Video Soundtrack Bed",
-      poster: "/use-cases/cinematic-storytelling.webp",
+      mode: "t2a",
+      genre: "Soundtrack",
+      duration: "25 s",
+      sample: "/samples/usecase-soundtrack.mp3",
+      seed: 47,
       description:
         "Generate background music for short videos, social clips, and product launches. Match the duration to the cut, and use Audio Inpaint to swap a section that does not fit.",
     },
     {
       title: "Game Audio Prototyping",
-      poster: "/use-cases/social-media-content.webp",
+      mode: "inpaint",
+      genre: "Game SFX",
+      duration: "5 s",
+      sample: "/samples/usecase-game-sfx.mp3",
+      seed: 7,
       description:
         "Sketch UI sound effects, ambience loops, and combat beds before commissioning final audio. Small SFX-style outputs from Stable Audio 3 are well-suited to short game sounds.",
     },
     {
       title: "Social Media Audio Hook",
-      poster: "/use-cases/concept-visualization.webp",
+      mode: "t2a",
+      genre: "Lo-fi Hook",
+      duration: "15 s",
+      sample: "/samples/usecase-lofi-loop.mp3",
+      seed: 33,
       description:
         "Create 5–10 second loops or hooks for Reels, TikTok, and Shorts. Use Audio Inpaint to refine the section that needs to read on the first second of a vertical clip.",
     },
     {
       title: "Ambient Bed for Streaming or Focus",
-      poster: "/use-cases/storyboarding.webp",
+      mode: "t2a",
+      genre: "Ambient",
+      duration: "60 s",
+      sample: "/samples/usecase-ambient.mp3",
+      seed: 58,
       description:
         "Generate long-form ambient loops for streaming overlays, focus playlists, or installation pieces. Variable-length generation removes the need to stitch multiple loops manually.",
     },

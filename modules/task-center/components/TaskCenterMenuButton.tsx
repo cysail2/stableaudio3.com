@@ -30,12 +30,12 @@ export function TaskCenterMenuButton() {
   return (
     <button
       aria-label="Open task center"
-      className="relative inline-flex h-10 items-center gap-1.5 rounded-full border border-white/10 bg-slate-900/60 px-3 text-sm font-semibold text-slate-200 transition hover:border-cyan-300/60 hover:text-cyan-100"
+      className="relative inline-flex h-10 items-center gap-1.5 rounded-full border border-slate-200 bg-slate-100 px-3 text-sm font-semibold text-slate-700 transition hover:border-violet-400 hover:text-violet-700"
       onClick={() => setOpen(true)}
       title="Task Center"
       type="button"
     >
-      <LayersIcon className="text-cyan-200" />
+      <LayersIcon className="text-violet-700" />
       <span className="hidden sm:inline">Tasks</span>
       {pendingCount ? (
         <span className="grid min-w-5 place-items-center rounded-full bg-cyan-300 px-1.5 text-[11px] font-black text-slate-950">

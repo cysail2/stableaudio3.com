@@ -128,7 +128,7 @@ function FloatingArticleToc({
         {!panelOpen ? (
           <button
             aria-label="Pin page outline"
-            className={`absolute ${handleSideClass} top-0 z-10 rounded-2xl border border-transparent bg-transparent px-2 py-3 opacity-100 transition hover:border-slate-200 hover:bg-white/80 focus-visible:border-cyan-300 focus-visible:bg-white focus-visible:outline-none`}
+            className={`absolute ${handleSideClass} top-0 z-10 rounded-2xl border border-transparent bg-transparent px-2 py-3 opacity-100 transition hover:border-slate-200 hover:bg-white/80 focus-visible:border-violet-300 focus-visible:bg-white focus-visible:outline-none`}
             onClick={onPin}
             title="Pin page outline"
             type="button"
@@ -278,8 +278,8 @@ function TocLinks({ activeId, items }: { activeId: string; items: readonly TocIt
             aria-current={isActive ? "true" : undefined}
             className={`rounded-xl px-3 py-1.5 text-sm font-semibold leading-5 transition ${
               isActive
-                ? "bg-cyan-50 text-slate-950"
-                : "text-slate-600 hover:bg-cyan-50 hover:text-slate-950"
+                ? "bg-violet-50 text-slate-950"
+                : "text-slate-600 hover:bg-violet-50 hover:text-slate-950"
             }`}
             href={`#${item.id}`}
             key={item.id}

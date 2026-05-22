@@ -15,8 +15,8 @@ export function AccountPage() {
           <p>Sign in to view your balance, generation history, and account settings.</p>
         </div>
         <div className="surface-card mx-auto max-w-xl text-center">
-          <h2 className="text-2xl font-semibold text-white">Sign in to continue</h2>
-          <p className="mt-3 text-slate-400">
+          <h2 className="text-2xl font-semibold text-slate-900">Sign in to continue</h2>
+          <p className="mt-3 text-slate-600">
             Your free credits, purchased credits, and generated audio are tied to your account.
           </p>
           <button
@@ -49,10 +49,10 @@ export function AccountPage() {
         <section className="grid gap-6 md:grid-cols-3">
           <div className="surface-card md:col-span-2">
             <div className="flex items-center gap-3">
-              <span className="text-xs font-semibold uppercase tracking-[0.18em] text-cyan-200">Profile</span>
+              <span className="text-xs font-semibold uppercase tracking-[0.18em] text-violet-700">Profile</span>
             </div>
             <div className="mt-5 flex flex-col items-start gap-5 sm:flex-row sm:items-center">
-              <span className="grid h-20 w-20 place-items-center overflow-hidden rounded-full border border-white/10 bg-cyan-300/15 text-xl font-bold text-cyan-100">
+              <span className="grid h-20 w-20 place-items-center overflow-hidden rounded-full border border-slate-200 bg-cyan-300/15 text-xl font-bold text-violet-700">
                 {userInfo?.avatar ? (
                   // eslint-disable-next-line @next/next/no-img-element
                   <img alt="" className="h-full w-full object-cover" src={userInfo.avatar} />
@@ -61,8 +61,8 @@ export function AccountPage() {
                 )}
               </span>
               <div className="min-w-0">
-                <h2 className="truncate text-2xl font-semibold text-white">{displayName}</h2>
-                <p className="mt-1 break-all text-sm text-slate-400">{userInfo?.email || ""}</p>
+                <h2 className="truncate text-2xl font-semibold text-slate-900">{displayName}</h2>
+                <p className="mt-1 break-all text-sm text-slate-600">{userInfo?.email || ""}</p>
                 {userInfo?.uuid ? (
                   <p className="mt-2 text-xs text-slate-500">User ID: {userInfo.uuid}</p>
                 ) : null}
@@ -72,10 +72,10 @@ export function AccountPage() {
 
           <div className="surface-card">
             <div className="flex items-center justify-between">
-              <span className="text-xs font-semibold uppercase tracking-[0.18em] text-cyan-200">Balance</span>
+              <span className="text-xs font-semibold uppercase tracking-[0.18em] text-violet-700">Balance</span>
             </div>
-            <p className="mt-5 text-sm text-slate-400">Total credits available</p>
-            <p className="mt-1 text-4xl font-bold text-white">{isLoadingUserInfo ? "-" : totalCredits}</p>
+            <p className="mt-5 text-sm text-slate-600">Total credits available</p>
+            <p className="mt-1 text-4xl font-bold text-slate-900">{isLoadingUserInfo ? "-" : totalCredits}</p>
             <Link className="button-primary mt-6 min-h-10 px-4 text-sm" href="/pricing">
               Top up credits
             </Link>
@@ -85,8 +85,8 @@ export function AccountPage() {
         <section className="surface-card">
           <div className="flex flex-wrap items-center justify-between gap-3">
             <div>
-              <span className="text-xs font-semibold uppercase tracking-[0.18em] text-cyan-200">Resources &amp; Usage</span>
-              <h3 className="mt-1 text-xl font-semibold text-white">Credit breakdown</h3>
+              <span className="text-xs font-semibold uppercase tracking-[0.18em] text-violet-700">Resources &amp; Usage</span>
+              <h3 className="mt-1 text-xl font-semibold text-slate-900">Credit breakdown</h3>
             </div>
             <button
               className="button-secondary min-h-10 px-4 text-sm"
@@ -97,19 +97,19 @@ export function AccountPage() {
             </button>
           </div>
           <div className="mt-5 grid gap-4 sm:grid-cols-3">
-            <div className="rounded-2xl border border-white/10 bg-slate-950/70 p-4">
-              <span className="text-sm text-slate-400">Free credits</span>
-              <strong className="mt-2 block text-3xl text-white">{isLoadingUserInfo ? "-" : freeCredits}</strong>
+            <div className="rounded-2xl border border-slate-200 bg-white p-4">
+              <span className="text-sm text-slate-600">Free credits</span>
+              <strong className="mt-2 block text-3xl text-slate-900">{isLoadingUserInfo ? "-" : freeCredits}</strong>
               <p className="mt-2 text-xs text-slate-500">Granted on sign-up and available until used.</p>
             </div>
-            <div className="rounded-2xl border border-white/10 bg-slate-950/70 p-4">
-              <span className="text-sm text-slate-400">Paid credits</span>
-              <strong className="mt-2 block text-3xl text-white">{isLoadingUserInfo ? "-" : paidCredits}</strong>
+            <div className="rounded-2xl border border-slate-200 bg-white p-4">
+              <span className="text-sm text-slate-600">Paid credits</span>
+              <strong className="mt-2 block text-3xl text-slate-900">{isLoadingUserInfo ? "-" : paidCredits}</strong>
               <p className="mt-2 text-xs text-slate-500">Purchased credits never expire.</p>
             </div>
-            <div className="rounded-2xl border border-white/10 bg-slate-950/70 p-4">
-              <span className="text-sm text-slate-400">Total available</span>
-              <strong className="mt-2 block text-3xl text-white">{isLoadingUserInfo ? "-" : totalCredits}</strong>
+            <div className="rounded-2xl border border-slate-200 bg-white p-4">
+              <span className="text-sm text-slate-600">Total available</span>
+              <strong className="mt-2 block text-3xl text-slate-900">{isLoadingUserInfo ? "-" : totalCredits}</strong>
               <p className="mt-2 text-xs text-slate-500">Used automatically by every generation.</p>
             </div>
           </div>
@@ -125,8 +125,8 @@ export function AccountPage() {
 
         <section className="surface-card border-rose-400/30">
           <span className="text-xs font-semibold uppercase tracking-[0.18em] text-rose-300">Security</span>
-          <h3 className="mt-1 text-xl font-semibold text-white">Session &amp; account</h3>
-          <p className="mt-2 text-sm text-slate-400">
+          <h3 className="mt-1 text-xl font-semibold text-slate-900">Session &amp; account</h3>
+          <p className="mt-2 text-sm text-slate-600">
             Sign out from this device if you are on a shared computer, or contact support to permanently delete
             your Stable Audio 3 account and generation history.
           </p>

@@ -68,14 +68,14 @@ export function InsufficientCreditsModal({
     <div
       aria-labelledby="insufficient-credits-title"
       aria-modal="true"
-      className="fixed inset-0 z-[100] grid place-items-center bg-slate-950/78 p-4 backdrop-blur-sm"
+      className="fixed inset-0 z-[100] grid place-items-center bg-white p-4 backdrop-blur-sm"
       role="dialog"
     >
       <button aria-label="Close credit dialog" className="absolute inset-0 cursor-default" onClick={onClose} type="button" />
-      <div className="surface-card relative w-full max-w-md overflow-hidden !rounded-[2rem] !border-cyan-300/25 bg-slate-950/95 !p-0 text-center shadow-2xl shadow-cyan-950/40">
+      <div className="surface-card relative w-full max-w-md overflow-hidden !rounded-[2rem] !border-violet-300/25 bg-white !p-0 text-center shadow-2xl shadow-violet-200/40">
         <button
           aria-label="Close"
-          className="absolute right-4 top-4 grid h-9 w-9 place-items-center rounded-full border border-white/10 text-slate-400 transition hover:border-cyan-300/50 hover:text-white"
+          className="absolute right-4 top-4 grid h-9 w-9 place-items-center rounded-full border border-slate-200 text-slate-600 transition hover:border-violet-400 hover:text-slate-900"
           onClick={onClose}
           type="button"
         >
@@ -83,27 +83,27 @@ export function InsufficientCreditsModal({
         </button>
 
         <div className="px-7 pb-7 pt-10">
-          <div className="mx-auto mb-6 grid h-20 w-20 place-items-center rounded-full bg-cyan-300/12 text-cyan-200 ring-8 ring-cyan-300/5">
+          <div className="mx-auto mb-6 grid h-20 w-20 place-items-center rounded-full bg-cyan-300/12 text-violet-700 ring-8 ring-violet-300/5">
             <ZapIcon className="h-9 w-9" />
           </div>
 
           <p className="eyebrow mb-3">Credits Required</p>
-          <h2 className="text-2xl font-bold text-white" id="insufficient-credits-title">
+          <h2 className="text-2xl font-bold text-slate-900" id="insufficient-credits-title">
             Not enough credits
           </h2>
-          <p className="mx-auto mt-3 max-w-sm text-sm leading-6 text-slate-300">
-            This generation needs <span className="font-bold text-cyan-200">{creditCost} credits</span>.
-            Your current balance is <span className="font-bold text-white">{currentBalance} credits</span>.
+          <p className="mx-auto mt-3 max-w-sm text-sm leading-6 text-slate-700">
+            This generation needs <span className="font-bold text-violet-700">{creditCost} credits</span>.
+            Your current balance is <span className="font-bold text-slate-900">{currentBalance} credits</span>.
           </p>
 
           <div className="mt-6 grid grid-cols-2 gap-3 text-left">
-            <div className="rounded-2xl border border-white/10 bg-slate-900/70 p-4">
+            <div className="rounded-2xl border border-slate-200 bg-slate-100 p-4">
               <span className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">Need</span>
-              <strong className="mt-2 block text-2xl text-white">{creditCost}</strong>
+              <strong className="mt-2 block text-2xl text-slate-900">{creditCost}</strong>
             </div>
-            <div className="rounded-2xl border border-cyan-300/20 bg-cyan-300/10 p-4">
-              <span className="text-xs font-semibold uppercase tracking-[0.14em] text-cyan-200">Short by</span>
-              <strong className="mt-2 block text-2xl text-cyan-100">{shortfall}</strong>
+            <div className="rounded-2xl border border-violet-300/20 bg-cyan-300/10 p-4">
+              <span className="text-xs font-semibold uppercase tracking-[0.14em] text-violet-700">Short by</span>
+              <strong className="mt-2 block text-2xl text-violet-700">{shortfall}</strong>
             </div>
           </div>
 
@@ -116,8 +116,8 @@ export function InsufficientCreditsModal({
             </button>
           </div>
 
-          <div className="mt-7 border-t border-white/10 pt-5">
-            <div className="flex flex-wrap justify-center gap-x-5 gap-y-2 text-xs font-semibold text-slate-400">
+          <div className="mt-7 border-t border-slate-200 pt-5">
+            <div className="flex flex-wrap justify-center gap-x-5 gap-y-2 text-xs font-semibold text-slate-600">
               {["No expiry", "One-time packs", "Secure checkout"].map((item) => (
                 <span className="inline-flex items-center gap-1.5" key={item}>
                   <CheckIcon className="h-4 w-4 text-emerald-300" />

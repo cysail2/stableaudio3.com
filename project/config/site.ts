@@ -16,7 +16,6 @@ export const siteConfig = {
     keywords: [
       "Stable Audio 3",
       "Stable Audio 3 AI Audio Generator",
-      "AI audio generator",
       "text to audio",
       "audio inpainting",
       "AI music generator",

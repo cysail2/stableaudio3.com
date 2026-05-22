@@ -36,7 +36,7 @@ export function TaskCenterWidget() {
     <div
       aria-labelledby="task-center-title"
       aria-modal="true"
-      className="fixed inset-0 z-[80] grid place-items-center bg-slate-950/76 p-4 backdrop-blur-sm"
+      className="fixed inset-0 z-[80] grid place-items-center bg-white p-4 backdrop-blur-sm"
       role="dialog"
     >
       <button
@@ -45,11 +45,11 @@ export function TaskCenterWidget() {
         onClick={() => setOpen(false)}
         type="button"
       />
-      <div className="surface-card relative w-full max-w-2xl max-h-[82vh] overflow-auto !rounded-[2rem] bg-slate-950/95 shadow-2xl shadow-cyan-950/30">
+      <div className="surface-card relative w-full max-w-2xl max-h-[82vh] overflow-auto !rounded-[2rem] bg-white shadow-2xl shadow-violet-950/30">
         <div className="mb-4 flex items-center justify-between gap-3">
           <div>
             <p className="eyebrow mb-1">Task Center</p>
-            <h2 className="text-xl font-semibold text-white" id="task-center-title">
+            <h2 className="text-xl font-semibold text-slate-900" id="task-center-title">
               Stable Audio 3 Generations
             </h2>
           </div>
@@ -60,21 +60,21 @@ export function TaskCenterWidget() {
         {tasks.length ? (
           <div className="space-y-3">
             {tasks.map((task) => (
-              <article className="rounded-2xl border border-white/10 bg-slate-950/70 p-4" key={task.taskId}>
+              <article className="rounded-2xl border border-slate-200 bg-white p-4" key={task.taskId}>
                 <div className="flex items-center justify-between gap-3">
-                  <strong className="text-sm text-white">{task.modelLabel}</strong>
-                  <span className="text-xs uppercase text-cyan-200">{task.status}</span>
+                  <strong className="text-sm text-slate-900">{task.modelLabel}</strong>
+                  <span className="text-xs uppercase text-violet-700">{task.status}</span>
                 </div>
-                {task.prompt ? <p className="mt-2 line-clamp-2 text-sm text-slate-400">{task.prompt}</p> : null}
+                {task.prompt ? <p className="mt-2 line-clamp-2 text-sm text-slate-600">{task.prompt}</p> : null}
                 {task.status === "pending" ? (
                   <div className="mt-3 space-y-2">
                     <div className="flex items-center justify-between gap-3 text-xs font-semibold">
-                      <span className="animate-pulse text-cyan-200">{getTaskProgressStage(task)}</span>
-                      <span className="font-mono text-cyan-100">{Math.round(getEstimatedTaskProgress(task))}%</span>
+                      <span className="animate-pulse text-violet-700">{getTaskProgressStage(task)}</span>
+                      <span className="font-mono text-violet-700">{Math.round(getEstimatedTaskProgress(task))}%</span>
                     </div>
                     <div className="h-2 overflow-hidden rounded-full bg-slate-800">
                       <div
-                        className="h-full rounded-full bg-gradient-to-r from-cyan-300 to-sky-200 transition-[width] duration-700 ease-out"
+                        className="h-full rounded-full bg-gradient-to-r from-violet-300 to-sky-200 transition-[width] duration-700 ease-out"
                         style={{ width: `${getEstimatedTaskProgress(task)}%` }}
                       />
                     </div>
@@ -87,7 +87,7 @@ export function TaskCenterWidget() {
                 ) : null}
                 {task.outputUrl || task.videoUrl ? (
                   <a
-                    className="mt-3 inline-flex text-sm font-semibold text-cyan-200"
+                    className="mt-3 inline-flex text-sm font-semibold text-violet-700"
                     href={task.outputUrl || task.videoUrl}
                     rel="noreferrer"
                     target="_blank"
@@ -99,9 +99,9 @@ export function TaskCenterWidget() {
             ))}
           </div>
         ) : (
-          <div className="rounded-2xl border border-white/10 bg-slate-950/70 p-8 text-center">
-            <p className="text-lg font-semibold text-white">No generation tasks yet</p>
-            <p className="mt-2 text-sm text-slate-400">
+          <div className="rounded-2xl border border-slate-200 bg-white p-8 text-center">
+            <p className="text-lg font-semibold text-slate-900">No generation tasks yet</p>
+            <p className="mt-2 text-sm text-slate-600">
               Submitted audio jobs will appear here after you start a generation.
             </p>
           </div>

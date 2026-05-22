@@ -79,17 +79,17 @@ export function WorkDetailDialog({ item, onClose, onRequestDelete }: WorkDetailD
   return (
     <div
       aria-modal="true"
-      className="fixed inset-0 z-[80] flex items-center justify-center bg-slate-950/80 p-4 backdrop-blur-sm"
+      className="fixed inset-0 z-[80] flex items-center justify-center bg-white p-4 backdrop-blur-sm"
       onClick={(event) => {
         if (event.target === event.currentTarget) onClose();
       }}
       role="dialog"
     >
       <div className="surface-card relative w-full max-w-5xl max-h-[92vh] overflow-auto">
-        <div className="flex items-start justify-between gap-3 border-b border-white/10 pb-4">
+        <div className="flex items-start justify-between gap-3 border-b border-slate-200 pb-4">
           <div>
             <p className="eyebrow mb-2">Generation Detail</p>
-            <h2 className="text-2xl font-semibold text-white">{item.modelLabel} generation</h2>
+            <h2 className="text-2xl font-semibold text-slate-900">{item.modelLabel} generation</h2>
             <p className="mt-1 text-xs text-slate-500">
               {formatWorkDate(item.createdAt, true)}
               {item.taskId ? ` · ${item.taskId}` : ""}
@@ -97,7 +97,7 @@ export function WorkDetailDialog({ item, onClose, onRequestDelete }: WorkDetailD
           </div>
           <button
             aria-label="Close detail"
-            className="rounded-full border border-white/10 px-3 py-1 text-sm text-slate-300 transition hover:border-cyan-300/60 hover:text-cyan-100"
+            className="rounded-full border border-slate-200 px-3 py-1 text-sm text-slate-700 transition hover:border-violet-400 hover:text-violet-700"
             onClick={onClose}
             type="button"
           >
@@ -107,9 +107,9 @@ export function WorkDetailDialog({ item, onClose, onRequestDelete }: WorkDetailD
 
         <div className="mt-5 grid gap-6 lg:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)]">
           <div>
-            <div className="overflow-hidden rounded-2xl border border-white/10 bg-slate-950/80">
+            <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white">
               {item.status === "pending" ? (
-                <div className="grid aspect-video place-items-center px-6 text-center text-sm text-cyan-100">
+                <div className="grid aspect-video place-items-center px-6 text-center text-sm text-violet-700">
                   Generation in progress — check back once the task completes.
                 </div>
               ) : item.status === "failed" || !item.mediaUrl ? (
@@ -143,7 +143,7 @@ export function WorkDetailDialog({ item, onClose, onRequestDelete }: WorkDetailD
                 <div className="mt-2 flex flex-wrap gap-3">
                   {item.originUrls.map((url) => (
                     <a
-                      className="block h-20 w-20 overflow-hidden rounded-xl border border-white/10 transition hover:border-cyan-300/60"
+                      className="block h-20 w-20 overflow-hidden rounded-xl border border-slate-200 transition hover:border-violet-400"
                       href={url}
                       key={url}
                       rel="noopener noreferrer"
@@ -159,27 +159,27 @@ export function WorkDetailDialog({ item, onClose, onRequestDelete }: WorkDetailD
           </div>
 
           <div className="flex flex-col gap-5">
-            <div className="rounded-2xl border border-white/10 bg-slate-950/60 p-4">
+            <div className="rounded-2xl border border-slate-200 bg-white p-4">
               <p className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">Details</p>
               <dl className="mt-3 space-y-3 text-sm">
                 {metadata.map((row) => (
                   <div className="flex items-start justify-between gap-3" key={row.label}>
-                    <dt className="text-slate-400">{row.label}</dt>
-                    <dd className="break-all text-right text-slate-100">{row.value}</dd>
+                    <dt className="text-slate-600">{row.label}</dt>
+                    <dd className="break-all text-right text-slate-800">{row.value}</dd>
                   </div>
                 ))}
               </dl>
             </div>
 
             {item.prompt ? (
-              <div className="rounded-2xl border border-white/10 bg-slate-950/60 p-4">
+              <div className="rounded-2xl border border-slate-200 bg-white p-4">
                 <p className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">Prompt</p>
-                <p className="mt-2 whitespace-pre-wrap text-sm text-slate-200">{item.prompt}</p>
+                <p className="mt-2 whitespace-pre-wrap text-sm text-slate-700">{item.prompt}</p>
               </div>
             ) : null}
 
             {item.statusMsg && item.status !== "failed" ? (
-              <p className="rounded-lg border border-white/10 bg-slate-950/60 px-4 py-3 text-xs text-slate-400">
+              <p className="rounded-lg border border-slate-200 bg-white px-4 py-3 text-xs text-slate-600">
                 {item.statusMsg}
               </p>
             ) : null}
