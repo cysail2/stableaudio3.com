@@ -40,8 +40,8 @@ export const primaryNavRoutes = primaryNavigation.flatMap((item) =>
   isNavGroup(item) ? item.children.map((child) => child.href) : [item.href],
 );
 
-// Footer "Resources" column. Mirrors primaryNavigation flat for v1
-// (v2 will add Review / Showcase / Vs entries once those pages ship).
+// Footer "Resources" column. Mirrors primaryNavigation flat, plus the
+// Showcase and Review entries shipped ahead of the Phase 5 schedule.
 export const seoNavigation: readonly NavLink[] = [
   {
     label: "Generator",
@@ -52,6 +52,16 @@ export const seoNavigation: readonly NavLink[] = [
     label: "Prompt Guide",
     href: "/how-to-use-stable-audio-3",
     title: "Read the Stable Audio 3 prompt guide",
+  },
+  {
+    label: "Review",
+    href: "/stable-audio-3-review",
+    title: "Read the Stable Audio 3 review with real-world prompt tests",
+  },
+  {
+    label: "Showcase",
+    href: "/stable-audio-3-showcase",
+    title: "Browse Stable Audio 3 example clips by use case",
   },
   {
     label: "Pricing",

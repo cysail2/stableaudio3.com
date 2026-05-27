@@ -86,13 +86,19 @@ function FloatingArticleToc({
 }) {
   const [isPreviewing, setIsPreviewing] = useState(false);
   const panelOpen = isPinned || isPreviewing;
+  // Height reserves `11.5rem` total vertical space — `8rem` to clear the
+  // sticky top offset (matches the `top-32` class on the aside) plus `3.5rem`
+  // (56px) bottom buffer so the bottom gap mirrors the `top-14` (56px) initial
+  // offset on the floating TOC container — keeps top/bottom spacing symmetric.
+  // Keep these three numbers in sync (sticky top + bottom buffer = first operand,
+  // bottom buffer = second operand).
   const sideStyle: CSSProperties = side === "left"
     ? {
-        height: "min(calc(100vh - 10rem), calc(100% - 2rem))",
+        height: "min(calc(100vh - 11.5rem), calc(100% - 3.5rem))",
         marginLeft: "max(1rem, calc(50vw - 49.5rem))",
       }
     : {
-        height: "min(calc(100vh - 10rem), calc(100% - 2rem))",
+        height: "min(calc(100vh - 11.5rem), calc(100% - 3.5rem))",
         marginLeft: "auto",
         marginRight: "max(1rem, calc(50vw - 49.5rem))",
       };
@@ -111,7 +117,12 @@ function FloatingArticleToc({
   }
 
   return (
-    <div className="pointer-events-none absolute inset-0 z-30 hidden lg:block">
+    // `top-14` shifts the floating TOC container down 56px from the article
+    // wrapper's top edge so it doesn't appear flush against the hero/section
+    // boundary when first scrolled into view. The sticky `top-40` on the
+    // aside below still controls the pinned position when scrolled past;
+    // these two are independent (initial position vs scrolled-pinned).
+    <div className="pointer-events-none absolute inset-x-0 bottom-0 top-14 z-30 hidden lg:block">
       <aside
         className={`sticky top-32 pointer-events-auto transition-[width] duration-200 ${panelOpen ? "w-64" : "w-12"}`}
         onBlurCapture={(event) => {
