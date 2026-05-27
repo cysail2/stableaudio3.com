@@ -28,10 +28,10 @@ const GUIDE_MODIFIED_DATE = "2026-05-21";
 
 export const metadata: Metadata = {
   title: {
-    absolute: "How to Use Stable Audio 3 - AI Audio Prompt Guide",
+    absolute: "How to Use Stable Audio 3 — Prompt Guide & Examples (2026)",
   },
   description:
-    "Learn how to use Stable Audio 3 for text-to-audio, audio editing, and audio inpainting. Prompt formulas, BPM tips, genre vocabulary, and ready-to-copy examples.",
+    "Prompt formulas, BPM tips, and ready-to-copy examples for three modes — text-to-audio, audio editing, and inpaint. Plus genre vocabulary and mistakes to avoid.",
   keywords: [
     "how to use Stable Audio 3",
     "Stable Audio 3 prompt guide",
@@ -43,17 +43,17 @@ export const metadata: Metadata = {
     canonical: `${siteConfig.url}/how-to-use-stable-audio-3`,
   },
   openGraph: {
-    title: "How to Use Stable Audio 3 - AI Audio Prompt Guide",
+    title: "How to Use Stable Audio 3 — Prompt Guide & Examples (2026)",
     description:
-      "Learn how to use Stable Audio 3 for text-to-audio, audio editing, and audio inpainting. Prompt formulas, BPM tips, genre vocabulary, and ready-to-copy examples.",
+      "Prompt formulas, BPM tips, and ready-to-copy examples for three modes — text-to-audio, audio editing, and inpaint. Plus genre vocabulary and mistakes to avoid.",
     url: `${siteConfig.url}/how-to-use-stable-audio-3`,
     images: ["/og/how-to-use-stable-audio-3.webp"],
   },
   twitter: {
     card: "summary_large_image",
-    title: "How to Use Stable Audio 3 - AI Audio Prompt Guide",
+    title: "How to Use Stable Audio 3 — Prompt Guide & Examples (2026)",
     description:
-      "Learn how to use Stable Audio 3 for text-to-audio, audio editing, and audio inpainting. Prompt formulas, BPM tips, genre vocabulary, and ready-to-copy examples.",
+      "Prompt formulas, BPM tips, and ready-to-copy examples for three modes — text-to-audio, audio editing, and inpaint. Plus genre vocabulary and mistakes to avoid.",
     images: ["/og/how-to-use-stable-audio-3.webp"],
   },
 };

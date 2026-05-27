@@ -9,10 +9,10 @@ import { pricingContent } from "@/project/content/pricing";
 
 export const metadata: Metadata = {
   title: {
-    absolute: "Stable Audio 3 Pricing - AI Audio Credits",
+    absolute: "Stable Audio 3 Pricing — Credits from $9.90, 100 Free",
   },
   description:
-    "Compare Stable Audio 3 pricing plans, audio generation credits, and free signup credits for text-to-audio, editing, and inpainting workflows online today.",
+    "From $9.90 with 100 free credits at signup. Credits never expire — cover text-to-audio, audio editing, and inpaint workflows across 4 plans.",
   keywords: [
     "Stable Audio 3 pricing",
     "AI audio credits",
@@ -24,17 +24,17 @@ export const metadata: Metadata = {
     canonical: `${siteConfig.url}/pricing`,
   },
   openGraph: {
-    title: "Stable Audio 3 Pricing - AI Audio Credits",
+    title: "Stable Audio 3 Pricing — Credits from $9.90, 100 Free",
     description:
-      "Compare Stable Audio 3 pricing plans, audio generation credits, and free signup credits for text-to-audio, editing, and inpainting workflows online today.",
+      "From $9.90 with 100 free credits at signup. Credits never expire — cover text-to-audio, audio editing, and inpaint workflows across 4 plans.",
     url: `${siteConfig.url}/pricing`,
     images: ["/og/pricing.webp"],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Stable Audio 3 Pricing - AI Audio Credits",
+    title: "Stable Audio 3 Pricing — Credits from $9.90, 100 Free",
     description:
-      "Compare Stable Audio 3 pricing plans, audio generation credits, and free signup credits for text-to-audio, editing, and inpainting workflows online today.",
+      "From $9.90 with 100 free credits at signup. Credits never expire — cover text-to-audio, audio editing, and inpaint workflows across 4 plans.",
     images: ["/og/pricing.webp"],
   },
 };
@@ -94,7 +94,7 @@ const pricingPageSchema = {
   "@type": "CollectionPage",
   "@id": `${siteConfig.url}/pricing#webpage`,
   url: `${siteConfig.url}/pricing`,
-  name: "Stable Audio 3 Pricing - AI Audio Credits",
+  name: "Stable Audio 3 Pricing — Credits from $9.90, 100 Free",
   description: metadata.description,
   isPartOf: {
     "@id": `${siteConfig.url}#website`,

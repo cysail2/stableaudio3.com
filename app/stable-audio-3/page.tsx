@@ -11,10 +11,10 @@ import { toolContent } from "@/project/content/tool";
 
 export const metadata: Metadata = {
   title: {
-    absolute: "Stable Audio 3 AI Audio Generator for Music and SFX",
+    absolute: "Stable Audio 3 Generator — Text, Audio-to-Audio & Inpaint",
   },
   description:
-    "Use Stable Audio 3 AI Audio Generator online to create music, ambient beds, and SFX from text — or edit and inpaint existing audio. Browser-based, free to try.",
+    "Open Stable Audio 3 in the browser with 100 free credits — generate music from text, edit audio, or inpaint sections. Three modes, no install, no GPU.",
   keywords: [
     "Stable Audio 3 AI Audio Generator",
     "text to audio",
@@ -26,17 +26,17 @@ export const metadata: Metadata = {
     canonical: `${siteConfig.url}/stable-audio-3`,
   },
   openGraph: {
-    title: "Stable Audio 3 AI Audio Generator for Music and SFX",
+    title: "Stable Audio 3 Generator — Text, Audio-to-Audio & Inpaint",
     description:
-      "Use Stable Audio 3 AI Audio Generator online to create music, ambient beds, and SFX from text — or edit and inpaint existing audio. Browser-based, free to try.",
+      "Open Stable Audio 3 in the browser with 100 free credits — generate music from text, edit audio, or inpaint sections. Three modes, no install, no GPU.",
     url: `${siteConfig.url}/stable-audio-3`,
     images: ["/og/stable-audio-3.webp"],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Stable Audio 3 AI Audio Generator for Music and SFX",
+    title: "Stable Audio 3 Generator — Text, Audio-to-Audio & Inpaint",
     description:
-      "Use Stable Audio 3 AI Audio Generator online to create music, ambient beds, and SFX from text — or edit and inpaint existing audio. Browser-based, free to try.",
+      "Open Stable Audio 3 in the browser with 100 free credits — generate music from text, edit audio, or inpaint sections. Three modes, no install, no GPU.",
     images: ["/og/stable-audio-3.webp"],
   },
 };

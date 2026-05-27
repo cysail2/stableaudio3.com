@@ -9,10 +9,10 @@ export const siteConfig = {
     "Stable Audio 3 is an online AI audio generator built around the open-weight Stable Audio 3 model family from Stability AI. Text-to-audio, audio-to-audio editing, and audio inpainting in the browser.",
   signupCredits: 100,
   seo: {
-    defaultTitle: "Create AI Audio Free Online with Stable Audio 3",
+    defaultTitle: "Stable Audio 3 — Free Online AI Audio Generator (2026)",
     titleTemplate: "%s | Stable Audio 3",
     description:
-      "Use Stable Audio 3 online to generate music, ambient beds, and sound effects, or edit and inpaint existing audio. Start free, three modes in the browser.",
+      "100 free signup credits, no install. Text-to-audio, audio editing, and audio inpaint in three browser modes — Stability AI's open-weight model family.",
     keywords: [
       "Stable Audio 3",
       "Stable Audio 3 AI Audio Generator",
