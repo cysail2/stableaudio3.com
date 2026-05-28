@@ -64,6 +64,11 @@ export const seoNavigation: readonly NavLink[] = [
     title: "Browse Stable Audio 3 example clips by use case",
   },
   {
+    label: "vs ACE-Step",
+    href: "/stable-audio-3-vs-ace-step",
+    title: "Stable Audio 3 vs ACE-Step — AI music generator comparison",
+  },
+  {
     label: "Pricing",
     href: "/pricing",
     title: "Compare Stable Audio 3 pricing and credit packs",

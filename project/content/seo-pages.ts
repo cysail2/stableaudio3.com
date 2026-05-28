@@ -9,6 +9,7 @@ import type {
   AudioShowcaseCategory,
   AudioShowcaseExample,
 } from "@/modules/media/components/AudioShowcaseGrid";
+import type { AudioComparePair } from "@/modules/media/components/PairedAudioCompare";
 
 export type SeoFaqItem = {
   question: string;
@@ -1010,3 +1011,376 @@ export const reviewPageContent = {
   ] satisfies SeoSource[],
 };
 
+export type AudioDemoClip = {
+  audio: string;
+  duration: string;
+  alt: string;
+  caption: string;
+};
+
+export const aceStepComparisonContent = {
+  meta: {
+    title: "Stable Audio 3 vs ACE-Step: Ambient vs Vocals (2026)",
+    description:
+      "ACE-Step wins on vocals and full songs; Stable Audio 3 wins on ambient, SFX, and cinematic sound. Five paired audio tests to help you choose in 2026.",
+    keywords: [
+      "Stable Audio 3 vs ACE-Step",
+      "ACE-Step vs Stable Audio 3",
+      "ACE-Step alternative",
+      "AI music generator comparison",
+      "best AI music generator 2026",
+    ],
+  },
+  hero: {
+    eyebrow: "Stable Audio 3 vs ACE-Step",
+    title: "Stable Audio 3 vs ACE-Step: Which AI Music Generator Is Better?",
+    lead:
+      "AI music generation is no longer an experimental niche. ACE-Step and Stable Audio 3 are both advanced AI audio systems — but they solve very different problems. This comparison breaks down the real differences across audio quality, vocals, prompt adherence, ambient generation, sound effects, editing workflows, local deployment, and creator usability, using real generations rather than marketing claims.",
+    byline: {
+      name: "By Ethan Liu, Senior Audio Tools Editor",
+      coReviewer: "Audio testing with Mia Chen",
+      lastUpdated: "2026-05-28",
+    } satisfies SeoByline,
+    disclosure:
+      "This is an independent editorial comparison, not affiliated with Stability AI or the ACE-Step project. All tests used similar prompt complexity, generation lengths, and workflow conditions to compare real-world creator usability rather than to produce perfect showcase demos.",
+  },
+  quickVerdict: [
+    {
+      label: "Choose ACE-Step for",
+      value:
+        "Vocals, structured full songs, remixing, cover generation, and open-source local music workflows. Behaves like an AI music production platform.",
+    },
+    {
+      label: "Choose Stable Audio 3 for",
+      value:
+        "Ambient music, cinematic sound design, sound effects, and immersive creator audio. Behaves like an AI cinematic sound engine.",
+    },
+    {
+      label: "The core difference",
+      value:
+        "ACE-Step is song- and vocal-oriented with deep editing control. Stable Audio 3 is atmosphere- and texture-oriented for environments and BGM.",
+    },
+    {
+      label: "Bottom line",
+      value:
+        "Neither is universally better. They target different creator workflows — pick by what you actually produce, not by overall ranking.",
+    },
+  ],
+  coreDirections: [
+    {
+      title: "ACE-Step's Core Direction",
+      body:
+        "Built around structured songs, vocals, editable generation, remix workflows, and local AI music ownership. The ecosystem includes local inference, ComfyUI integrations, remix and cover pipelines, and advanced generation control. In practice it feels closer to a DAW-oriented AI music environment than a simple generator.",
+      image: "/vs-ace-step/ace-step-core.webp",
+      alt: "Illustration of ACE-Step as a DAW-oriented AI music production environment with structured songs and remix workflows",
+      badge: "Music platform",
+    },
+    {
+      title: "Stable Audio 3's Core Direction",
+      body:
+        "Focused on atmosphere, ambience, sound texture, environmental audio, cinematic layering, and adaptive generation. Instead of prioritizing songs and vocals, it prioritizes immersive environments, cinematic emotion, and long-form background audio. In practice it feels closer to an AI cinematic sound engine than a traditional songwriter.",
+      image: "/vs-ace-step/stable-audio-3-core.webp",
+      alt: "Illustration of Stable Audio 3 as an AI cinematic sound engine focused on ambience and environmental audio",
+      badge: "Sound engine",
+    },
+  ] satisfies SeoVisualCard[],
+  comparisonRows: [
+    {
+      dimension: "Full song generation",
+      sulphur: "Atmosphere/texture-first; structure often feels flatter",
+      other: "Structured songs, verse/chorus separation, melodic progression",
+      takeaway: "ACE-Step",
+    },
+    {
+      dimension: "Vocal music & lyrics",
+      sulphur: "Weak — not designed as a vocal engine",
+      other: "Usable vocal timing, chorus structure, decent lyric alignment",
+      takeaway: "ACE-Step",
+    },
+    {
+      dimension: "Ambient music",
+      sulphur: "Smooth, immersive, evolving textures and spatial depth",
+      other: "Competent, but pushes progression/movement too much for pure ambience",
+      takeaway: "Stable Audio 3",
+    },
+    {
+      dimension: "Sound effects / SFX",
+      sulphur: "Cinematic, spatial, environmental depth and texture realism",
+      other: "Usable textures, but stays composition-oriented",
+      takeaway: "Stable Audio 3",
+    },
+    {
+      dimension: "Cinematic background audio",
+      sulphur: "Atmospheric immersion, low-end ambience, environmental depth",
+      other: "Structured cinematic composition with buildup and movement",
+      takeaway: "Stable Audio 3",
+    },
+    {
+      dimension: "Prompt adherence",
+      sulphur: "Strong on mood, ambience, spatial and cinematic prompts",
+      other: "Strong on song structure, arrangement, and lyrical direction",
+      takeaway: "Depends on goal",
+    },
+    {
+      dimension: "Ease of use",
+      sulphur: "Simpler, browser-based, beginner-friendly",
+      other: "Local setup, model downloads, ComfyUI — more technical",
+      takeaway: "Stable Audio 3",
+    },
+    {
+      dimension: "Local deployment & open source",
+      sulphur: "Open weights, but ecosystem is more centralized on Stability AI",
+      other: "Strong local, remix, and ComfyUI open ecosystem",
+      takeaway: "ACE-Step",
+    },
+    {
+      dimension: "Editing & remix workflow",
+      sulphur: "Generation-focused; less detailed editing",
+      other: "Remix, cover generation, editable iterative workflows",
+      takeaway: "ACE-Step",
+    },
+  ] satisfies ComparisonRow[],
+  sections: [
+    {
+      title: "The Core Difference: Music Platform vs Sound Engine",
+      paragraphs: [
+        "Before comparing quality or usability, it helps to understand the biggest difference between these platforms. ACE-Step behaves more like an AI music production platform — songs, vocals, remixing, editable generation. [Stable Audio 3](/) behaves more like an AI cinematic audio and sound design engine — atmosphere, ambience, environmental texture. That philosophical difference drives almost every category below.",
+        "ACE-Step is designed around structured songs, vocals, editable generation, remix workflows, and local AI music ownership, with heavy emphasis on open-source development and controllable local deployment. Stable Audio 3 prioritizes immersive environments, cinematic emotion, and long-form background audio. One wants to write you a song; the other wants to build you a sonic environment.",
+        "Neither approach is wrong — they are optimized for different creators. The rest of this comparison shows exactly where each one pulls ahead, with real audio you can play and judge yourself. For a single-product deep dive on Stable Audio 3 specifically, the [Stable Audio 3 review](/stable-audio-3-review) covers its strengths and limits in isolation.",
+      ],
+    },
+    {
+      title: "Where ACE-Step Wins",
+      paragraphs: [
+        "ACE-Step is clearly stronger for full songs and vocal music. Its outputs often feel like actual songs — structured composition, rhythm consistency, verse and chorus separation, melodic progression — rather than abstract sound textures. This is especially noticeable in pop, electronic, vocal-driven tracks, and structured instrumental arrangements.",
+        "Vocals are the single biggest gap. For an open-source local model, ACE-Step performs surprisingly well: recognizable chorus structure, usable vocal timing, decent lyric alignment, and coherent rhythm. The results still contain robotic artifacts and occasional pronunciation issues, but they are competitive with most open AI music systems. Creators experimenting with AI songs, vocal demos, or remixes will find ACE-Step significantly more useful.",
+        "ACE-Step also leads on open-source flexibility and editing: local deployment, remix pipelines, cover generation, ComfyUI integration, and iterative experimentation. That makes it feel closer to an open AI music ecosystem than a single hosted model — valuable for developers, researchers, and advanced creators.",
+      ],
+    },
+    {
+      title: "Where Stable Audio 3 Wins",
+      paragraphs: [
+        "Ambient music is arguably Stable Audio 3's strongest category. It excels at atmospheric layering, spatial immersion, cinematic ambience, evolving textures, and environmental depth — producing smoother ambience and more immersive long-form listening than ACE-Step, which tends to push musical progression even when a track should just sit and breathe.",
+        "Sound effects and cinematic sound design are the other clear wins. Stable Audio 3 produces richer spatial sound, deeper cinematic scale, and stronger environmental texture realism — well suited to game developers, short filmmakers, AI video creators, and cinematic YouTube channels. ACE-Step can make interesting textures, but it still behaves like a music generator rather than a dedicated sound engine. Browse the [Stable Audio 3 showcase](/stable-audio-3-showcase) for more ambient and SFX examples by use case.",
+        "Stable Audio 3 is also simpler to use. ACE-Step's workflow often involves local setup, model downloads, and ComfyUI; Stable Audio 3 lets ordinary creators generate usable audio in the browser quickly, focusing on mood and experimentation rather than technical setup.",
+      ],
+    },
+    {
+      title: "Realistic Expectations for AI Music in 2026",
+      paragraphs: [
+        "Neither ACE-Step nor Stable Audio 3 replaces professional composers, mixing engineers, or experienced sound designers. Both still require iteration, prompt experimentation, editing, and human selection for high-quality production work.",
+        "AI music generation is improving rapidly, but real creative workflows still benefit heavily from human direction. Treat both tools as fast, capable starting points — not finished-track machines. The most productive creators pick the tool that matches the kind of audio they ship most often, then refine its output by hand.",
+      ],
+    },
+  ] satisfies ReviewSection[],
+  demoAceStep: {
+    audio: "/vs-ace-step/demo-vocal-summer-nights.mp3",
+    duration: "PT45S",
+    alt: "ACE-Step vocal pop demo — Summer Nights, showing structured chorus and usable vocal timing",
+    caption:
+      "ACE-Step vocal demo (\"Summer Nights\"). Recognizable chorus structure and usable vocal timing — the kind of song-oriented output Stable Audio 3 doesn't target.",
+  } satisfies AudioDemoClip,
+  demoStableAudio: {
+    audio: "/vs-ace-step/demo-ambient-music.mp3",
+    duration: "PT20S",
+    alt: "Stable Audio 3 ambient demo with smooth evolving textures and spatial immersion",
+    caption:
+      "Stable Audio 3 ambient demo. Smooth evolving texture and spatial depth, with no forced progression — the immersive atmosphere it's built for.",
+  } satisfies AudioDemoClip,
+  testPairs: [
+    {
+      id: "test-lofi",
+      title: "Lo-fi Study Music",
+      prompt:
+        "Warm lo-fi hip hop instrumental with soft jazz piano chords, mellow bassline, relaxed drum groove, subtle vinyl crackle, gentle rain ambience, cozy late-night atmosphere, smooth transitions, instrumental only.",
+      aceStep: {
+        audio: "/vs-ace-step/test-lofi-ace-step.mp3",
+        duration: "PT45S",
+        alt: "ACE-Step lo-fi study music result with stronger rhythm and clearer melodic progression",
+        note: "Stronger rhythm, clearer melodic progression, more structured arrangement — felt like a complete track.",
+      },
+      stableAudio: {
+        audio: "/vs-ace-step/test-lofi-stable-audio-3.mp3",
+        duration: "PT20S",
+        alt: "Stable Audio 3 lo-fi study music result with richer ambience and atmospheric immersion",
+        note: "Richer ambience, smoother environmental layering, stronger atmospheric immersion — felt more like a mood than a song.",
+      },
+      verdict: "Structure → ACE-Step · Atmosphere → Stable Audio 3",
+    },
+    {
+      id: "test-cinematic",
+      title: "Cinematic Trailer Music",
+      prompt:
+        "Epic cinematic trailer music with deep percussion, rising orchestral strings, aggressive brass hits, dark tension buildup, dramatic cinematic atmosphere, huge climax, Hollywood action style.",
+      aceStep: {
+        audio: "/vs-ace-step/test-cinematic-ace-step.mp3",
+        duration: "PT45S",
+        alt: "ACE-Step cinematic trailer result handling progression, buildup, and climax structure",
+        note: "Handled progression, buildup, and climax structure more effectively — behaved like trailer music composition.",
+      },
+      stableAudio: {
+        audio: "/vs-ace-step/test-cinematic-stable-audio-3.mp3",
+        duration: "PT40S",
+        alt: "Stable Audio 3 cinematic trailer result with stronger cinematic scale and atmosphere",
+        note: "Stronger cinematic scale, deeper atmosphere, richer environmental texture — behaved like cinematic sound design.",
+      },
+      verdict: "Composition → ACE-Step · Cinematic atmosphere → Stable Audio 3",
+    },
+    {
+      id: "test-ambient-meditation",
+      title: "Ambient Meditation Music",
+      prompt:
+        "Deep ambient meditation soundscape with warm evolving synth pads, soft drones, distant crystal chimes, spacious reverb, calming immersive atmosphere, no drums, no vocals.",
+      aceStep: {
+        audio: "/vs-ace-step/test-ambient-meditation-ace-step.mp3",
+        duration: "PT45S",
+        alt: "ACE-Step ambient meditation result with usable textures but more structural movement",
+        note: "Usable ambient textures, but introduced more structural movement than meditation audio needs.",
+      },
+      stableAudio: {
+        audio: "/vs-ace-step/test-ambient-meditation-stable-audio-3.mp3",
+        duration: "PT20S",
+        alt: "Stable Audio 3 ambient meditation result with smoother ambience and stable long-form atmosphere",
+        note: "Smoother ambience, better immersion, more emotionally stable long-form atmosphere — far more natural for meditation.",
+      },
+      verdict: "Stable Audio 3 — clearly stronger for meditation and focus audio",
+    },
+    {
+      id: "test-vocal-pop",
+      title: "Vocal Pop Song",
+      prompt:
+        "Modern emotional pop song with expressive female vocals, catchy chorus, emotional songwriting, layered commercial production, contemporary radio pop style.",
+      aceStep: {
+        audio: "/vs-ace-step/test-vocal-pop-ace-step.mp3",
+        duration: "PT45S",
+        alt: "ACE-Step vocal pop result with usable vocal timing, coherent rhythm, and recognizable chorus",
+        note: "Usable vocal timing, coherent rhythm, and a recognizable chorus structure — clearly the stronger vocal output.",
+      },
+      stableAudio: {
+        audio: "/vs-ace-step/test-vocal-pop-stable-audio-3.mp3",
+        duration: "PT20S",
+        alt: "Stable Audio 3 vocal pop result struggling with vocals, lyrics, and structured songwriting",
+        note: "Struggled significantly with vocals, lyrics, and structured songwriting — not its design focus.",
+      },
+      verdict: "ACE-Step — by a large margin for vocal music",
+    },
+    {
+      id: "test-scifi-sfx",
+      title: "Sci-Fi Sound Effect",
+      prompt:
+        "Futuristic sci-fi spaceship engine startup sound effect with mechanical servo movements, deep energy hum, metallic resonance, cinematic sound design, immersive spatial atmosphere.",
+      aceStep: {
+        audio: "/vs-ace-step/test-scifi-sfx-ace-step.mp3",
+        duration: "PT20S",
+        alt: "ACE-Step sci-fi sound effect result with interesting textures but music-generator behavior",
+        note: "Interesting textures, but still behaved more like a music generator than a dedicated sound engine.",
+      },
+      stableAudio: {
+        audio: "/vs-ace-step/test-scifi-sfx-stable-audio-3.mp3",
+        duration: "PT20S",
+        alt: "Stable Audio 3 sci-fi sound effect result with richer spatial sound and cinematic depth",
+        note: "Richer spatial sound, better cinematic depth, stronger environmental immersion.",
+      },
+      verdict: "Stable Audio 3 — clearly stronger for cinematic sound effects",
+    },
+  ] satisfies AudioComparePair[],
+  aceStepPros: [
+    "Better for full, structured songs with verse/chorus arrangement",
+    "Stronger vocals and lyric workflows than most open models",
+    "Strong open-source ecosystem — local deployment, ComfyUI, remix pipelines",
+    "Better remix, cover, and editable iteration potential",
+    "More composition-focused, with stronger progression and tension",
+  ],
+  aceStepCons: [
+    "More technical setup — local installs, model downloads, ComfyUI",
+    "Vocals still contain AI artifacts and pronunciation issues",
+    "Weaker for pure cinematic SFX and environmental sound",
+    "Less beginner-friendly than a hosted browser tool",
+  ],
+  stableAudioPros: [
+    "Best-in-class ambient music — smooth, immersive, evolving textures",
+    "Stronger cinematic atmosphere and environmental sound depth",
+    "Better sound effects and sci-fi/industrial sound design",
+    "Easier for ordinary creators — browser-based, no install",
+    "Excellent for YouTube BGM, meditation, and long-form focus audio",
+  ],
+  stableAudioCons: [
+    "Weaker vocals — not built for singing or lyrics",
+    "Less suited to structured pop songs and arrangement",
+    "More background-audio focused than song-focused",
+    "Less flexible for open-source remix workflows than ACE-Step",
+  ],
+  finalVerdict: {
+    title: "Final Verdict",
+    image: "/vs-ace-step/final-verdict.webp",
+    alt: "Stable Audio 3 vs ACE-Step final verdict — two complementary AI music tools for different workflows",
+    paragraphs: [
+      "There is no universal winner between ACE-Step and Stable Audio 3, but there are two clear conclusions. Choose ACE-Step if you care most about songs, vocals, lyrics, editing, remixing, and open-source flexibility. Choose Stable Audio 3 if you care most about ambience, cinematic audio, environmental sound design, meditation music, creator BGM, and immersive sound environments.",
+      "Both platforms represent AI music generation evolving from novelty to real creative infrastructure. The better tool depends entirely on your workflow — so start with the one that matches what you ship. To try the ambient and cinematic side yourself, [open the Stable Audio 3 generator](/stable-audio-3) with 100 free signup credits.",
+    ],
+  },
+  faq: [
+    {
+      question: "Is ACE-Step better than Stable Audio 3?",
+      answer:
+        "It depends on your workflow. ACE-Step is stronger for full songs, vocals, lyrics, remixing, and open-source local pipelines. Stable Audio 3 is stronger for ambient music, cinematic sound design, sound effects, and immersive background audio. Neither is universally better — they target different creator goals.",
+    },
+    {
+      question: "Which is better for vocals?",
+      answer:
+        "ACE-Step, by a large margin. It produces usable vocal timing, recognizable chorus structure, and decent lyric alignment, while Stable Audio 3 is not designed as a vocal engine and performs far better with instrumental, ambient, and cinematic audio.",
+    },
+    {
+      question: "Which is better for ambient music?",
+      answer:
+        "Stable Audio 3. It produces smoother ambience, richer atmospheric detail, and more immersive long-form listening. ACE-Step can generate ambient music but tends to push progression and movement that reduce the stability meditation or focus audio needs.",
+    },
+    {
+      question: "Which is better for sound effects?",
+      answer:
+        "Stable Audio 3 performs better for cinematic SFX, sci-fi ambience, and environmental sound design, with stronger spatial depth and texture realism. ACE-Step can make interesting textures but stays music-oriented rather than environment-oriented.",
+    },
+    {
+      question: "Can ACE-Step run locally?",
+      answer:
+        "Yes. Local deployment is one of ACE-Step's biggest strengths, with ComfyUI integration, remix pipelines, and editable workflows. That open-source flexibility is a major reason developers and advanced creators choose it.",
+    },
+    {
+      question: "Can Stable Audio 3 generate full songs?",
+      answer:
+        "Yes, but full-song structure is not its strongest area. It performs better with ambience, cinematic audio, and environmental sound than with complex vocal songwriting. For structured songs and vocals, ACE-Step is the stronger choice.",
+    },
+    {
+      question: "Which is easier for beginners?",
+      answer:
+        "Stable Audio 3. It runs in the browser with no local setup, letting ordinary creators generate usable audio quickly. ACE-Step's local-install and ComfyUI workflow is more powerful but more technical, closer to a professional toolkit than a beginner app.",
+    },
+    {
+      question: "Which is better for YouTube creators?",
+      answer:
+        "Stable Audio 3 is excellent for creator BGM, documentary ambience, cinematic background audio, and long-form focus music — the kinds of audio most YouTube channels actually need. ACE-Step fits better when you specifically want full songs or vocals.",
+    },
+    {
+      question: "Which should I choose in 2026?",
+      answer:
+        "Choose ACE-Step for songs, vocals, remixing, editing, and local workflows. Choose Stable Audio 3 for ambience, cinematic audio, creator BGM, sound design, and immersive environments. Many creators end up using both for different parts of a project.",
+    },
+  ] satisfies SeoFaqItem[],
+  sources: [
+    {
+      label: "ACE-Step — official project site",
+      href: "https://ace-step.github.io/",
+      note: "Official ACE-Step project page covering its open-source music generation direction.",
+    },
+    {
+      label: "Stability AI — Stable Audio",
+      href: "https://stability.ai/stable-audio",
+      note: "Stability AI's Stable Audio product page and model family overview.",
+    },
+    {
+      label: "Hugging Face — stable-audio-3-medium",
+      href: "https://huggingface.co/stabilityai/stable-audio-3-medium",
+      note: "Open-weight Stable Audio 3 Medium model used for the ambient and cinematic tests.",
+    },
+  ] satisfies SeoSource[],
+};

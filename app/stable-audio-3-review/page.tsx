@@ -162,6 +162,11 @@ const reviewRelatedLinks = [
     description: "16 example clips grouped by use case — music sketches, podcast beds, video soundtracks, game SFX, ambient, and social hooks.",
   },
   {
+    label: "Stable Audio 3 vs ACE-Step",
+    href: "/stable-audio-3-vs-ace-step",
+    description: "Head-to-head with ACE-Step: vocals and songs vs ambient and cinematic sound, with five paired audio tests.",
+  },
+  {
     label: "Read the prompt guide",
     href: "/how-to-use-stable-audio-3",
     description: "Prompt formulas, BPM tips, and ready-to-copy examples for all three modes.",
