@@ -69,6 +69,11 @@ export const seoNavigation: readonly NavLink[] = [
     title: "Stable Audio 3 vs ACE-Step — AI music generator comparison",
   },
   {
+    label: "vs Suno AI",
+    href: "/stable-audio-3-vs-suno",
+    title: "Stable Audio 3 vs Suno AI — AI music generator comparison",
+  },
+  {
     label: "Pricing",
     href: "/pricing",
     title: "Compare Stable Audio 3 pricing and credit packs",

@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { DeferredAudio } from "@/modules/media/components/DeferredAudio";
 import { PairedAudioCompare } from "@/modules/media/components/PairedAudioCompare";
 import { JsonLd } from "@/project/components/JsonLd";
 import {
@@ -16,13 +15,13 @@ import {
   VisualEvidenceBreak,
 } from "@/project/components/SeoPageBlocks";
 import { siteConfig } from "@/project/config/site";
-import { aceStepComparisonContent } from "@/project/content/seo-pages";
+import { sunoComparisonContent } from "@/project/content/seo-pages";
 import { toSchemaDateTime } from "@/project/utils/schema-date";
 
-const route = "/stable-audio-3-vs-ace-step";
+const route = "/stable-audio-3-vs-suno";
 const pageUrl = `${siteConfig.url}${route}`;
 const publishedDate = "2026-05-28";
-const c = aceStepComparisonContent;
+const c = sunoComparisonContent;
 
 export const metadata: Metadata = {
   title: { absolute: c.meta.title },
@@ -70,32 +69,29 @@ const faqSchema = {
   })),
 };
 
-// AudioObject schema for every clip on the page: 2 standalone demos + 10
-// paired test clips (5 examples × 2 models).
-const audioSchemas = [
-  { audio: c.demoAceStep.audio, name: "ACE-Step vocal demo — Summer Nights", desc: c.demoAceStep.alt, duration: c.demoAceStep.duration },
-  { audio: c.demoStableAudio.audio, name: "Stable Audio 3 ambient demo", desc: c.demoStableAudio.alt, duration: c.demoStableAudio.duration },
-  ...c.testPairs.flatMap((pair) => [
-    { audio: pair.competitor.audio, name: `ACE-Step — ${pair.title}`, desc: pair.competitor.alt, duration: pair.competitor.duration },
+// AudioObject schema for all 10 paired test clips (5 examples × 2 models).
+const audioSchemas = c.testPairs
+  .flatMap((pair) => [
+    { audio: pair.competitor.audio, name: `Suno AI — ${pair.title}`, desc: pair.competitor.alt, duration: pair.competitor.duration },
     { audio: pair.stableAudio.audio, name: `Stable Audio 3 — ${pair.title}`, desc: pair.stableAudio.alt, duration: pair.stableAudio.duration },
-  ]),
-].map((item) => ({
-  "@context": "https://schema.org",
-  "@type": "AudioObject",
-  name: item.name,
-  description: item.desc,
-  contentUrl: `${siteConfig.url}${item.audio}`,
-  encodingFormat: "audio/mpeg",
-  uploadDate: toSchemaDateTime(publishedDate),
-  duration: item.duration,
-}));
+  ])
+  .map((item) => ({
+    "@context": "https://schema.org",
+    "@type": "AudioObject",
+    name: item.name,
+    description: item.desc,
+    contentUrl: `${siteConfig.url}${item.audio}`,
+    encodingFormat: "audio/mpeg",
+    uploadDate: toSchemaDateTime(publishedDate),
+    duration: item.duration,
+  }));
 
 const breadcrumbSchema = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   itemListElement: [
     { "@type": "ListItem", position: 1, name: "Home", item: siteConfig.url },
-    { "@type": "ListItem", position: 2, name: "Stable Audio 3 vs ACE-Step", item: pageUrl },
+    { "@type": "ListItem", position: 2, name: "Stable Audio 3 vs Suno AI", item: pageUrl },
   ],
 };
 
@@ -125,9 +121,9 @@ const vsRelatedLinks = [
     description: "Our standalone Stable Audio 3 review with real-world prompt tests, strengths, and limits.",
   },
   {
-    label: "vs Suno AI",
-    href: "/stable-audio-3-vs-suno",
-    description: "The other comparison — Stable Audio 3 against Suno, the commercial AI songwriting platform.",
+    label: "vs ACE-Step",
+    href: "/stable-audio-3-vs-ace-step",
+    description: "The other comparison — Stable Audio 3 against the open-source ACE-Step music model.",
   },
   {
     label: "Browse the showcase",
@@ -136,7 +132,7 @@ const vsRelatedLinks = [
   },
 ] as const;
 
-export default function StableAudioVsAceStepPage() {
+export default function StableAudioVsSunoPage() {
   return (
     <main>
       <JsonLd data={articleSchema} />
@@ -165,51 +161,23 @@ export default function StableAudioVsAceStepPage() {
           />
           <VisualEvidenceBreak item={c.coreDirections[0]} />
           <VisualEvidenceBreak item={c.coreDirections[1]} reverse />
-          <ComparisonTable competitor="ACE-Step" id="compare-table" rows={c.comparisonRows} />
-          <EditorialSections sections={c.sections.slice(1, 2)} />
-          <DemoClip clip={c.demoAceStep} label="ACE-Step" mode="inpaint" />
-          <EditorialSections sections={c.sections.slice(2, 3)} />
-          <DemoClip clip={c.demoStableAudio} label="Stable Audio 3" mode="t2a" />
-          <PairedAudioCompare competitorLabel="ACE-Step" id="real-prompt-tests" pairs={c.testPairs} title="Real Prompt Test Examples" />
+          <ComparisonTable competitor="Suno AI" id="compare-table" rows={c.comparisonRows} />
+          <EditorialSections sections={c.sections.slice(1, 3)} />
+          <PairedAudioCompare competitorLabel="Suno AI" id="real-prompt-tests" pairs={c.testPairs} title="Real Prompt Test Examples" />
           <section className="scroll-mt-28" id="pros-cons">
             <div className="grid gap-6 lg:grid-cols-2">
-              <ToolProsCons cons={c.aceStepCons} pros={c.aceStepPros} tool="ACE-Step" />
+              <ToolProsCons cons={c.sunoCons} pros={c.sunoPros} tool="Suno AI" />
               <ToolProsCons cons={c.stableAudioCons} pros={c.stableAudioPros} tool="Stable Audio 3" />
             </div>
           </section>
           <EditorialSections sections={c.sections.slice(3)} />
           <FinalVerdict verdict={c.finalVerdict} />
           <SourceList id="sources" sources={c.sources} />
-          <SeoFaqSection id="faq" items={c.faq} title="Stable Audio 3 vs ACE-Step FAQ" />
+          <SeoFaqSection id="faq" items={c.faq} title="Stable Audio 3 vs Suno AI FAQ" />
           <RelatedLinks currentPath={route} id="next-steps" links={vsRelatedLinks} />
         </SeoArticleLayout>
       </div>
     </main>
-  );
-}
-
-function DemoClip({
-  clip,
-  label,
-  mode,
-}: {
-  clip: typeof aceStepComparisonContent.demoAceStep;
-  label: string;
-  mode: "t2a" | "inpaint";
-}) {
-  const human = clip.duration.match(/^PT(\d+)S$/)?.[1];
-  return (
-    <figure className="mx-auto w-full max-w-2xl">
-      <DeferredAudio
-        description={clip.alt}
-        duration={human ? `${human} s` : clip.duration}
-        genre={label}
-        mode={mode}
-        src={clip.audio}
-        title={`${label} — demo`}
-      />
-      <figcaption className="mt-3 text-sm leading-6 text-slate-600">{clip.caption}</figcaption>
-    </figure>
   );
 }
 
@@ -251,7 +219,7 @@ function ToolProsCons({
   );
 }
 
-function FinalVerdict({ verdict }: { verdict: typeof aceStepComparisonContent.finalVerdict }) {
+function FinalVerdict({ verdict }: { verdict: typeof sunoComparisonContent.finalVerdict }) {
   return (
     <section className="scroll-mt-28 grid gap-6" id="final-verdict">
       <VisualEvidenceBreak

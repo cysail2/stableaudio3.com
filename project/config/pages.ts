@@ -39,6 +39,7 @@ export const routeLastModified: Record<string, string> = {
   "/stable-audio-3-showcase": "2026-05-26",
   "/stable-audio-3-review": "2026-05-27",
   "/stable-audio-3-vs-ace-step": "2026-05-28",
+  "/stable-audio-3-vs-suno": "2026-05-28",
   "/pricing": "2026-05-21",
   "/privacy": "2026-05-21",
   "/terms": "2026-05-21",

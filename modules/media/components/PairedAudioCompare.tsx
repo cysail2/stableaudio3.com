@@ -12,7 +12,9 @@ export type AudioComparePair = {
   id: string;
   title: string;
   prompt: string;
-  aceStep: AudioCompareSide;
+  /** The competitor model's clip (rendered on the left). */
+  competitor: AudioCompareSide;
+  /** Stable Audio 3's clip (rendered on the right). */
   stableAudio: AudioCompareSide;
   /** Short verdict line, e.g. "Structure → ACE-Step · Atmosphere → Stable Audio 3". */
   verdict: string;
@@ -26,24 +28,27 @@ function isoDurationToHuman(iso: string): string {
 }
 
 /**
- * Side-by-side A/B audio comparison card used in the vs ACE-Step page's
+ * Side-by-side A/B audio comparison card used in the comparison ("vs") pages'
  * "Real Prompt Test Examples" section. Each card renders the shared prompt,
- * the ACE-Step clip on the left and the Stable Audio 3 clip on the right
+ * the competitor clip on the left and the Stable Audio 3 clip on the right
  * (each via the lazy DeferredAudio player), and a verdict line below.
  *
- * ACE-Step uses the amber waveform (data-mode="inpaint") and Stable Audio 3
- * uses the brand violet (data-mode="t2a") purely as a visual A/B distinction;
- * the mode prop here only drives the canvas color, not any schema.
+ * The competitor uses the amber waveform (data-mode="inpaint") and Stable
+ * Audio 3 uses the brand violet (data-mode="t2a") purely as a visual A/B
+ * distinction; the mode prop here only drives the canvas color, not any schema.
+ * `competitorLabel` sets the left-column label (e.g. "ACE-Step", "Suno AI").
  */
 export function PairedAudioCompare({
   id,
   pairs,
   title,
+  competitorLabel,
   eyebrow = "Real Prompt Tests",
 }: {
   id?: string;
   pairs: readonly AudioComparePair[];
   title: string;
+  competitorLabel: string;
   eyebrow?: string;
 }) {
   return (
@@ -52,19 +57,19 @@ export function PairedAudioCompare({
         <p className="text-xs font-black uppercase tracking-[0.2em] text-violet-700">{eyebrow}</p>
         <h2 className="mt-3 text-3xl font-bold tracking-tight text-slate-950 md:text-4xl">{title}</h2>
         <p className="mt-3 text-base leading-7 text-slate-600 md:text-lg">
-          Same prompt, both models. Press play on each side to compare ACE-Step and Stable Audio 3 directly — these are real generations, not cherry-picked showcase demos.
+          Same prompt, both models. Press play on each side to compare {competitorLabel} and Stable Audio 3 directly — these are real generations, not cherry-picked showcase demos.
         </p>
       </div>
       <div className="grid gap-8">
         {pairs.map((pair) => (
-          <ComparePairCard key={pair.id} pair={pair} />
+          <ComparePairCard competitorLabel={competitorLabel} key={pair.id} pair={pair} />
         ))}
       </div>
     </section>
   );
 }
 
-function ComparePairCard({ pair }: { pair: AudioComparePair }) {
+function ComparePairCard({ competitorLabel, pair }: { competitorLabel: string; pair: AudioComparePair }) {
   return (
     <article
       className="scroll-mt-28 overflow-hidden rounded-[2rem] border border-slate-200 bg-white shadow-sm"
@@ -80,9 +85,9 @@ function ComparePairCard({ pair }: { pair: AudioComparePair }) {
       <div className="grid gap-6 p-6 md:p-8 lg:grid-cols-2">
         <CompareSide
           accent="amber"
-          label="ACE-Step"
+          label={competitorLabel}
           mode="inpaint"
-          side={pair.aceStep}
+          side={pair.competitor}
           title={pair.title}
         />
         <CompareSide
