@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { DeferredAudio } from "@/modules/media/components/DeferredAudio";
 import { PairedAudioCompare } from "@/modules/media/components/PairedAudioCompare";
 import { JsonLd } from "@/project/components/JsonLd";
@@ -33,13 +34,13 @@ export const metadata: Metadata = {
     title: c.meta.title,
     description: c.meta.description,
     url: pageUrl,
-    images: ["/og/home.webp"],
+    images: ["/vs-ace-step/vs-ace-step-hero.webp"],
   },
   twitter: {
     card: "summary_large_image",
     title: c.meta.title,
     description: c.meta.description,
-    images: ["/og/home.webp"],
+    images: ["/vs-ace-step/vs-ace-step-hero.webp"],
   },
 };
 
@@ -49,7 +50,7 @@ const articleSchema = {
   "@id": `${pageUrl}#article`,
   headline: c.hero.title,
   description: c.meta.description,
-  image: [`${siteConfig.url}/og/home.webp`],
+  image: [`${siteConfig.url}/vs-ace-step/vs-ace-step-hero.webp`],
   mainEntityOfPage: pageUrl,
   datePublished: toSchemaDateTime(publishedDate),
   dateModified: toSchemaDateTime(publishedDate),
@@ -158,6 +159,17 @@ export default function StableAudioVsAceStepPage() {
       />
       <div className="bg-slate-50 text-slate-950">
         <SeoArticleLayout toc={toc}>
+          <figure className="overflow-hidden rounded-[2rem] border border-slate-200 bg-white shadow-sm">
+            <Image
+              alt="Stable Audio 3 vs ACE-Step split illustration — structured composition and movement vs ambient immersion and sound design"
+              className="h-auto w-full"
+              height={853}
+              priority
+              sizes="(min-width: 1024px) 1024px, 100vw"
+              src="/vs-ace-step/vs-ace-step-hero.webp"
+              width={1280}
+            />
+          </figure>
           <QuickTakeGrid id="quick-verdict" items={c.quickVerdict} />
           <EditorialSections
             internalLinks={[{ href: "/", label: "Stable Audio 3 homepage" }]}

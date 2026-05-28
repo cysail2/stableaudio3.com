@@ -1401,6 +1401,9 @@ export const sunoComparisonContent = {
   hero: {
     eyebrow: "Stable Audio 3 vs Suno AI",
     title: "Stable Audio 3 vs Suno AI: Which AI Music Generator Wins in 2026?",
+    heroImage: "/vs-suno/vs-suno-hero.webp",
+    heroImageAlt:
+      "Stable Audio 3 vs Suno AI split illustration — vocal music creation and songwriting on one side, cinematic ambient sound design on the other",
     lead:
       "AI music generation has evolved far beyond experimental demos. Stable Audio 3 and Suno AI are both used for real production — YouTube content, TikTok music, cinematic trailers, game audio, meditation channels, and AI vocals. This comparison focuses on real creator workflows, actual generation behavior, prompt adherence, audio quality, usability, and sound design capability rather than marketing hype.",
     byline: {

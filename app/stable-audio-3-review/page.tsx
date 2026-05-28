@@ -37,13 +37,13 @@ export const metadata: Metadata = {
     title: reviewPageContent.meta.title,
     description: reviewPageContent.meta.description,
     url: pageUrl,
-    images: ["/og/home.webp"],
+    images: ["/review/stable-audio-3-review-hero.webp"],
   },
   twitter: {
     card: "summary_large_image",
     title: reviewPageContent.meta.title,
     description: reviewPageContent.meta.description,
-    images: ["/og/home.webp"],
+    images: ["/review/stable-audio-3-review-hero.webp"],
   },
 };
 
@@ -76,7 +76,7 @@ const articleSchema = {
   "@id": `${pageUrl}#article`,
   headline: reviewPageContent.hero.title,
   description: reviewPageContent.meta.description,
-  image: [`${siteConfig.url}/og/home.webp`],
+  image: [`${siteConfig.url}/review/stable-audio-3-review-hero.webp`],
   mainEntityOfPage: pageUrl,
   datePublished: toSchemaDateTime(publishedDate),
   dateModified: toSchemaDateTime(publishedDate),
